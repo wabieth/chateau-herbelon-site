@@ -15,7 +15,7 @@
   --summer: #e8dcc5;        /* lin, sable de la plage */
   --summer-ink: #1d2a24;
   --summer-strong: #2c7a80;  /* lac */
-  --tint: #e3ebe6;
+  --tint: #e4e8df;
   --dark: #1f3a2f;
   --dark-ink: #f1efe8;
   --dark-soft: #a9b8ae;
@@ -400,7 +400,7 @@ input[type="range"] { width: 100%; accent-color: var(--ink); height: 32px; }
 @media (max-width: 860px) { .resto-band { grid-template-columns: 1fr; } }
 .view[data-view="accueil"] { display: flex; flex-direction: column; }
 .is-summer .view[data-view="accueil"] .hero { order: -2; }
-.is-summer .resto-home { order: -1; background: var(--tint); }
+.is-summer .resto-home { order: -1; }
 .resto-call { display: flex; flex-direction: column; gap: 2px; padding: 16px 20px; border: 1px solid currentColor; }
 .resto-phone { font-family: var(--f-display); font-weight: var(--d-w); font-size: clamp(2rem, 3.6vw, 2.8rem); line-height: 1.05; text-decoration: none; font-variant-numeric: lining-nums; }
 .hours { width: 100%; border-collapse: collapse; }
@@ -458,7 +458,7 @@ input[type="range"] { width: 100%; accent-color: var(--ink); height: 32px; }
 .nav-menu small { font-size: 0.82rem; color: var(--soft); }
 @media (max-width: 1140px) { .burger { display: none; } .nav { display: flex; position: static; flex-direction: row; align-items: center; padding: 0; border: 0; background: transparent; } .head-cta { display: inline-flex; } }
 @media (max-width: 1140px) { .nav > a { padding: 8px 12px; font-size: 0.95rem; border-bottom: 0; } }
-@media (max-width: 980px) {
+@media (max-width: 1020px) {
   .burger { display: block; }
   .head-cta { display: none; }
   .nav { display: none; position: absolute; left: 0; right: 0; top: 100%; flex-direction: column; align-items: stretch; gap: 0; background: var(--bg); border-bottom: 1px solid var(--line); padding: 6px var(--gutter) 18px; max-height: calc(100vh - 80px); overflow-y: auto; }
@@ -488,3 +488,24 @@ input[type="range"] { width: 100%; accent-color: var(--ink); height: 32px; }
   .hero h1 { font-size: clamp(2.7rem, 11vw, 3.6rem); }
   .hero .lede { font-size: 1.12rem; }
 }
+
+/* ---------- Passe UI du 18 nov. ---------- */
+/* Accueil : le restaurant se détache des entrées */
+.resto-home { background: var(--surface); margin-top: clamp(56px, 8vw, 104px); padding-block: clamp(48px, 6vw, 84px); }
+.resto-home .news { border-color: color-mix(in srgb, var(--ink) 18%, transparent); }
+.is-summer .resto-home { margin-top: 0; }
+/* Séminaires : prix et estimateur côte à côte, sous un même titre */
+.estim-head { max-width: 46rem; }
+.split-estim { align-items: start; }
+.split-estim .estim { grid-template-columns: 1fr; }
+/* Chambres : deux par ligne sur téléphone */
+@media (max-width: 560px) {
+  .rooms { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 14px; }
+  .rooms h3 { font-size: 1.2rem; }
+  .rooms p { font-size: 0.86rem; }
+}
+/* Titres des entrées toujours sur une ligne */
+.door { container-type: inline-size; }
+.door-verb { white-space: nowrap; font-size: min(2.25rem, 15.6cqi); }
+@media (max-width: 560px) { .door { container-type: normal; } .door-verb { font-size: 1.75rem; } }
+.head-cta { white-space: nowrap; }

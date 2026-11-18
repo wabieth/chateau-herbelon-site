@@ -52,7 +52,7 @@
   /* Menu « Privatiser » : s’ouvre au survol, au clic et au clavier ; se ferme avec Échap ou en cliquant ailleurs */
   if (navTop) {
     navTop.addEventListener("click", function () {
-      if (window.matchMedia("(max-width: 980px)").matches) return;
+      if (window.matchMedia("(max-width: 1020px)").matches) return;
       navTop.setAttribute("aria-expanded", navTop.getAttribute("aria-expanded") === "true" ? "false" : "true");
     });
     document.addEventListener("click", function (e) {

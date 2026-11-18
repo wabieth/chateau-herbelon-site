@@ -38,7 +38,7 @@
     </a>
     <nav class="nav" id="nav" aria-label="Navigation principale">
       <div class="nav-group">
-        <button class="nav-top" type="button" aria-expanded="false" aria-controls="nav-priv"><span data-en="Book the château">Privatiser</span></button>
+        <button class="nav-top" type="button" aria-expanded="false" aria-controls="nav-priv"><span data-en="Private hire">Privatiser</span></button>
         <div class="nav-menu" id="nav-priv">
           <a href="#seminaires" data-nav="seminaires"><b data-en="Offsites">Séminaires</b><small data-en="10 to 100 people">De 10 à 100 personnes</small></a>
           <a href="#mariages" data-nav="mariages"><b data-en="Weddings">Mariages</b><small data-en="A whole weekend, winter included">Tout un week-end, l’hiver compris</small></a>
@@ -76,7 +76,7 @@
     <div class="hero-text wrap">
       <p class="hero-where" data-en="Lake Monteynard, 40 minutes south of Grenoble">Lac de Monteynard, à 40 minutes au sud de Grenoble</p>
       <h1 class="d1" tabindex="-1" data-en="The lake at the bottom of the garden.">Le lac au bout du parc.</h1>
-      <p class="lede" data-en="A château over 400 years old above Lake Monteynard. Yours alone from September to June, open to all in July and August.">Un château de plus de 400 ans au-dessus du lac de Monteynard. Rien qu’à vous de septembre à juin, ouvert à tous en juillet et août.</p>
+      <p class="lede" data-en="A château over 400 years old above Lake Monteynard. Yours alone from September to June, open to all in July and August.">Un château de plus de 400 ans qui domine le lac de Monteynard. Rien qu’à vous de septembre à juin, ouvert à tous en juillet et août.</p>
       <div class="hero-actions" data-season="off">
         <a class="btn btn-main" href="#contact" data-en="Request a quote">Demander un devis</a>
         <a class="textlink" href="#ete" data-en="Book a summer stay">Réserver pour l’été</a>
@@ -254,7 +254,11 @@
   </section>
 
   <section class="section tight">
-    <div class="wrap split">
+    <div class="wrap section-head estim-head">
+        <h2 class="d2" data-en="Know in two minutes if we fit your budget">Sachez en deux minutes si c’est dans votre budget</h2>
+        <p data-en="Move the sliders: the estimate updates as you go. Your quote confirms it within 48 hours, on a single page.">Bougez les curseurs : l’estimation se met à jour. Votre devis la confirme sous 48 h, sur une seule page.</p>
+    </div>
+    <div class="wrap split split-estim">
       <div class="carte">
         <h3 data-en="Our prices, upfront">Nos prix, affichés</h3>
         <ul>
@@ -267,38 +271,32 @@
         </ul>
         <p class="carte-foot" data-en="Always shown upfront. No surprises on the invoice.">Toujours affichés à l’avance. Pas de surprise sur la facture.</p>
       </div>
-      <div class="stack">
-        <h2 class="d2" data-en="Know in two minutes if we fit your budget">Sachez en deux minutes si c’est dans votre budget</h2>
-        <p data-en="Move the sliders: the estimate updates as you go. Your quote confirms it within 48 hours, on a single page.">Bougez les curseurs : l’estimation se met à jour. Votre devis la confirme sous 48 h, sur une seule page.</p>
-      </div>
-    </div>
-    <div class="wrap" style="margin-top:clamp(24px,4vw,40px)">
       <form class="estim" id="estim">
-        <div>
-          <div class="row">
-            <label class="lab" for="e-people"><span data-en="Participants">Nombre de participants</span> : <span class="range-out" id="e-people-out">25</span></label>
-            <input type="range" id="e-people" min="10" max="100" step="1" value="25">
-          </div>
-          <fieldset class="row">
-            <legend data-en="Format">Format</legend>
-            <div class="seg">
-              <label><input type="radio" name="e-format" id="e-format-day" value="day" checked><span data-en="Day meeting">Journée d’étude</span></label>
-              <label><input type="radio" name="e-format" id="e-format-res" value="res"><span data-en="Overnight">Résidentiel</span></label>
+          <div>
+            <div class="row">
+              <label class="lab" for="e-people"><span data-en="Participants">Nombre de participants</span> : <span class="range-out" id="e-people-out">25</span></label>
+              <input type="range" id="e-people" min="10" max="100" step="1" value="25">
             </div>
-          </fieldset>
-          <div class="row" style="margin-bottom:0">
-            <label class="lab" for="e-days"><span data-en="Length">Durée</span> : <span class="range-out" id="e-days-out">1 jour</span></label>
-            <input type="range" id="e-days" min="1" max="5" step="1" value="1">
+            <fieldset class="row">
+              <legend data-en="Format">Format</legend>
+              <div class="seg">
+                <label><input type="radio" name="e-format" id="e-format-day" value="day" checked><span data-en="Day meeting">Journée d’étude</span></label>
+                <label><input type="radio" name="e-format" id="e-format-res" value="res"><span data-en="Overnight">Résidentiel</span></label>
+              </div>
+            </fieldset>
+            <div class="row" style="margin-bottom:0">
+              <label class="lab" for="e-days"><span data-en="Length">Durée</span> : <span class="range-out" id="e-days-out">1 jour</span></label>
+              <input type="range" id="e-days" min="1" max="5" step="1" value="1">
+            </div>
           </div>
-        </div>
-        <div class="estim-out" aria-live="polite">
-          <span class="small" data-en="Estimate, excluding options">Estimation, hors options</span>
-          <span class="estim-sum" id="e-sum">2 125 € HT</span>
-          <p id="e-detail">25 personnes × 1 jour × 85 € HT</p>
-          <p class="small muted" data-en="Indicative amount based on the “from” prices. On-site accommodation depends on our 13 bedrooms.">Montant indicatif, calculé sur les prix « à partir de ». L’hébergement sur place dépend de nos 13 chambres.</p>
-          <a class="btn btn-main" href="#contact" data-topic="seminaire" data-en="Get my quote">Recevoir mon devis</a>
-        </div>
-      </form>
+          <div class="estim-out" aria-live="polite">
+            <span class="small" data-en="Estimate, excluding options">Estimation, hors options</span>
+            <span class="estim-sum" id="e-sum">2 125 € HT</span>
+            <p id="e-detail">25 personnes × 1 jour × 85 € HT</p>
+            <p class="small muted" data-en="Indicative amount based on the “from” prices. On-site accommodation depends on our 13 bedrooms.">Montant indicatif, calculé sur les prix « à partir de ». L’hébergement sur place dépend de nos 13 chambres.</p>
+            <a class="btn btn-main" href="#contact" data-topic="seminaire" data-en="Get my quote">Recevoir mon devis</a>
+          </div>
+        </form>
     </div>
   </section>
 
@@ -468,7 +466,7 @@
   <section class="vh">
     <div class="wrap split">
       <div class="stack">
-        <div class="vh-meta"><span data-en="September to June, winter included">Septembre à juin, l’hiver compris</span><span data-en="Up to 100 guests">Jusqu’à 100 invités</span><span data-en="35 beds on site">35 couchages sur place</span></div>
+        <div class="vh-meta"><span data-en="September to June">Septembre à juin</span><span data-en="Up to 100 guests">Jusqu’à 100 invités</span><span data-en="35 beds">35 couchages</span></div>
         <h1 class="d1" tabindex="-1" data-en="A country wedding by the lake.">Un mariage champêtre au bord du lac.</h1>
         <p class="lede" data-en="The château for the whole weekend: drinks on the lawn facing the water, dinner at long tables, your family and friends sleeping on site, and brunch in the sun the next day.">Le château pour tout le week-end : vin d’honneur sur la pelouse face à l’eau, dîner en grandes tablées, vos proches qui dorment sur place, et le brunch au soleil le lendemain.</p>
         <a class="btn btn-main" href="#contact" data-topic="mariage" data-en="Get the wedding brochure">Recevoir la plaquette mariage</a>
