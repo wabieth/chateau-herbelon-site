@@ -151,6 +151,27 @@
       });
     }
   }
+
+  /* Restaurant : la vidéo de la salle à la terrasse se lance une fois, quand on arrive dessus, et s’arrête sur le lac */
+  var walk = document.querySelector(".walk-video");
+  if (walk) {
+    var calmW = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var saveW = navigator.connection && navigator.connection.saveData;
+    if (calmW || saveW || !("IntersectionObserver" in window)) {
+      walk.poster = walk.getAttribute("data-poster-end");
+    } else {
+      walk.src = window.innerWidth < 760 ? walk.getAttribute("data-src-mobile") : walk.getAttribute("data-src");
+      walk.muted = true;
+      new IntersectionObserver(function (entries, obs) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting && e.intersectionRatio > 0.5) {
+            var pr = walk.play(); if (pr && pr.catch) pr.catch(function () { walk.poster = walk.getAttribute("data-poster-end"); });
+            obs.disconnect();
+          }
+        });
+      }, { threshold: [0, 0.5, 1] }).observe(walk);
+    }
+  }
   var saved = null;
   try { saved = localStorage.getItem("herbelon-lang"); } catch (e) {}
   show();
