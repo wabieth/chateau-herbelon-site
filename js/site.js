@@ -131,6 +131,26 @@
   setSeason(m === 6 || m === 7 ? "summer" : "off");
 
   /* ---------- Démarrage ---------- */
+
+  /* Vidéo d’accueil : poster d’abord ; pas de vidéo si l’on a demandé moins d’animations ou d’économiser les données */
+  var vid = document.querySelector(".hero-video");
+  if (vid) {
+    var calm = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var saveData = navigator.connection && navigator.connection.saveData;
+    if (!calm && !saveData) {
+      vid.src = window.innerWidth < 760 ? vid.getAttribute("data-src-mobile") : vid.getAttribute("data-src");
+      vid.muted = true;
+      var pauseBtn = document.querySelector(".hero-pause");
+      var p = vid.play();
+      if (p && p.catch) p.catch(function () {});
+      vid.addEventListener("playing", function () { pauseBtn.hidden = false; }, { once: true });
+      pauseBtn.addEventListener("click", function () {
+        var paused = pauseBtn.getAttribute("aria-pressed") === "true";
+        if (paused) { vid.play(); } else { vid.pause(); }
+        pauseBtn.setAttribute("aria-pressed", paused ? "false" : "true");
+      });
+    }
+  }
   var saved = null;
   try { saved = localStorage.getItem("herbelon-lang"); } catch (e) {}
   show();

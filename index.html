@@ -61,7 +61,10 @@
 <div class="view" data-view="accueil">
 
   <section class="hero">
-    <img class="hero-photo" src="images/chateau-lac.jpg" alt="Le château d’Herbelon couvert de lierre, sa tourelle, la pelouse et le lac turquoise de Monteynard en contrebas" fetchpriority="high">
+    <div class="hero-media">
+      <video class="hero-photo hero-video" poster="images/herbelon-hero-poster.jpg" data-src="images/herbelon-hero.mp4" data-src-mobile="images/herbelon-hero-mobile.mp4" muted loop playsinline preload="none" aria-hidden="true"></video>
+      <button class="hero-pause" type="button" aria-pressed="false" hidden><span data-en="Pause the video">Mettre la vidéo en pause</span></button>
+    </div>
     <div class="hero-text wrap">
       <p class="hero-where" data-en="Lake Monteynard, 40 minutes south of Grenoble">Lac de Monteynard, à 40 minutes au sud de Grenoble</p>
       <h1 class="d1" tabindex="-1" data-en="The lake at the bottom of the garden.">Le lac au bout du parc.</h1>
