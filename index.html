@@ -7,6 +7,11 @@
 <meta name="robots" content="noindex, nofollow">
 <title>Château d’Herbelon</title>
 <meta name="description" content="Un château de plus de 400 ans au bord du lac de Monteynard, à 40 minutes au sud de Grenoble. De septembre à juin, on le privatise pour un séminaire, un mariage, une retraite ou un week-end entre proches. En juillet et août, il ouvre à tous : 13 chambres, un restaurant et une guinguette au bord de l’eau.">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#12421c">
 <link rel="stylesheet" href="css/fonts.css">
 <link rel="stylesheet" href="css/site.css">
 </head>
@@ -21,27 +26,30 @@
 </div>
 
 <header class="site-head">
-  <div class="util-bar">
+  <div class="util-bar" data-season="summer" hidden>
     <div class="wrap util-in">
-      <a class="util-msg" href="#restaurant" data-season="off" data-en="Restaurant and guinguette: back in July 2027 with chef Clément Mouret. See the menu">Restaurant et guinguette : de retour en juillet 2027 avec le chef Clément Mouret. Voir la carte</a>
-      <a class="util-msg" href="tel:+33458008895" data-season="summer" hidden data-en="Restaurant and guinguette open daily. Book a table: +33 4 58 00 88 95">Restaurant et guinguette ouverts tous les jours. Réserver une table : 04 58 00 88 95</a>
-      <span class="util-side"><a href="tel:+33458008895">04 58 00 88 95</a><a href="#contact" data-en="Contact">Contact</a></span>
+      <a class="util-msg" href="tel:+33458008895" data-en="Restaurant and guinguette open daily. Book a table: +33 4 58 00 88 95">Restaurant et guinguette ouverts tous les jours. Réserver une table : 04 58 00 88 95</a>
     </div>
   </div>
   <div class="wrap head-in">
     <a class="brand" href="#accueil" aria-label="Château d’Herbelon, accueil">
-      <svg class="brand-mark" viewBox="0 0 28 36" aria-hidden="true"><path d="M.6 35.4V14a13.4 13.4 0 0 1 26.8 0v21.4Z" fill="none" stroke="currentColor" stroke-width="1.2"/><text x="14" y="28" text-anchor="middle" font-family="'Cormorant Garamond Variable',Garamond,serif" font-size="19" font-weight="500" fill="currentColor">H</text></svg>
+      <img class="brand-mark" src="images/logo-herbelon.png" alt="" width="52" height="52">
       <span class="brand-text"><span class="brand-pre">Château d'</span><span class="brand-word">Herbelon</span></span>
     </a>
     <nav class="nav" id="nav" aria-label="Navigation principale">
-      <a href="#seminaires" data-nav="seminaires" data-en="Offsites">Séminaires</a>
+      <div class="nav-group">
+        <button class="nav-top" type="button" aria-expanded="false" aria-controls="nav-priv"><span data-en="Book the château">Privatiser</span></button>
+        <div class="nav-menu" id="nav-priv">
+          <a href="#seminaires" data-nav="seminaires"><b data-en="Offsites">Séminaires</b><small data-en="10 to 100 people">De 10 à 100 personnes</small></a>
+          <a href="#mariages" data-nav="mariages"><b data-en="Weddings">Mariages</b><small data-en="A whole weekend, winter included">Tout un week-end, l’hiver compris</small></a>
+          <a href="#proches" data-nav="proches"><b data-en="Family &amp; friends">Entre proches</b><small data-en="A weekend with family or friends">Un week-end en famille ou entre amis</small></a>
+          <a href="#retraites" data-nav="retraites"><b data-en="Retreats">Retraites</b><small data-en="Retreats and residencies, 3 to 7 days">Retraites et résidences, de 3 à 7 jours</small></a>
+        </div>
+      </div>
       <a href="#ete" data-nav="ete" data-en="Summer">L’été</a>
       <a href="#restaurant" data-nav="restaurant" data-en="Restaurant">Restaurant</a>
-      <a href="#mariages" data-nav="mariages" data-en="Weddings">Mariages</a>
-      <a href="#proches" data-nav="proches" data-en="Family &amp; friends">Entre proches</a>
-      <a href="#retraites" data-nav="retraites" data-en="Retreats">Retraites</a>
       <a href="#chateau" data-nav="chateau" data-en="The château">Le château</a>
-      <a class="nav-contact" href="#contact" data-nav="contact" data-en="Contact">Contact</a>
+      <a href="#contact" data-nav="contact" data-en="Contact">Contact</a>
     </nav>
     <div class="head-tools">
       <div class="lang" role="group" aria-label="Langue / Language">
@@ -68,7 +76,7 @@
     <div class="hero-text wrap">
       <p class="hero-where" data-en="Lake Monteynard, 40 minutes south of Grenoble">Lac de Monteynard, à 40 minutes au sud de Grenoble</p>
       <h1 class="d1" tabindex="-1" data-en="The lake at the bottom of the garden.">Le lac au bout du parc.</h1>
-      <p class="lede" data-en="A château over 400 years old, 13 bedrooms and grounds that run down to the water. From September to June, book it for an offsite, a wedding, a retreat or a weekend with family and friends. In July and August, it opens to everyone.">Un château de plus de 400 ans, 13 chambres et un parc qui descend jusqu’à l’eau. De septembre à juin, on le privatise pour un séminaire, un mariage, une retraite ou un week-end entre proches. En juillet et août, il ouvre à tous.</p>
+      <p class="lede" data-en="A château over 400 years old above Lake Monteynard. Yours alone from September to June, open to all in July and August.">Un château de plus de 400 ans au-dessus du lac de Monteynard. Rien qu’à vous de septembre à juin, ouvert à tous en juillet et août.</p>
       <div class="hero-actions" data-season="off">
         <a class="btn btn-main" href="#contact" data-en="Request a quote">Demander un devis</a>
         <a class="textlink" href="#ete" data-en="Book a summer stay">Réserver pour l’été</a>
@@ -86,46 +94,36 @@
       <a class="door" href="#seminaires">
         <img class="door-photo" src="images/salon.jpg" alt="Le grand salon : plafond à la française, cheminée monumentale en pierre et tables dressées" style="object-position:80% 50%" loading="lazy">
         <div class="door-body">
-          <span class="season" data-en="Sept to June, mostly weekdays">Sept. à juin, surtout en semaine</span>
           <span class="door-verb" data-en="Work">Travailler</span>
-          <span class="door-desc" data-en="Offsites for 10 to 100 people, with the lake as your break room.">Séminaires de 10 à 100 personnes, avec le lac pour salle de pause.</span>
-          <span class="door-price"><span data-en="from €85 excl. VAT">dès 85 € HT</span><span data-en="per person">par personne</span></span>
+          <span class="door-desc" data-en="Offsites for 10 to 100 people, with the lake as your break room.">Des séminaires de 10 à 100 personnes, le lac pour salle de pause.</span>
         </div>
       </a>
       <a class="door door-ete" href="#ete">
         <img class="door-photo" src="images/guinguette-soir.jpg" alt="La guinguette un soir d’été : des amis sous la tonnelle, le lac derrière le mur" style="object-position:40% 50%" loading="lazy">
         <div class="door-body">
-          <span class="season summer" data-en="July and August, daily">Juillet-août, tous les jours</span>
           <span class="door-verb" data-en="Spend the summer">Passer l’été</span>
-          <span class="door-desc" data-en="A room, a table and a drink at the guinguette, a stone’s throw from the water.">Une chambre, une table et un verre à la guinguette, à deux pas de l’eau.</span>
-          <span class="door-price"><span data-en="from €90">dès 90 €</span><span data-en="per double room">la chambre double</span></span>
+          <span class="door-desc" data-en="In July and August: a room, a table and the guinguette by the water.">En juillet et août, une chambre, une table et la guinguette au bord de l’eau.</span>
         </div>
       </a>
       <a class="door" href="#mariages">
         <img class="door-photo" src="images/facade.jpg" alt="La façade du château et sa tourelle couvertes de lierre dans la lumière du soir" style="object-position:78% 50%" loading="lazy">
         <div class="door-body">
-          <span class="season" data-en="Sept to June, winter included">Sept. à juin, l’hiver compris</span>
           <span class="door-verb" data-en="Get married">Vous marier</span>
           <span class="door-desc" data-en="A whole weekend of celebration, from drinks on the lawn to Sunday brunch.">Tout un week-end de fête, du vin d’honneur au brunch du dimanche.</span>
-          <span class="door-price"><span data-en="from €4,500">dès 4 500 €</span><span data-en="a winter weekend">le week-end en hiver</span></span>
         </div>
       </a>
       <a class="door" href="#proches">
         <img class="door-photo" src="images/chateau-automne.jpg" alt="La façade en automne, la vigne vierge rouge, des amis devant la porte" style="object-position:30% 50%" loading="lazy">
         <div class="door-body">
-          <span class="season" data-en="Sept to June, weekends">Sept. à juin, le week-end</span>
           <span class="door-verb" data-en="Get together">Vous retrouver</span>
-          <span class="door-desc" data-en="With family or friends, the château all to yourselves for a weekend.">En famille ou entre amis, le château rien qu’à vous pour un week-end.</span>
-          <span class="door-price"><span data-en="from €3,200">dès 3 200 €</span><span data-en="a winter weekend">le week-end en hiver</span></span>
+          <span class="door-desc" data-en="The château all to yourselves, with family or friends.">Le château rien qu’à vous, en famille ou entre amis.</span>
         </div>
       </a>
       <a class="door" href="#retraites">
         <img class="door-photo" src="images/lac-crepuscule.jpg" alt="Le lac au crépuscule, les sommets rosés au loin" style="object-position:45% 50%" loading="lazy">
         <div class="door-body">
-          <span class="season" data-en="Sept to June, 3 to 7 days">Sept. à juin, 3 à 7 jours</span>
           <span class="door-verb" data-en="Recharge">Vous ressourcer</span>
-          <span class="door-desc" data-en="Retreats and residencies, in a château all to yourselves.">Retraites et résidences, dans un château rien qu’à vous.</span>
-          <span class="door-price"><span data-en="from €120">dès 120 €</span><span data-en="per person, per night">par pers. et par nuit</span></span>
+          <span class="door-desc" data-en="Retreats and residencies, quietly, facing the lake.">Retraites et résidences, au calme, face au lac.</span>
         </div>
       </a>
     </div>
@@ -168,7 +166,7 @@
       </div>
       <div class="pair">
         <img class="arch" src="images/parc-transats.jpg" alt="Deux transats sur la pelouse, le portail ouvert sur le lac turquoise" style="object-position:50% 50%" loading="lazy">
-        <img class="arch" src="images/wingfoil.jpg" alt="Deux pratiquants de wingfoil en vol sur le lac de Monteynard" style="object-position:72% 50%" loading="lazy">
+        <img class="arch" src="images/salle-vers-lac-fin.jpg" alt="La terrasse au petit matin, la brume sur le lac et les sommets au loin" style="object-position:60% 50%" loading="lazy">
       </div>
     </div>
   </section>
@@ -543,7 +541,7 @@
         <p class="lede" data-en="Wingfoiling in the afternoon, paddling at sunrise, a drink at the guinguette when you get back. In July and August the château opens to everyone: hotel, restaurant and guinguette.">Wingfoil l’après-midi, paddle au lever du jour, un verre à la guinguette au retour. En juillet et août, le château ouvre à tous : hôtel, restaurant et guinguette.</p>
         <a class="btn btn-main" href="#contact" data-topic="ete" data-en="Book a room">Réserver une chambre</a>
       </div>
-      <img class="arch" src="images/wingfoil.jpg" alt="Deux pratiquants de wingfoil en vol sur le lac de Monteynard" style="object-position:72% 50%">
+      <img class="arch" src="images/parc-transats.jpg" alt="Deux transats sur la pelouse, le portail ouvert sur le lac turquoise" style="object-position:50% 50%">
     </div>
   </section>
 
@@ -865,7 +863,7 @@
   <div class="wrap">
     <div class="foot-grid">
       <div class="stack">
-        <span class="brand"><svg class="brand-mark" viewBox="0 0 28 36" aria-hidden="true"><path d="M.6 35.4V14a13.4 13.4 0 0 1 26.8 0v21.4Z" fill="none" stroke="currentColor" stroke-width="1.2"/><text x="14" y="28" text-anchor="middle" font-family="'Cormorant Garamond Variable',Garamond,serif" font-size="19" font-weight="500" fill="currentColor">H</text></svg>
+        <span class="brand"><img class="brand-mark" src="images/logo-herbelon-blanc.png" alt="" width="52" height="52">
         <span class="brand-text"><span class="brand-pre">Château d'</span><span class="brand-word">Herbelon</span></span></span>
         <p class="foot-sign" data-en="The lake at the bottom of the garden.">Le lac au bout du parc.</p>
         <p data-en="A château on Lake Monteynard, 40 minutes from Grenoble. Offsites, retreats and weddings from September to June; hotel, restaurant and guinguette in July and August.">Un château au bord du lac de Monteynard, à 40 minutes de Grenoble. Séminaires, retraites et mariages de septembre à juin ; hôtel, restaurant et guinguette en juillet-août.</p>

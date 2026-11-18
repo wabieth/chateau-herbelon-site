@@ -7,6 +7,7 @@
   var navLinks = Array.prototype.slice.call(document.querySelectorAll("[data-nav]"));
   var nav = document.getElementById("nav");
   var burger = document.getElementById("burger");
+  var navTop = document.querySelector(".nav-top");
   var lang = "fr";
   var pendingTopic = null;
   var firstLoad = true;
@@ -26,6 +27,10 @@
     });
     nav.classList.remove("open");
     burger.setAttribute("aria-expanded", "false");
+    if (navTop) {
+      navTop.setAttribute("aria-expanded", "false");
+      navTop.classList.toggle("is-current", ["seminaires", "mariages", "proches", "retraites"].indexOf(name) >= 0);
+    }
     if (name === "contact" && pendingTopic) {
       document.getElementById("f-topic").value = pendingTopic;
       pendingTopic = null;
@@ -43,6 +48,20 @@
     if (a) pendingTopic = a.getAttribute("data-topic");
   });
   window.addEventListener("hashchange", show);
+
+  /* Menu « Privatiser » : s’ouvre au survol, au clic et au clavier ; se ferme avec Échap ou en cliquant ailleurs */
+  if (navTop) {
+    navTop.addEventListener("click", function () {
+      if (window.matchMedia("(max-width: 980px)").matches) return;
+      navTop.setAttribute("aria-expanded", navTop.getAttribute("aria-expanded") === "true" ? "false" : "true");
+    });
+    document.addEventListener("click", function (e) {
+      if (!e.target.closest || !e.target.closest(".nav-group")) navTop.setAttribute("aria-expanded", "false");
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && navTop.getAttribute("aria-expanded") === "true") { navTop.setAttribute("aria-expanded", "false"); navTop.focus(); }
+    });
+  }
 
   burger.addEventListener("click", function () {
     var open = nav.classList.toggle("open");
