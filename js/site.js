@@ -117,6 +117,7 @@
       : people + " people × " + lengthLabel + " × €" + unit + " excl. VAT";
   }
   document.getElementById("estim").addEventListener("input", estimate);
+  document.getElementById("e-format-day").addEventListener("change", function () { eDays.value = 1; estimate(); });
   document.getElementById("estim").addEventListener("submit", function (e) { e.preventDefault(); });
 
   /* ---------- Formulaire (maquette : rien n'est envoyé) ---------- */
