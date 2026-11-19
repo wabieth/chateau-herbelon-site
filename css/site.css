@@ -606,3 +606,14 @@ html[lang="en"] .door-verb { font-size: min(2.25rem, 13.6cqi); }
 .lang a[aria-current="page"] { color: var(--ink); text-decoration: underline; text-underline-offset: 5px; }
 .lang a:hover { color: var(--ink); }
 @media (max-width: 380px) { .facts b { font-size: 1.55rem; } }
+
+/* Chambres : numéro, prix, tableau des 13 chambres */
+.rooms .room-no { font-size: 0.82rem; color: var(--soft); }
+.rooms .room-price { font-size: 0.92rem; font-weight: 600; color: var(--ink); margin-top: 2px; }
+.rooms-prices { margin-top: clamp(40px, 6vw, 72px); display: flex; flex-direction: column; gap: 16px; }
+.rooms-prices .muted { font-size: 0.92rem; }
+@media (max-width: 620px) {
+  .rooms-prices .spaces td.none { display: none; }
+  .rooms-prices .spaces td.n::after { content: " la nuit"; font-weight: 400; color: var(--soft); }
+  html[lang="en"] .rooms-prices .spaces td.n::after { content: " a night"; }
+}
