@@ -229,24 +229,39 @@
     }
   }
 
-  /* Restaurant : la vidéo de la salle à la terrasse se lance une fois, quand on arrive dessus, et s’arrête sur le lac */
+  /* Restaurant : la vidéo de la salle à la terrasse tourne en boucle quand elle est à l’écran, se met en pause ailleurs */
   var walk = document.querySelector(".walk-video");
   if (walk) {
+    var walkBtn = document.querySelector(".walk-pause");
     var calmW = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     var saveW = navigator.connection && navigator.connection.saveData;
-    if (calmW || saveW || !("IntersectionObserver" in window)) {
-      walk.poster = walk.getAttribute("data-poster-end");
-    } else {
+    var walkUserPaused = false, walkLoaded = false;
+    var loadWalk = function () {
+      if (walkLoaded) return;
+      walkLoaded = true;
       walk.src = window.innerWidth < 760 ? walk.getAttribute("data-src-mobile") : walk.getAttribute("data-src");
       walk.muted = true;
-      new IntersectionObserver(function (entries, obs) {
+    };
+    var playWalk = function () {
+      loadWalk();
+      var pr = walk.play();
+      if (pr && pr.catch) pr.catch(function () { walkBtn.hidden = false; walkBtn.setAttribute("aria-pressed", "true"); walkUserPaused = true; });
+    };
+    walk.addEventListener("playing", function () { walkBtn.hidden = false; walkBtn.setAttribute("aria-pressed", "false"); });
+    walkBtn.addEventListener("click", function () {
+      if (walk.paused) { walkUserPaused = false; playWalk(); }
+      else { walkUserPaused = true; walk.pause(); walkBtn.setAttribute("aria-pressed", "true"); }
+    });
+    if (calmW || saveW || !("IntersectionObserver" in window)) {
+      /* Pas de lecture automatique : on montre le bouton pour la lancer */
+      walkBtn.hidden = false; walkBtn.setAttribute("aria-pressed", "true"); walkUserPaused = true;
+    } else {
+      new IntersectionObserver(function (entries) {
         entries.forEach(function (e) {
-          if (e.isIntersecting && e.intersectionRatio > 0.5) {
-            var pr = walk.play(); if (pr && pr.catch) pr.catch(function () { walk.poster = walk.getAttribute("data-poster-end"); });
-            obs.disconnect();
-          }
+          if (e.isIntersecting && e.intersectionRatio >= 0.25) { if (!walkUserPaused) playWalk(); }
+          else if (!walk.paused) { walk.pause(); }
         });
-      }, { threshold: [0, 0.5, 1] }).observe(walk);
+      }, { threshold: [0, 0.25, 0.5] }).observe(walk);
     }
   }
   var saved = null;

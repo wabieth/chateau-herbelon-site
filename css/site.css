@@ -540,3 +540,7 @@ mark.todo { background: #f6e7b8; color: var(--ink); padding: 0 4px; border-radiu
 
 /* Contact card: who answers */
 .contact-card .contact-who { color: var(--soft); font-size: 0.98rem; line-height: 1.5; margin: -6px 0 0; max-width: 34ch; }
+
+/* Restaurant : vidéo en boucle avec bouton pause */
+.walk-media { position: relative; }
+.walk .walk-pause { top: auto; bottom: 16px; right: 16px; }
