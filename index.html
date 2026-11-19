@@ -38,7 +38,7 @@
     </a>
     <nav class="nav" id="nav" aria-label="Navigation principale">
       <div class="nav-group">
-        <button class="nav-top" type="button" aria-expanded="false" aria-controls="nav-priv"><span data-en="Private hire">Privatiser</span></button>
+        <button class="nav-top" type="button" aria-expanded="false" aria-controls="nav-priv"><span data-en="Exclusive use">Privatiser</span></button>
         <div class="nav-menu" id="nav-priv">
           <a href="#seminaires" data-nav="seminaires"><b data-en="Offsites">Séminaires</b><small data-en="10 to 100 people">De 10 à 100 personnes</small></a>
           <a href="#mariages" data-nav="mariages"><b data-en="Weddings">Mariages</b><small data-en="A whole weekend, winter included">Tout un week-end, l’hiver compris</small></a>
@@ -834,10 +834,12 @@
           </div>
           <div class="field"><label for="f-dates" data-en="Dates you have in mind">Dates envisagées</label><input id="f-dates" name="dates" type="text" autocomplete="off"></div>
           <div class="field"><label for="f-people" data-en="Number of people">Nombre de personnes</label><input id="f-people" name="people" type="number" min="1" max="300" inputmode="numeric"></div>
-          <div class="field"><label for="f-name" data-en="First and last name">Prénom et nom</label><input id="f-name" name="name" type="text" autocomplete="name"></div>
-          <div class="field"><label for="f-email" data-en="Email">E-mail</label><input id="f-email" name="email" type="email" autocomplete="email"></div>
+          <div class="field"><label for="f-name" data-en="First and last name">Prénom et nom</label><input id="f-name" name="name" type="text" autocomplete="name" required></div>
+          <div class="field"><label for="f-email" data-en="Email">E-mail</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+          <div class="field"><label for="f-phone" data-en="Phone (optional)">Téléphone (facultatif)</label><input id="f-phone" name="phone" type="tel" autocomplete="tel"></div>
+          <input class="hp" type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true">
           <div class="field full"><label for="f-msg" data-en="Your plans, in a few lines">Votre projet, en quelques lignes</label><textarea id="f-msg" name="message"></textarea></div>
-          <div class="field full" style="align-items:flex-start"><button class="btn btn-main" type="submit" data-en="Send my request">Envoyer ma demande</button></div>
+          <div class="field full form-send"><button class="btn btn-main" type="submit" data-en="Send my request">Envoyer ma demande</button><p class="form-privacy" data-en="We only use your details to reply to you. See our &lt;a href=&quot;#confidentialite&quot;&gt;privacy policy&lt;/a&gt;.">Vos coordonnées servent uniquement à vous répondre. Voir notre <a href="#confidentialite">politique de confidentialité</a>.</p></div>
           <p class="form-status" id="form-status" role="status" hidden></p>
         </form>
       </div>
@@ -851,6 +853,75 @@
         </dl>
         <img class="photo" src="images/lac-chien.jpg" alt="Un chien regarde le lac depuis le muret du parc" style="object-position:60% 50%" loading="lazy">
       </aside>
+    </div>
+  </section>
+</div>
+
+
+<!-- =================== MENTIONS LÉGALES =================== -->
+<div class="view" data-view="mentions" hidden>
+  <section class="section legal">
+    <div class="wrap legal-in">
+      <h1 class="d2" tabindex="-1" data-en="Legal notice">Mentions légales</h1>
+      <p class="legal-note" data-en="This legal notice is provided in French, as required by French law.">Dernière mise à jour : novembre 2026.</p>
+
+      <h2>Éditeur du site</h2>
+      <p>Le site du Château d’Herbelon est édité par <b>HAPPY SHELTER HERBELON</b>, société par actions simplifiée (SAS) au capital de <mark class="todo">[montant] €</mark>.</p>
+      <ul>
+        <li>Siège social : 1605 route d’Herbelon, 38650 Treffort</li>
+        <li>SIREN : 933 801 938, immatriculée au RCS de <mark class="todo">[ville du greffe]</mark></li>
+        <li>SIRET : 933 801 938 00012</li>
+        <li>N° de TVA intracommunautaire : FR42 933 801 938 <mark class="todo">à vérifier</mark></li>
+        <li>Téléphone : <a href="tel:+33458008895">04 58 00 88 95</a></li>
+        <li>E-mail : <a href="mailto:contact@chateaudherbelon.com">contact@chateaudherbelon.com</a></li>
+      </ul>
+      <p>Directeur de la publication : <mark class="todo">[prénom nom], président</mark>.</p>
+
+      <h2>Hébergement</h2>
+      <p>Cloudflare, Inc., 101 Townsend St, San Francisco, CA 94107, États-Unis. Téléphone : +1 650 319 8930.</p>
+
+      <h2>Propriété intellectuelle</h2>
+      <p>Les textes, photographies, vidéos, le logo et la mise en page de ce site appartiennent à HAPPY SHELTER HERBELON ou sont utilisés avec l’accord de leurs auteurs. Toute reproduction, même partielle, demande notre autorisation écrite.</p>
+
+      <h2>Médiation de la consommation</h2>
+      <p>En cas de litige, après une réclamation écrite restée sans réponse satisfaisante, vous pouvez recourir gratuitement au médiateur de la consommation dont nous relevons : <mark class="todo">[nom et site du médiateur]</mark>.</p>
+
+      <h2>Données personnelles</h2>
+      <p>La façon dont nous traitons vos données est décrite dans notre <a href="#confidentialite">politique de confidentialité</a>.</p>
+    </div>
+  </section>
+</div>
+
+<!-- =================== CONFIDENTIALITÉ =================== -->
+<div class="view" data-view="confidentialite" hidden>
+  <section class="section legal">
+    <div class="wrap legal-in">
+      <h1 class="d2" tabindex="-1" data-en="Privacy policy">Politique de confidentialité</h1>
+      <p class="legal-note" data-en="This privacy policy is provided in French. Questions in English are welcome at contact@chateaudherbelon.com.">Dernière mise à jour : novembre 2026.</p>
+
+      <h2>Qui est responsable de vos données</h2>
+      <p>HAPPY SHELTER HERBELON, SAS, 1605 route d’Herbelon, 38650 Treffort. Pour toute question : <a href="mailto:contact@chateaudherbelon.com">contact@chateaudherbelon.com</a>.</p>
+
+      <h2>Ce que nous collectons, et pourquoi</h2>
+      <p>Uniquement ce que vous nous envoyez par le formulaire de contact : votre nom, votre e-mail, votre téléphone si vous le donnez, le type de séjour ou d’événement, les dates, le nombre de personnes et votre message. Ces informations servent à vous répondre et à préparer votre devis ou votre réservation. Ce traitement repose sur des mesures précontractuelles prises à votre demande (article 6.1.b du RGPD).</p>
+      <p>Nous ne vendons ni ne louons vos données, et nous ne les utilisons pas pour de la publicité.</p>
+
+      <h2>Combien de temps nous les gardons</h2>
+      <p>Trois ans après notre dernier échange si vous ne devenez pas client. Si vous séjournez ou organisez un événement chez nous, les données liées à la facturation sont conservées dix ans, comme la loi l’exige.</p>
+
+      <h2>Qui y a accès</h2>
+      <p>L’équipe du château, et les prestataires techniques qui nous permettent de faire fonctionner le site :</p>
+      <ul>
+        <li>Cloudflare, Inc. (hébergement du site), États-Unis</li>
+        <li><mark class="todo">[service d’envoi du formulaire]</mark> (transmission de votre message jusqu’à notre boîte e-mail)</li>
+      </ul>
+      <p>Lorsque des données sont traitées hors de l’Union européenne, ce transfert est encadré par des garanties reconnues par la Commission européenne (cadre de protection des données UE-États-Unis ou clauses contractuelles types).</p>
+
+      <h2>Cookies et mesure d’audience</h2>
+      <p>Ce site ne dépose aucun cookie publicitaire ni de mesure d’audience, et ne contient aucun bouton de réseau social qui vous suivrait. Il garde seulement en mémoire, dans votre navigateur, la langue que vous avez choisie. Aucun bandeau de consentement n’est donc nécessaire.</p>
+
+      <h2>Vos droits</h2>
+      <p>Vous pouvez à tout moment accéder à vos données, les faire corriger ou effacer, vous opposer à leur traitement, en limiter l’usage ou demander à les récupérer. Écrivez-nous à <a href="mailto:contact@chateaudherbelon.com">contact@chateaudherbelon.com</a> : nous répondons sous un mois. Si notre réponse ne vous satisfait pas, vous pouvez saisir la CNIL (<a href="https://www.cnil.fr/fr/plaintes">cnil.fr</a>).</p>
     </div>
   </section>
 </div>
@@ -887,7 +958,10 @@
         </ul>
       </div>
     </div>
-    <p class="foot-base" data-en="Château d’Herbelon, Lake Monteynard, Isère, France.">Château d’Herbelon, lac de Monteynard, Isère.</p>
+    <div class="foot-base">
+      <p data-en="Château d’Herbelon, Lake Monteynard, Isère, France.">Château d’Herbelon, lac de Monteynard, Isère.</p>
+      <p class="foot-legal"><a href="#mentions" data-en="Legal notice">Mentions légales</a><a href="#confidentialite" data-en="Privacy">Confidentialité</a></p>
+    </div>
   </div>
 </footer>
 

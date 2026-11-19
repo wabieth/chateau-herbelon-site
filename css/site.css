@@ -509,3 +509,26 @@ input[type="range"] { width: 100%; accent-color: var(--ink); height: 32px; }
 .door-verb { white-space: nowrap; font-size: min(2.25rem, 15.6cqi); }
 @media (max-width: 560px) { .door { container-type: normal; } .door-verb { font-size: 1.75rem; } }
 .head-cta { white-space: nowrap; }
+
+/* ---------- Pages légales ---------- */
+.legal-in { max-width: 46rem; }
+.legal h1 { margin-bottom: 8px; }
+.legal-note { color: var(--soft); font-size: 0.92rem; margin-bottom: clamp(24px, 4vw, 40px); }
+.legal h2 { font-family: var(--f-display); font-weight: var(--d-w); font-size: clamp(1.4rem, 2.2vw, 1.75rem); line-height: 1.15; margin: clamp(28px, 4vw, 44px) 0 10px; }
+.legal p, .legal li { line-height: 1.6; max-width: 70ch; }
+.legal p + p { margin-top: 10px; }
+.legal ul { margin: 10px 0 0; padding-left: 1.2em; list-style: disc; }
+.legal li + li { margin-top: 4px; }
+.legal a { text-decoration: underline; text-underline-offset: 3px; }
+mark.todo { background: #f6e7b8; color: var(--ink); padding: 0 4px; border-radius: 3px; font-size: 0.92em; }
+.foot-base { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; }
+.foot-legal { display: flex; gap: 20px; }
+.foot-legal a { color: inherit; }
+
+/* ---------- Formulaire ---------- */
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+.form-send { align-items: flex-start; gap: 12px; }
+.form-privacy { font-size: 0.86rem; color: var(--soft); }
+.form-privacy a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+.form-status.is-error { background: #f6e3dc; }
+.legal ul + p { margin-top: 12px; }

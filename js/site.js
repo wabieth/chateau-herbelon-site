@@ -2,7 +2,7 @@
 (function () {
   "use strict";
 
-  var VIEWS = ["accueil", "seminaires", "ete", "restaurant", "mariages", "proches", "retraites", "chateau", "contact"];
+  var VIEWS = ["accueil", "seminaires", "ete", "restaurant", "mariages", "proches", "retraites", "chateau", "contact", "mentions", "confidentialite"];
   var views = Array.prototype.slice.call(document.querySelectorAll(".view"));
   var navLinks = Array.prototype.slice.call(document.querySelectorAll("[data-nav]"));
   var nav = document.getElementById("nav");
@@ -121,16 +121,55 @@
   document.getElementById("estim").addEventListener("submit", function (e) { e.preventDefault(); });
 
   /* ---------- Formulaire (maquette : rien n'est envoyé) ---------- */
-  function statusText() {
-    return lang === "en"
-      ? "Prototype: this form doesn’t send anything yet. Once live, your request will reach contact@chateaudherbelon.com. Until then, email or call us directly."
-      : "Maquette\u00a0: ce formulaire n’envoie encore rien. Une fois en ligne, votre demande arrivera à contact@chateaudherbelon.com. D’ici là, écrivez-nous ou appelez-nous directement.";
-  }
-  document.getElementById("contact-form").addEventListener("submit", function (e) {
-    e.preventDefault();
+  /* ---------- Formulaire de contact ----------
+     Envoi par Web3Forms (https://web3forms.com) vers la boîte du château.
+     Tant que la clé n'est pas renseignée, le formulaire affiche un message de maquette. */
+  var FORM_KEY = "";
+  var form = document.getElementById("contact-form");
+  var formState = "idle";
+  var MSG = {
+    proto: ["Maquette\u00a0: ce formulaire n’envoie encore rien. Écrivez-nous à contact@chateaudherbelon.com ou appelez le 04\u00a058\u00a000\u00a088\u00a095.", "Prototype: this form doesn’t send anything yet. Email contact@chateaudherbelon.com or call +33 4 58 00 88 95."],
+    missing: ["Indiquez votre nom et une adresse e-mail valide pour que nous puissions vous répondre.", "Please give your name and a valid email address so we can reply."],
+    sending: ["Envoi en cours…", "Sending…"],
+    ok: ["Merci, votre demande est bien partie. Nous vous répondons sous 48\u00a0heures.", "Thank you, your request has been sent. We’ll reply within 48 hours."],
+    error: ["L’envoi n’a pas abouti. Réessayez, ou écrivez-nous à contact@chateaudherbelon.com.", "Your request couldn’t be sent. Please try again, or email contact@chateaudherbelon.com."]
+  };
+  function statusText() { return (MSG[formState] || MSG.proto)[lang === "en" ? 1 : 0]; }
+  function setStatus(st) {
+    formState = st;
     var status = document.getElementById("form-status");
     status.textContent = statusText();
     status.hidden = false;
+    status.classList.toggle("is-error", st === "missing" || st === "error");
+  }
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    if (!FORM_KEY) { setStatus("proto"); return; }
+    var name = form.elements.name.value.trim(), email = form.elements.email.value.trim();
+    if (!name || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) { setStatus("missing"); return; }
+    if (form.elements.botcheck.checked) return;
+    var topic = form.elements.topic.options[form.elements.topic.selectedIndex].text;
+    var data = {
+      access_key: FORM_KEY,
+      subject: "Site : demande « " + topic + " » de " + name,
+      from_name: "Site du Château d’Herbelon",
+      replyto: email,
+      "Vous venez pour": topic,
+      "Dates envisagées": form.elements.dates.value,
+      "Nombre de personnes": form.elements.people.value,
+      "Nom": name,
+      "E-mail": email,
+      "Téléphone": form.elements.phone.value,
+      "Message": form.elements.message.value,
+      "Langue": lang
+    };
+    var btn = form.querySelector("button[type=submit]");
+    btn.disabled = true; setStatus("sending");
+    fetch("https://api.web3forms.com/submit", { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(data) })
+      .then(function (r) { return r.json(); })
+      .then(function (j) { if (j && j.success) { form.reset(); setStatus("ok"); } else { setStatus("error"); } })
+      .catch(function () { setStatus("error"); })
+      .then(function () { btn.disabled = false; });
   });
 
 
