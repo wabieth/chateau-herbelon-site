@@ -549,3 +549,37 @@ mark.todo { background: #f6e7b8; color: var(--ink); padding: 0 4px; border-radiu
 .loop-media { position: relative; }
 .loop-media .loop-video { display: block; width: 100%; }
 .loop-media .loop-pause { top: auto; bottom: 16px; right: 16px; }
+
+/* Réservation des chambres (Sirvoy) */
+.booking { scroll-margin-top: 90px; }
+.booking-head { max-width: 640px; margin-bottom: 28px; display: flex; flex-direction: column; gap: 12px; }
+.booking-widget { background: var(--surface); border-radius: var(--r); padding: clamp(14px, 2.5vw, 28px); min-height: 220px; }
+.booking-widget iframe { width: 100%; border: 0; }
+.booking-loading { color: var(--soft); margin: 0; }
+.booking-widget:has(iframe) .booking-loading, .booking-widget:has(form) .booking-loading { display: none; }
+.booking-help { margin-top: 14px; }
+
+/* Anglais : les titres des entrées sont plus longs ("Spend the summer") */
+html[lang="en"] .door-verb { font-size: min(2.25rem, 13.6cqi); }
+@media (max-width: 560px) { html[lang="en"] .door-verb { font-size: 1.75rem; } }
+
+/* Tableau des espaces : en lignes empilées sur mobile, sans défilement horizontal */
+@media (max-width: 620px) {
+  .spaces { min-width: 0; }
+  .spaces thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .spaces tr { display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 14px; border-top: 1px solid var(--line); padding: 14px 0; }
+  .spaces th, .spaces td { border-top: 0; padding: 0; }
+  .spaces td:last-child { grid-column: 1 / -1; color: var(--soft); padding-top: 4px; }
+}
+
+/* Très petits écrans (320 px) : l'en-tête tient sur la largeur */
+@media (max-width: 380px) {
+  .head-in { gap: 10px; }
+  .brand { gap: 8px; }
+  .brand-mark { width: 40px; height: 40px; }
+  .brand-word { font-size: 1.6rem; }
+  .head-tools { gap: 6px; }
+}
+@media (max-width: 560px) { .door-body { min-width: 0; } .door-verb { white-space: normal; } }
+@media (max-width: 380px) { .door-photo { width: 96px; } }
+.estim-tax { font-size: 0.42em; letter-spacing: 0; white-space: nowrap; }

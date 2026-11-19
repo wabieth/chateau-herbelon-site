@@ -40,7 +40,7 @@ PAGES = {
         "Comment le Château d’Herbelon traite les données envoyées par le formulaire de contact. Aucun cookie publicitaire ni de mesure d’audience."),
 }
 
-ASSET = re.compile(r'((?:src|href|poster|data-src|data-src-mobile|data-poster-end)=")((?:css|js|images|fonts)/[^"]*|favicon\.ico|apple-touch-icon\.png|site\.webmanifest)"')
+ASSET = re.compile(r'((?:src|href|poster|data-src|data-src-mobile|data-poster-end)=")((?:css|js|images|fonts)/[^"]*|favicon\.ico(?:\?[^"]*)?|apple-touch-icon\.png(?:\?[^"]*)?|site\.webmanifest)"')
 
 JSONLD = {
     "@context": "https://schema.org",
@@ -100,6 +100,7 @@ def build():
         def repl_topic(m):
             return 'href="%s?sujet=%s" data-topic="%s"' % (link("contact"), m.group(1), m.group(1))
         out = re.sub(r'href="#contact" data-topic="([a-z]+)"', repl_topic, out)
+        out = out.replace('href="#reserver-ete"', 'href="%s#reserver"' % link("ete"))
         for v in PAGES:
             out = out.replace('href="#%s"' % v, 'href="%s"' % link(v))
             out = out.replace('href=&quot;#%s&quot;' % v, 'href=&quot;%s&quot;' % link(v))

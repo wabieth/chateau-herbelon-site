@@ -62,7 +62,12 @@
     var a = e.target.closest ? e.target.closest("a[data-topic]") : null;
     if (a) pendingTopic = a.getAttribute("data-topic");
   });
-  window.addEventListener("hashchange", show);
+  window.addEventListener("hashchange", function () {
+    /* une ancre interne (#reserver…) ne change pas de vue */
+    var h = (location.hash || "").replace("#", "");
+    if (h && VIEWS.indexOf(h) < 0) return;
+    show();
+  });
 
   /* Menu « Privatiser » : s’ouvre au survol, au clic et au clavier ; se ferme avec Échap ou en cliquant ailleurs */
   if (navTop) {
@@ -95,6 +100,7 @@
     langButtons.forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-lang") === lang ? "true" : "false"); });
     try { localStorage.setItem("herbelon-lang", lang); } catch (e) {}
     estimate();
+    if (sirvoyLang && sirvoyLang !== lang) loadSirvoy();
     var status = document.getElementById("form-status");
     if (!status.hidden) status.textContent = statusText();
   }
@@ -126,7 +132,7 @@
       : (fr ? n + (n > 1 ? " jours" : " jour") : n + (n > 1 ? " days" : " day"));
     document.getElementById("e-people-out").textContent = people;
     document.getElementById("e-days-out").textContent = lengthLabel;
-    document.getElementById("e-sum").textContent = fr ? money(total) + "\u00a0€\u00a0HT" : "€" + money(total) + " excl. VAT";
+    document.getElementById("e-sum").innerHTML = fr ? money(total) + "\u00a0€\u00a0HT" : "€" + money(total) + '<span class="estim-tax"> excl. VAT</span>';
     document.getElementById("e-detail").textContent = fr
       ? people + " personnes × " + lengthLabel + " × " + unit + "\u00a0€\u00a0HT"
       : people + " people × " + lengthLabel + " × €" + unit + " excl. VAT";
@@ -262,8 +268,23 @@
     if (loopIO) loopIO.observe(v);
     else { v._userPaused = true; setPaused(true); }
   });
+  /* Réservation des chambres : widget Sirvoy, chargé seulement sur la page L’été, dans la langue choisie */
+  var sirvoyBox = document.getElementById("sirvoy-box");
+  var sirvoyLang = null;
+  function loadSirvoy() {
+    if (!sirvoyBox || currentView() !== "ete") return;
+    sirvoyLang = lang;
+    Array.prototype.forEach.call(sirvoyBox.querySelectorAll("div, script"), function (n) { n.parentNode.removeChild(n); });
+    var s = document.createElement("script");
+    s.async = true;
+    s.src = "https://secured.sirvoy.com/widget/sirvoy.js";
+    s.setAttribute("data-form-id", sirvoyBox.getAttribute("data-form-id"));
+    s.setAttribute("data-lang", lang);
+    sirvoyBox.appendChild(s);
+  }
   var saved = null;
   try { saved = localStorage.getItem("herbelon-lang"); } catch (e) {}
   show();
   if (saved === "en") setLang("en"); else estimate();
+  loadSirvoy();
 })();
