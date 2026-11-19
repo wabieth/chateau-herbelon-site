@@ -532,3 +532,8 @@ mark.todo { background: #f6e7b8; color: var(--ink); padding: 0 4px; border-radiu
 .form-privacy a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
 .form-status.is-error { background: #f6e3dc; }
 .legal ul + p { margin-top: 12px; }
+
+/* Juin : bandeau « réservez l'été » au lieu de « restaurant ouvert » */
+.util-june { display: none; }
+.is-june .util-june { display: inline; }
+.is-june .util-high { display: none; }

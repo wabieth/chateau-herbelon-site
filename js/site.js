@@ -179,15 +179,18 @@
      Le bandeau de maquette permet de prévisualiser les deux. */
   var seasonButtons = Array.prototype.slice.call(document.querySelectorAll("[data-season-btn]"));
   var seasonal = Array.prototype.slice.call(document.querySelectorAll("[data-season]"));
+  /* Septembre à mai : événementiel. Juin : l'été passe en avant pour qu'on réserve (le restaurant ouvre le 1er juillet).
+     Juillet-août : l'été, restaurant ouvert. */
   function setSeason(s) {
-    var summer = s === "summer";
+    var summer = s === "summer" || s === "june";
     document.documentElement.classList.toggle("is-summer", summer);
+    document.documentElement.classList.toggle("is-june", s === "june");
     seasonal.forEach(function (el) { el.hidden = el.getAttribute("data-season") !== (summer ? "summer" : "off"); });
     seasonButtons.forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-season-btn") === s ? "true" : "false"); });
   }
   seasonButtons.forEach(function (b) { b.addEventListener("click", function () { setSeason(b.getAttribute("data-season-btn")); }); });
   var m = new Date().getMonth();
-  setSeason(m === 6 || m === 7 ? "summer" : "off");
+  setSeason(m === 5 ? "june" : (m === 6 || m === 7) ? "summer" : "off");
 
   /* ---------- Démarrage ---------- */
 
