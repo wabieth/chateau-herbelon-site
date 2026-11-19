@@ -86,6 +86,11 @@ JSONLD = {
 
 def build():
     html = SRC.read_text(encoding="utf-8")
+    # versions des feuilles de style et du script : le navigateur recharge quand le fichier change
+    import hashlib
+    for asset in ("css/site.css", "css/fonts.css", "js/site.js"):
+        h = hashlib.sha1((ROOT / asset).read_bytes()).hexdigest()[:8]
+        html = html.replace('"%s"' % asset, '"%s?v=%s"' % (asset, h))
     for view, (folder, title, desc) in PAGES.items():
         depth = 1 if folder else 0
         root = "../" if depth else ""
