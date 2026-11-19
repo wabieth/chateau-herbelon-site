@@ -537,3 +537,6 @@ mark.todo { background: #f6e7b8; color: var(--ink); padding: 0 4px; border-radiu
 .util-june { display: none; }
 .is-june .util-june { display: inline; }
 .is-june .util-high { display: none; }
+
+/* Contact card: who answers */
+.contact-card .contact-who { color: var(--soft); font-size: 0.98rem; line-height: 1.5; margin: -6px 0 0; max-width: 34ch; }

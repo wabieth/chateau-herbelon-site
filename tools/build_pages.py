@@ -25,7 +25,7 @@ PAGES = {
     "ete": ("ete", "Hôtel au bord du lac de Monteynard, juillet-août · Château d’Herbelon",
         "13 chambres dans un château au bord du lac, restaurant et guinguette. Paddle, voile et wingfoil à deux pas. Animaux bienvenus."),
     "restaurant": ("restaurant", "Restaurant et guinguette face au lac de Monteynard · Château d’Herbelon",
-        "En juillet et août, tous les jours : la carte du chef Clément Mouret sur la terrasse, un verre à la guinguette. Réservation par téléphone."),
+        "En juillet et août, tous les jours : la carte de notre chef sur la terrasse, un verre à la guinguette. Réservation par téléphone."),
     "proches": ("entre-proches", "Louer un château pour un week-end en famille · Château d’Herbelon",
         "Le château rien qu’à vous, en famille ou entre amis : 35 couchages, le parc, le lac. Jusqu’à 50 personnes, dès 3 200 € le week-end."),
     "retraites": ("retraites", "Lieu de retraite privatisé au bord d’un lac, Alpes · Château d’Herbelon",
