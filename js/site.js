@@ -124,7 +124,7 @@
   /* ---------- Formulaire de contact ----------
      Envoi par Web3Forms (https://web3forms.com) vers la boîte du château.
      Tant que la clé n'est pas renseignée, le formulaire affiche un message de maquette. */
-  var FORM_KEY = "";
+  var FORM_KEY = "e7947d3a-2034-48ed-9929-26dc29805e78";
   var form = document.getElementById("contact-form");
   var formState = "idle";
   var MSG = {
