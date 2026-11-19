@@ -13,8 +13,11 @@
 <link rel="manifest" href="../site.webmanifest">
 <meta name="theme-color" content="#13431d">
 <link rel="stylesheet" href="../css/fonts.css?v=2dc623cf">
-<link rel="stylesheet" href="../css/site.css?v=36a106c5">
+<link rel="stylesheet" href="../css/site.css?v=d0eea987">
 <link rel="canonical" href="https://www.chateaudherbelon.com/contact/">
+<link rel="alternate" hreflang="fr" href="https://www.chateaudherbelon.com/contact/">
+<link rel="alternate" hreflang="en" href="https://www.chateaudherbelon.com/en/contact/">
+<link rel="alternate" hreflang="x-default" href="https://www.chateaudherbelon.com/contact/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Château d’Herbelon">
 <meta property="og:title" content="Contact et devis · Château d’Herbelon">
@@ -35,19 +38,19 @@
 <body>
 
 <div class="proto-bar">
-  <span data-en="Working prototype: copy, prices and photos still to be approved. Preview the homepage:">Maquette de travail : textes, prix et photos à valider. Aperçu de l’accueil :</span>
+  <span>Maquette de travail : textes, prix et photos à valider. Aperçu de l’accueil :</span>
   <span class="season-switch" role="group" aria-label="Aperçu selon la saison">
-    <button type="button" data-season-btn="off" aria-pressed="true" data-en="September to May">Septembre à mai</button>
-    <button type="button" data-season-btn="june" aria-pressed="false" data-en="June">Juin</button>
-    <button type="button" data-season-btn="summer" aria-pressed="false" data-en="July and August">Juillet-août</button>
+    <button type="button" data-season-btn="off" aria-pressed="true">Septembre à mai</button>
+    <button type="button" data-season-btn="june" aria-pressed="false">Juin</button>
+    <button type="button" data-season-btn="summer" aria-pressed="false">Juillet-août</button>
   </span>
 </div>
 
 <header class="site-head">
   <div class="util-bar" data-season="summer" hidden>
     <div class="wrap util-in">
-      <a class="util-msg util-june" href="../ete/#reserver" data-en="Summer at the château starts on 1 July: book your room now.">L’été au château commence le 1er juillet : réservez votre chambre.</a>
-      <a class="util-msg util-high" href="tel:+33458008895" data-en="Restaurant and guinguette open daily. Book a table: +33 4 58 00 88 95">Restaurant et guinguette ouverts tous les jours. Réserver une table : 04 58 00 88 95</a>
+      <a class="util-msg util-june" href="../ete/#reserver">L’été au château commence le 1er juillet : réservez votre chambre.</a>
+      <a class="util-msg util-high" href="tel:+33458008895">Restaurant et guinguette ouverts tous les jours. Réserver une table : 04 58 00 88 95</a>
     </div>
   </div>
   <div class="wrap head-in">
@@ -57,26 +60,23 @@
     </a>
     <nav class="nav" id="nav" aria-label="Navigation principale">
       <div class="nav-group">
-        <button class="nav-top" type="button" aria-expanded="false" aria-controls="nav-priv"><span data-en="Exclusive use">Privatiser</span></button>
+        <button class="nav-top" type="button" aria-expanded="false" aria-controls="nav-priv"><span>Privatiser</span></button>
         <div class="nav-menu" id="nav-priv">
-          <a href="../seminaires/" data-nav="seminaires"><b data-en="Offsites">Séminaires</b><small data-en="10 to 100 people">De 10 à 100 personnes</small></a>
-          <a href="../mariages/" data-nav="mariages"><b data-en="Weddings">Mariages</b><small data-en="A whole weekend, winter included">Tout un week-end, l’hiver compris</small></a>
-          <a href="../entre-proches/" data-nav="proches"><b data-en="Family &amp; friends">Entre proches</b><small data-en="A weekend with family or friends">Un week-end en famille ou entre amis</small></a>
-          <a href="../retraites/" data-nav="retraites"><b data-en="Retreats">Retraites</b><small data-en="Retreats and residencies, 3 to 7 days">Retraites et résidences, de 3 à 7 jours</small></a>
+          <a href="../seminaires/" data-nav="seminaires"><b>Séminaires</b><small>De 10 à 100 personnes</small></a>
+          <a href="../mariages/" data-nav="mariages"><b>Mariages</b><small>Tout un week-end, l’hiver compris</small></a>
+          <a href="../entre-proches/" data-nav="proches"><b>Entre proches</b><small>Un week-end en famille ou entre amis</small></a>
+          <a href="../retraites/" data-nav="retraites"><b>Retraites</b><small>Retraites et résidences, de 3 à 7 jours</small></a>
         </div>
       </div>
-      <a href="../ete/" data-nav="ete" data-en="Summer">L’été</a>
-      <a href="../restaurant/" data-nav="restaurant" data-en="Restaurant">Restaurant</a>
-      <a href="../le-chateau/" data-nav="chateau" data-en="The château">Le château</a>
-      <a href="../contact/" data-nav="contact" data-en="Contact">Contact</a>
+      <a href="../ete/" data-nav="ete">L’été</a>
+      <a href="../restaurant/" data-nav="restaurant">Restaurant</a>
+      <a href="../le-chateau/" data-nav="chateau">Le château</a>
+      <a href="../contact/" data-nav="contact">Contact</a>
     </nav>
     <div class="head-tools">
-      <div class="lang" role="group" aria-label="Langue / Language">
-        <button type="button" data-lang="fr" aria-pressed="true">FR</button>
-        <button type="button" data-lang="en" aria-pressed="false">EN</button>
-      </div>
-      <a class="btn btn-main head-cta" href="../contact/" data-season="off" data-en="Request a quote">Demander un devis</a>
-      <a class="btn btn-main head-cta" href="../ete/#reserver" data-season="summer" hidden data-en="Book a room">Réserver une chambre</a>
+      <nav class="lang" aria-label="Langue / Language"><a href="../contact/" hreflang="fr" lang="fr" aria-current="page">FR</a><a href="../en/contact/" hreflang="en" lang="en">EN</a></nav>
+      <a class="btn btn-main head-cta" href="../contact/" data-season="off">Demander un devis</a>
+      <a class="btn btn-main head-cta" href="../ete/#reserver" data-season="summer" hidden>Réserver une chambre</a>
       <button class="burger" id="burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav"><span></span></button>
     </div>
   </div>
@@ -89,38 +89,38 @@
   <section class="vh">
     <div class="wrap split" style="align-items:start">
       <div class="stack" style="align-items:stretch">
-        <h1 class="d1" tabindex="-1" data-en="Tell us about your plans.">Parlez-nous de votre projet.</h1>
-        <p class="lede" data-en="We reply the same day. For an offsite, a retreat or a wedding, you get a one-page quote within 48 hours.">On vous répond dans la journée. Pour un séminaire, une retraite ou un mariage, vous recevez un devis d’une page sous 48 h.</p>
+        <h1 class="d1" tabindex="-1">Parlez-nous de votre projet.</h1>
+        <p class="lede">On vous répond dans la journée. Pour un séminaire, une retraite ou un mariage, vous recevez un devis d’une page sous 48 h.</p>
         <form class="form" id="contact-form" novalidate>
           <div class="field full">
-            <label for="f-topic" data-en="What are you planning?">Vous venez pour</label>
+            <label for="f-topic">Vous venez pour</label>
             <select id="f-topic" name="topic">
-              <option value="seminaire" data-en="An offsite or meeting">Un séminaire</option>
-              <option value="retraite" data-en="A retreat or residency">Une retraite ou une résidence</option>
-              <option value="mariage" data-en="A wedding">Un mariage</option>
-              <option value="ete" data-en="A summer stay (July-August)">Un séjour d’été (juillet-août)</option>
-              <option value="proches" data-en="A weekend with family or friends">Un week-end en famille ou entre amis</option>
-              <option value="autre" data-en="Something else">Autre chose</option>
+              <option value="seminaire">Un séminaire</option>
+              <option value="retraite">Une retraite ou une résidence</option>
+              <option value="mariage">Un mariage</option>
+              <option value="ete">Un séjour d’été (juillet-août)</option>
+              <option value="proches">Un week-end en famille ou entre amis</option>
+              <option value="autre">Autre chose</option>
             </select>
           </div>
-          <div class="field"><label for="f-dates" data-en="Dates you have in mind">Dates envisagées</label><input id="f-dates" name="dates" type="text" autocomplete="off"></div>
-          <div class="field"><label for="f-people" data-en="Number of people">Nombre de personnes</label><input id="f-people" name="people" type="number" min="1" max="300" inputmode="numeric"></div>
-          <div class="field"><label for="f-name" data-en="First and last name">Prénom et nom</label><input id="f-name" name="name" type="text" autocomplete="name" required></div>
-          <div class="field"><label for="f-email" data-en="Email">E-mail</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
-          <div class="field"><label for="f-phone" data-en="Phone (optional)">Téléphone (facultatif)</label><input id="f-phone" name="phone" type="tel" autocomplete="tel"></div>
+          <div class="field"><label for="f-dates">Dates envisagées</label><input id="f-dates" name="dates" type="text" autocomplete="off"></div>
+          <div class="field"><label for="f-people">Nombre de personnes</label><input id="f-people" name="people" type="number" min="1" max="300" inputmode="numeric"></div>
+          <div class="field"><label for="f-name">Prénom et nom</label><input id="f-name" name="name" type="text" autocomplete="name" required></div>
+          <div class="field"><label for="f-email">E-mail</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+          <div class="field"><label for="f-phone">Téléphone (facultatif)</label><input id="f-phone" name="phone" type="tel" autocomplete="tel"></div>
           <input class="hp" type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true">
-          <div class="field full"><label for="f-msg" data-en="Your plans, in a few lines">Votre projet, en quelques lignes</label><textarea id="f-msg" name="message"></textarea></div>
-          <div class="field full form-send"><button class="btn btn-main" type="submit" data-en="Send my request">Envoyer ma demande</button><p class="form-privacy" data-en="We only use your details to reply to you. See our &lt;a href=&quot;../confidentialite/&quot;&gt;privacy policy&lt;/a&gt;.">Vos coordonnées servent uniquement à vous répondre. Voir notre <a href="../confidentialite/">politique de confidentialité</a>.</p></div>
+          <div class="field full"><label for="f-msg">Votre projet, en quelques lignes</label><textarea id="f-msg" name="message"></textarea></div>
+          <div class="field full form-send"><button class="btn btn-main" type="submit">Envoyer ma demande</button><p class="form-privacy">Vos coordonnées servent uniquement à vous répondre. Voir notre <a href="../confidentialite/">politique de confidentialité</a>.</p></div>
           <p class="form-status" id="form-status" role="status" hidden></p>
         </form>
       </div>
       <aside class="contact-card">
-        <h2 class="d3" data-en="Or reach us directly">Ou directement</h2>
-        <p class="contact-who" data-en="Delphine, the château’s manager, answers your messages and welcomes you on site.">Delphine, directrice du château, répond à vos messages et vous accueille sur place.</p>
+        <h2 class="d3">Ou directement</h2>
+        <p class="contact-who">Delphine, directrice du château, répond à vos messages et vous accueille sur place.</p>
         <dl>
-          <dt data-en="Phone">Téléphone</dt><dd><a href="tel:+33458008895">+33 4 58 00 88 95</a></dd>
-          <dt data-en="Email">E-mail</dt><dd><a href="mailto:contact@chateaudherbelon.com">contact@chateaudherbelon.com</a></dd>
-          <dt data-en="Address">Adresse</dt><dd>1605 route d’Herbelon<br>38650 Treffort</dd>
+          <dt>Téléphone</dt><dd><a href="tel:+33458008895">+33 4 58 00 88 95</a></dd>
+          <dt>E-mail</dt><dd><a href="mailto:contact@chateaudherbelon.com">contact@chateaudherbelon.com</a></dd>
+          <dt>Adresse</dt><dd>1605 route d’Herbelon<br>38650 Treffort</dd>
           <dt>Instagram</dt><dd><a href="https://www.instagram.com/chateaudherbelon/">@chateaudherbelon</a></dd>
         </dl>
         <img class="photo" src="../images/lac-chien.jpg" alt="Un chien regarde le lac depuis le muret du parc" style="object-position:60% 50%" loading="lazy">
@@ -139,22 +139,22 @@
       <div class="stack">
         <span class="brand"><img class="brand-mark" src="../images/logo-herbelon-blanc.svg" alt="" width="52" height="52">
         <span class="brand-text"><span class="brand-pre">Château d'</span><span class="brand-word">Herbelon</span></span></span>
-        <p class="foot-sign" data-en="Where the lawn meets the lake.">Le lac au bout du parc.</p>
-        <p data-en="A château on Lake Monteynard, 40 minutes from Grenoble. Offsites, retreats and weddings from September to June; hotel, restaurant and guinguette in July and August.">Un château au bord du lac de Monteynard, à 40 minutes de Grenoble. Séminaires, retraites et mariages de septembre à juin ; hôtel, restaurant et guinguette en juillet-août.</p>
+        <p class="foot-sign">Le lac au bout du parc.</p>
+        <p>Un château au bord du lac de Monteynard, à 40 minutes de Grenoble. Séminaires, retraites et mariages de septembre à juin ; hôtel, restaurant et guinguette en juillet-août.</p>
       </div>
       <div>
-        <h2 data-en="Come for">Venir pour</h2>
+        <h2>Venir pour</h2>
         <ul>
-          <li><a href="../seminaires/" data-en="An offsite">Un séminaire</a></li>
-          <li><a href="../ete/" data-en="The summer">L’été</a></li>
-          <li><a href="../restaurant/" data-en="The restaurant">Le restaurant</a></li>
-          <li><a href="../mariages/" data-en="A wedding">Un mariage</a></li>
-          <li><a href="../entre-proches/" data-en="A weekend with family or friends">Un week-end entre proches</a></li>
-          <li><a href="../retraites/" data-en="A retreat or residency">Une retraite ou une résidence</a></li>
+          <li><a href="../seminaires/">Un séminaire</a></li>
+          <li><a href="../ete/">L’été</a></li>
+          <li><a href="../restaurant/">Le restaurant</a></li>
+          <li><a href="../mariages/">Un mariage</a></li>
+          <li><a href="../entre-proches/">Un week-end entre proches</a></li>
+          <li><a href="../retraites/">Une retraite ou une résidence</a></li>
         </ul>
       </div>
       <div>
-        <h2 data-en="Reach us">Nous joindre</h2>
+        <h2>Nous joindre</h2>
         <ul>
           <li><a href="tel:+33458008895">+33 4 58 00 88 95</a></li>
           <li><a href="mailto:contact@chateaudherbelon.com">contact@chateaudherbelon.com</a></li>
@@ -164,12 +164,12 @@
       </div>
     </div>
     <div class="foot-base">
-      <p data-en="Château d’Herbelon, Lake Monteynard, Isère, France.">Château d’Herbelon, lac de Monteynard, Isère.</p>
-      <p class="foot-legal"><a href="../mentions-legales/" data-en="Legal notice">Mentions légales</a><a href="../confidentialite/" data-en="Privacy">Confidentialité</a></p>
+      <p>Château d’Herbelon, lac de Monteynard, Isère.</p>
+      <p class="foot-legal"><a href="../mentions-legales/">Mentions légales</a><a href="../confidentialite/">Confidentialité</a></p>
     </div>
   </div>
 </footer>
 
-<script src="../js/site.js?v=f065f34e"></script>
+<script src="../js/site.js?v=aa54921d"></script>
 </body>
 </html>

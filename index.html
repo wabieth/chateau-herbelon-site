@@ -13,8 +13,11 @@
 <link rel="manifest" href="site.webmanifest">
 <meta name="theme-color" content="#13431d">
 <link rel="stylesheet" href="css/fonts.css?v=2dc623cf">
-<link rel="stylesheet" href="css/site.css?v=36a106c5">
+<link rel="stylesheet" href="css/site.css?v=d0eea987">
 <link rel="canonical" href="https://www.chateaudherbelon.com/">
+<link rel="alternate" hreflang="fr" href="https://www.chateaudherbelon.com/">
+<link rel="alternate" hreflang="en" href="https://www.chateaudherbelon.com/en/">
+<link rel="alternate" hreflang="x-default" href="https://www.chateaudherbelon.com/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Château d’Herbelon">
 <meta property="og:title" content="Château d’Herbelon, au bord du lac de Monteynard">
@@ -35,19 +38,19 @@
 <body>
 
 <div class="proto-bar">
-  <span data-en="Working prototype: copy, prices and photos still to be approved. Preview the homepage:">Maquette de travail : textes, prix et photos à valider. Aperçu de l’accueil :</span>
+  <span>Maquette de travail : textes, prix et photos à valider. Aperçu de l’accueil :</span>
   <span class="season-switch" role="group" aria-label="Aperçu selon la saison">
-    <button type="button" data-season-btn="off" aria-pressed="true" data-en="September to May">Septembre à mai</button>
-    <button type="button" data-season-btn="june" aria-pressed="false" data-en="June">Juin</button>
-    <button type="button" data-season-btn="summer" aria-pressed="false" data-en="July and August">Juillet-août</button>
+    <button type="button" data-season-btn="off" aria-pressed="true">Septembre à mai</button>
+    <button type="button" data-season-btn="june" aria-pressed="false">Juin</button>
+    <button type="button" data-season-btn="summer" aria-pressed="false">Juillet-août</button>
   </span>
 </div>
 
 <header class="site-head">
   <div class="util-bar" data-season="summer" hidden>
     <div class="wrap util-in">
-      <a class="util-msg util-june" href="ete/#reserver" data-en="Summer at the château starts on 1 July: book your room now.">L’été au château commence le 1er juillet : réservez votre chambre.</a>
-      <a class="util-msg util-high" href="tel:+33458008895" data-en="Restaurant and guinguette open daily. Book a table: +33 4 58 00 88 95">Restaurant et guinguette ouverts tous les jours. Réserver une table : 04 58 00 88 95</a>
+      <a class="util-msg util-june" href="ete/#reserver">L’été au château commence le 1er juillet : réservez votre chambre.</a>
+      <a class="util-msg util-high" href="tel:+33458008895">Restaurant et guinguette ouverts tous les jours. Réserver une table : 04 58 00 88 95</a>
     </div>
   </div>
   <div class="wrap head-in">
@@ -57,26 +60,23 @@
     </a>
     <nav class="nav" id="nav" aria-label="Navigation principale">
       <div class="nav-group">
-        <button class="nav-top" type="button" aria-expanded="false" aria-controls="nav-priv"><span data-en="Exclusive use">Privatiser</span></button>
+        <button class="nav-top" type="button" aria-expanded="false" aria-controls="nav-priv"><span>Privatiser</span></button>
         <div class="nav-menu" id="nav-priv">
-          <a href="seminaires/" data-nav="seminaires"><b data-en="Offsites">Séminaires</b><small data-en="10 to 100 people">De 10 à 100 personnes</small></a>
-          <a href="mariages/" data-nav="mariages"><b data-en="Weddings">Mariages</b><small data-en="A whole weekend, winter included">Tout un week-end, l’hiver compris</small></a>
-          <a href="entre-proches/" data-nav="proches"><b data-en="Family &amp; friends">Entre proches</b><small data-en="A weekend with family or friends">Un week-end en famille ou entre amis</small></a>
-          <a href="retraites/" data-nav="retraites"><b data-en="Retreats">Retraites</b><small data-en="Retreats and residencies, 3 to 7 days">Retraites et résidences, de 3 à 7 jours</small></a>
+          <a href="seminaires/" data-nav="seminaires"><b>Séminaires</b><small>De 10 à 100 personnes</small></a>
+          <a href="mariages/" data-nav="mariages"><b>Mariages</b><small>Tout un week-end, l’hiver compris</small></a>
+          <a href="entre-proches/" data-nav="proches"><b>Entre proches</b><small>Un week-end en famille ou entre amis</small></a>
+          <a href="retraites/" data-nav="retraites"><b>Retraites</b><small>Retraites et résidences, de 3 à 7 jours</small></a>
         </div>
       </div>
-      <a href="ete/" data-nav="ete" data-en="Summer">L’été</a>
-      <a href="restaurant/" data-nav="restaurant" data-en="Restaurant">Restaurant</a>
-      <a href="le-chateau/" data-nav="chateau" data-en="The château">Le château</a>
-      <a href="contact/" data-nav="contact" data-en="Contact">Contact</a>
+      <a href="ete/" data-nav="ete">L’été</a>
+      <a href="restaurant/" data-nav="restaurant">Restaurant</a>
+      <a href="le-chateau/" data-nav="chateau">Le château</a>
+      <a href="contact/" data-nav="contact">Contact</a>
     </nav>
     <div class="head-tools">
-      <div class="lang" role="group" aria-label="Langue / Language">
-        <button type="button" data-lang="fr" aria-pressed="true">FR</button>
-        <button type="button" data-lang="en" aria-pressed="false">EN</button>
-      </div>
-      <a class="btn btn-main head-cta" href="contact/" data-season="off" data-en="Request a quote">Demander un devis</a>
-      <a class="btn btn-main head-cta" href="ete/#reserver" data-season="summer" hidden data-en="Book a room">Réserver une chambre</a>
+      <nav class="lang" aria-label="Langue / Language"><a href="./" hreflang="fr" lang="fr" aria-current="page">FR</a><a href="en/" hreflang="en" lang="en">EN</a></nav>
+      <a class="btn btn-main head-cta" href="contact/" data-season="off">Demander un devis</a>
+      <a class="btn btn-main head-cta" href="ete/#reserver" data-season="summer" hidden>Réserver une chambre</a>
       <button class="burger" id="burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav"><span></span></button>
     </div>
   </div>
@@ -90,59 +90,59 @@
   <section class="hero">
     <div class="hero-media">
       <video class="hero-photo hero-video" poster="images/herbelon-hero-poster.jpg" data-src="images/herbelon-hero.mp4" data-src-mobile="images/herbelon-hero-mobile.mp4" muted loop playsinline preload="none" aria-hidden="true"></video>
-      <button class="hero-pause" type="button" aria-pressed="false" hidden><span data-en="Pause the video">Mettre la vidéo en pause</span></button>
+      <button class="hero-pause" type="button" aria-pressed="false" hidden><span>Mettre la vidéo en pause</span></button>
     </div>
     <div class="hero-text wrap">
-      <p class="hero-where" data-en="Lake Monteynard, 40 minutes south of Grenoble">Lac de Monteynard, à 40 minutes au sud de Grenoble</p>
-      <h1 class="d1" tabindex="-1" data-en="Where the lawn meets the lake.">Le lac au bout du parc.</h1>
-      <p class="lede" data-en="A château over 400 years old above Lake Monteynard. Yours alone from September to June, open to all in July and August.">Un château de plus de 400 ans qui domine le lac de Monteynard. Rien qu’à vous de septembre à juin, ouvert à tous en juillet et août.</p>
+      <p class="hero-where">Lac de Monteynard, à 40 minutes au sud de Grenoble</p>
+      <h1 class="d1" tabindex="-1">Le lac au bout du parc.</h1>
+      <p class="lede">Un château de plus de 400 ans qui domine le lac de Monteynard. Rien qu’à vous de septembre à juin, ouvert à tous en juillet et août.</p>
       <div class="hero-actions" data-season="off">
-        <a class="btn btn-main" href="contact/" data-en="Request a quote">Demander un devis</a>
-        <a class="textlink" href="ete/" data-en="Book a summer stay">Réserver pour l’été</a>
+        <a class="btn btn-main" href="contact/">Demander un devis</a>
+        <a class="textlink" href="ete/">Réserver pour l’été</a>
       </div>
       <div class="hero-actions" data-season="summer" hidden>
-        <a class="btn btn-main" href="ete/#reserver" data-en="Book a room">Réserver une chambre</a>
-        <a class="textlink" href="contact/" data-en="Plan an event">Organiser un événement</a>
+        <a class="btn btn-main" href="ete/#reserver">Réserver une chambre</a>
+        <a class="textlink" href="contact/">Organiser un événement</a>
       </div>
     </div>
   </section>
 
   <section class="doors wrap" aria-labelledby="doors-title">
-    <h2 class="doors-title" id="doors-title" data-en="What brings you here?">Vous venez pour…</h2>
+    <h2 class="doors-title" id="doors-title">Vous venez pour…</h2>
     <div class="doors-grid">
       <a class="door" href="seminaires/">
         <img class="door-photo" src="images/salon.jpg" alt="Le grand salon : plafond à la française, cheminée monumentale en pierre et tables dressées" style="object-position:80% 50%" loading="lazy">
         <div class="door-body">
-          <span class="door-verb" data-en="Work">Travailler</span>
-          <span class="door-desc" data-en="Offsites for 10 to 100 people, with the lake as your break room.">Des séminaires de 10 à 100 personnes, le lac pour salle de pause.</span>
+          <span class="door-verb">Travailler</span>
+          <span class="door-desc">Des séminaires de 10 à 100 personnes, le lac pour salle de pause.</span>
         </div>
       </a>
       <a class="door door-ete" href="ete/">
         <img class="door-photo" src="images/lac-voiles.jpg" alt="Le lac de Monteynard couvert d’ailes et de voiles, un après-midi d’été" style="object-position:57% 50%" loading="lazy">
         <div class="door-body">
-          <span class="door-verb" data-en="Spend the summer">Passer l’été</span>
-          <span class="door-desc" data-en="In July and August: a room, a table and the guinguette by the water.">En juillet et août, une chambre, une table et la guinguette au bord de l’eau.</span>
+          <span class="door-verb">Passer l’été</span>
+          <span class="door-desc">En juillet et août, une chambre, une table et la guinguette au bord de l’eau.</span>
         </div>
       </a>
       <a class="door" href="mariages/">
         <img class="door-photo" src="images/mariage-ceremonie.jpg" alt="Une cérémonie de mariage installée sur la pelouse du château" style="object-position:60% 50%" loading="lazy">
         <div class="door-body">
-          <span class="door-verb" data-en="Get married">Vous marier</span>
-          <span class="door-desc" data-en="A whole weekend of celebration, from drinks on the lawn to Sunday brunch.">Tout un week-end de fête, du vin d’honneur au brunch du dimanche.</span>
+          <span class="door-verb">Vous marier</span>
+          <span class="door-desc">Tout un week-end de fête, du vin d’honneur au brunch du dimanche.</span>
         </div>
       </a>
       <a class="door" href="entre-proches/">
         <img class="door-photo" src="images/chateau-automne.jpg" alt="La façade en automne, la vigne vierge rouge, des amis devant la porte" style="object-position:30% 50%" loading="lazy">
         <div class="door-body">
-          <span class="door-verb" data-en="Get together">Vous retrouver</span>
-          <span class="door-desc" data-en="The château all to yourselves, with family or friends.">Le château rien qu’à vous, en famille ou entre amis.</span>
+          <span class="door-verb">Vous retrouver</span>
+          <span class="door-desc">Le château rien qu’à vous, en famille ou entre amis.</span>
         </div>
       </a>
       <a class="door" href="retraites/">
         <img class="door-photo" src="images/lac-crepuscule.jpg" alt="Le lac au crépuscule, les sommets rosés au loin" style="object-position:45% 50%" loading="lazy">
         <div class="door-body">
-          <span class="door-verb" data-en="Recharge">Vous ressourcer</span>
-          <span class="door-desc" data-en="Retreats and residencies, quietly, facing the lake.">Retraites et résidences, au calme, face au lac.</span>
+          <span class="door-verb">Vous ressourcer</span>
+          <span class="door-desc">Retraites et résidences, au calme, face au lac.</span>
         </div>
       </a>
     </div>
@@ -152,12 +152,12 @@
     <div class="wrap resto-band">
       <img class="photo" src="images/service-soir.jpg" alt="Un serveur sort du château sous le lierre, plateau à la main, un soir d’été" style="object-position:52% 50%" loading="lazy">
       <div class="stack">
-        <p class="season summer" data-en="July and August, daily, open to all">Juillet et août, tous les jours, ouvert à tous</p>
-        <h2 class="d2" data-en="A table facing the lake">Une table face au lac</h2>
-        <p data-en="A short menu built on local produce, served on the terrace. And for a drink, the guinguette under the trees. No need to stay at the château.">Une carte courte et des produits locaux, servie en terrasse. Et pour un verre, la guinguette sous les arbres. Pas besoin de dormir au château pour venir.</p>
+        <p class="season summer">Juillet et août, tous les jours, ouvert à tous</p>
+        <h2 class="d2">Une table face au lac</h2>
+        <p>Une carte courte et des produits locaux, servie en terrasse. Et pour un verre, la guinguette sous les arbres. Pas besoin de dormir au château pour venir.</p>
         <div class="hero-actions">
-          <a class="btn btn-main" href="restaurant/" data-en="See the menu">Voir la carte</a>
-          <a class="textlink" href="tel:+33458008895" data-en="Book: +33 4 58 00 88 95">Réserver : 04 58 00 88 95</a>
+          <a class="btn btn-main" href="restaurant/">Voir la carte</a>
+          <a class="textlink" href="tel:+33458008895">Réserver : 04 58 00 88 95</a>
         </div>
       </div>
     </div>
@@ -166,10 +166,10 @@
 
   <div class="wrap">
     <div class="news">
-      <h2 class="news-title" data-en="Right now at the château">En ce moment au château</h2>
+      <h2 class="news-title">En ce moment au château</h2>
       <ul>
-        <li data-en="Summer 2027 bookings open on 1 December.">Les réservations pour l’été 2027 ouvrent le 1er décembre.</li>
-        <li data-en="All winter, the château stays open for your offsites and private events.">Tout l’hiver, le château reste ouvert pour vos séminaires et vos réceptions.</li>
+        <li>Les réservations pour l’été 2027 ouvrent le 1er décembre.</li>
+        <li>Tout l’hiver, le château reste ouvert pour vos séminaires et vos réceptions.</li>
       </ul>
     </div>
   </div>
@@ -177,10 +177,10 @@
   <section class="section">
     <div class="wrap split">
       <div class="stack">
-        <h2 class="d2" data-en="Barefoot on a château lawn.">Pieds nus dans l’herbe d’un château.</h2>
-        <p class="lede" data-en="In the morning the lake is glassy and belongs to the paddleboarders. In the afternoon the wind picks up and the sails come out. In the evening you dine under beamed ceilings or out on the terrace, facing the mountains.">Le matin, le lac est lisse et appartient aux pagayeurs. L’après-midi, le vent se lève et les voiles sortent. Le soir, on dîne sous les plafonds à la française ou en terrasse, face aux montagnes.</p>
-        <p data-en="In between: hammocks, a lawn that runs down to the water, and nobody giving you a look if you turn up in sportswear.">Entre les deux : des hamacs, une pelouse qui descend jusqu’à l’eau, et personne pour vous regarder de travers si vous arrivez en tenue de sport.</p>
-        <a class="textlink" href="le-chateau/" data-en="Explore the château">Découvrir le château</a>
+        <h2 class="d2">Pieds nus dans l’herbe d’un château.</h2>
+        <p class="lede">Le matin, le lac est lisse et appartient aux pagayeurs. L’après-midi, le vent se lève et les voiles sortent. Le soir, on dîne sous les plafonds à la française ou en terrasse, face aux montagnes.</p>
+        <p>Entre les deux : des hamacs, une pelouse qui descend jusqu’à l’eau, et personne pour vous regarder de travers si vous arrivez en tenue de sport.</p>
+        <a class="textlink" href="le-chateau/">Découvrir le château</a>
       </div>
       <div class="pair">
         <img class="arch" src="images/parc-transats.jpg" alt="Deux transats sur la pelouse, le portail ouvert sur le lac turquoise" style="object-position:50% 50%" loading="lazy">
@@ -192,67 +192,67 @@
   <section class="section on-dark" aria-labelledby="year-title">
     <div class="wrap">
       <div class="section-head">
-        <h2 class="d2" id="year-title" data-en="When to come">Quand venir</h2>
-        <p class="lede" data-en="From September to June, you book the whole château for your group. In July and August, it opens to everyone: rooms, restaurant and guinguette.">De septembre à juin, le château se réserve en entier pour votre groupe. En juillet et août, il ouvre à tous : chambres, restaurant et guinguette.</p>
+        <h2 class="d2" id="year-title">Quand venir</h2>
+        <p class="lede">De septembre à juin, le château se réserve en entier pour votre groupe. En juillet et août, il ouvre à tous : chambres, restaurant et guinguette.</p>
       </div>
       <div class="year" id="year">
-        <div class="m"><span class="l" data-en="Sep">Sept.</span><span class="s">S</span></div>
-        <div class="m"><span class="l" data-en="Oct">Oct.</span><span class="s">O</span></div>
-        <div class="m"><span class="l" data-en="Nov">Nov.</span><span class="s">N</span></div>
-        <div class="m"><span class="l" data-en="Dec">Déc.</span><span class="s">D</span></div>
-        <div class="m"><span class="l" data-en="Jan">Janv.</span><span class="s">J</span></div>
-        <div class="m"><span class="l" data-en="Feb">Févr.</span><span class="s">F</span></div>
-        <div class="m"><span class="l" data-en="Mar">Mars</span><span class="s">M</span></div>
-        <div class="m"><span class="l" data-en="Apr">Avr.</span><span class="s">A</span></div>
-        <div class="m"><span class="l" data-en="May">Mai</span><span class="s">M</span></div>
-        <div class="m"><span class="l" data-en="Jun">Juin</span><span class="s">J</span></div>
-        <div class="m"><span class="l" data-en="Jul">Juil.</span><span class="s">J</span></div>
-        <div class="m"><span class="l" data-en="Aug">Août</span><span class="s">A</span></div>
-        <div class="bar main" style="grid-column:1/11;grid-row:2" data-en="The whole château, for your group alone">Le château pour votre groupe seul</div>
-        <div class="bar main summer" style="grid-column:11/13;grid-row:2" data-en="Open to all">Ouvert à tous</div>
-        <div class="bar sub" style="grid-column:1/11;grid-row:3" data-en="Offsites, mostly on weekdays">Séminaires, surtout en semaine</div>
-        <div class="bar sub" style="grid-column:1/11;grid-row:4" data-en="Retreats and residencies, 3 to 7 days">Retraites et résidences, de 3 à 7 jours</div>
-        <div class="bar sub" style="grid-column:1/11;grid-row:5" data-en="Weddings and weekends with family and friends, all season">Mariages et week-ends entre proches, toute la saison</div>
-        <div class="bar summer-list" style="grid-column:11/13;grid-row:3/6"><span data-en="Hotel">Hôtel</span><span>Restaurant</span><span>Guinguette</span></div>
+        <div class="m"><span class="l">Sept.</span><span class="s">S</span></div>
+        <div class="m"><span class="l">Oct.</span><span class="s">O</span></div>
+        <div class="m"><span class="l">Nov.</span><span class="s">N</span></div>
+        <div class="m"><span class="l">Déc.</span><span class="s">D</span></div>
+        <div class="m"><span class="l">Janv.</span><span class="s">J</span></div>
+        <div class="m"><span class="l">Févr.</span><span class="s">F</span></div>
+        <div class="m"><span class="l">Mars</span><span class="s">M</span></div>
+        <div class="m"><span class="l">Avr.</span><span class="s">A</span></div>
+        <div class="m"><span class="l">Mai</span><span class="s">M</span></div>
+        <div class="m"><span class="l">Juin</span><span class="s">J</span></div>
+        <div class="m"><span class="l">Juil.</span><span class="s">J</span></div>
+        <div class="m"><span class="l">Août</span><span class="s">A</span></div>
+        <div class="bar main" style="grid-column:1/11;grid-row:2">Le château pour votre groupe seul</div>
+        <div class="bar main summer" style="grid-column:11/13;grid-row:2">Ouvert à tous</div>
+        <div class="bar sub" style="grid-column:1/11;grid-row:3">Séminaires, surtout en semaine</div>
+        <div class="bar sub" style="grid-column:1/11;grid-row:4">Retraites et résidences, de 3 à 7 jours</div>
+        <div class="bar sub" style="grid-column:1/11;grid-row:5">Mariages et week-ends entre proches, toute la saison</div>
+        <div class="bar summer-list" style="grid-column:11/13;grid-row:3/6"><span>Hôtel</span><span>Restaurant</span><span>Guinguette</span></div>
       </div>
-      <p class="year-note muted small"><span><span class="dot"></span><span data-en="The yellow dot marks the current month.">Le point jaune indique le mois en cours.</span></span></p>
+      <p class="year-note muted small"><span><span class="dot"></span><span>Le point jaune indique le mois en cours.</span></span></p>
     </div>
   </section>
 
   <section class="section">
     <div class="wrap">
       <div class="section-head">
-        <h2 class="d2" data-en="Easy to organise">Simple à organiser</h2>
-        <p class="lede" data-en="For an offsite, a retreat or a wedding, you know where you stand from the very first message.">Pour un séminaire, une retraite ou un mariage, vous savez où vous en êtes dès le premier message.</p>
+        <h2 class="d2">Simple à organiser</h2>
+        <p class="lede">Pour un séminaire, une retraite ou un mariage, vous savez où vous en êtes dès le premier message.</p>
       </div>
       <ul class="easy">
-        <li><h3 data-en="Prices online">Les prix, en ligne</h3><p data-en="Every package shows a “from” price. In two minutes you know whether we fit your budget.">Chaque formule affiche son prix « à partir de ». En deux minutes, vous savez si c’est dans votre budget.</p></li>
-        <li><h3 data-en="A quote within 48 hours">Un devis sous 48 h</h3><p data-en="One clear page, with nothing hidden in the small print.">Une page claire, sans lignes cachées.</p></li>
-        <li><h3 data-en="One person to talk to">Une seule personne</h3><p data-en="Delphine, our manager, looks after you from your first message to the last day.">Delphine, notre directrice, vous suit du premier message au dernier jour.</p></li>
+        <li><h3>Les prix, en ligne</h3><p>Chaque formule affiche son prix « à partir de ». En deux minutes, vous savez si c’est dans votre budget.</p></li>
+        <li><h3>Un devis sous 48 h</h3><p>Une page claire, sans lignes cachées.</p></li>
+        <li><h3>Une seule personne</h3><p>Delphine, notre directrice, vous suit du premier message au dernier jour.</p></li>
       </ul>
-      <a class="textlink" href="seminaires/" data-en="Estimate an offsite budget">Estimer le budget d’un séminaire</a>
+      <a class="textlink" href="seminaires/">Estimer le budget d’un séminaire</a>
     </div>
   </section>
 
   <section class="section on-surface">
     <div class="wrap">
-      <div class="section-head"><h2 class="d2" data-en="What guests say">Ce qu’en disent nos clients</h2></div>
+      <div class="section-head"><h2 class="d2">Ce qu’en disent nos clients</h2></div>
       <div class="quotes">
         <blockquote lang="fr"><p>« Tout le personnel est accueillant et bienveillant. »</p><footer>Bruno B.</footer></blockquote>
         <blockquote lang="fr"><p>« Ambiance bien cool dans le château, équipe très sympa et à l’écoute. »</p><footer>Eric B.</footer></blockquote>
         <blockquote lang="fr"><p>« Localisation en or. Parfait pour couples, familles et entre amis. »</p><footer>Killian S.</footer></blockquote>
       </div>
-      <p class="insta"><span data-en="The season, day by day, on Instagram:">La saison au jour le jour, sur Instagram :</span> <a class="textlink" href="https://www.instagram.com/chateaudherbelon/">@chateaudherbelon</a></p>
+      <p class="insta"><span>La saison au jour le jour, sur Instagram :</span> <a class="textlink" href="https://www.instagram.com/chateaudherbelon/">@chateaudherbelon</a></p>
     </div>
   </section>
 
   <section class="cta-band">
     <div class="wrap cta-in">
       <div class="stack">
-        <h2 class="d2" data-en="Got a date in mind?">Une date en tête ?</h2>
-        <p data-en="Tell us everything in a few lines. We reply the same day, with a real proposal.">Dites-nous tout en quelques lignes. On vous répond dans la journée, avec une vraie proposition.</p>
+        <h2 class="d2">Une date en tête ?</h2>
+        <p>Dites-nous tout en quelques lignes. On vous répond dans la journée, avec une vraie proposition.</p>
       </div>
-      <a class="btn btn-main" href="contact/" data-en="Request a quote">Demander un devis</a>
+      <a class="btn btn-main" href="contact/">Demander un devis</a>
     </div>
   </section>
 </div>
@@ -266,22 +266,22 @@
       <div class="stack">
         <span class="brand"><img class="brand-mark" src="images/logo-herbelon-blanc.svg" alt="" width="52" height="52">
         <span class="brand-text"><span class="brand-pre">Château d'</span><span class="brand-word">Herbelon</span></span></span>
-        <p class="foot-sign" data-en="Where the lawn meets the lake.">Le lac au bout du parc.</p>
-        <p data-en="A château on Lake Monteynard, 40 minutes from Grenoble. Offsites, retreats and weddings from September to June; hotel, restaurant and guinguette in July and August.">Un château au bord du lac de Monteynard, à 40 minutes de Grenoble. Séminaires, retraites et mariages de septembre à juin ; hôtel, restaurant et guinguette en juillet-août.</p>
+        <p class="foot-sign">Le lac au bout du parc.</p>
+        <p>Un château au bord du lac de Monteynard, à 40 minutes de Grenoble. Séminaires, retraites et mariages de septembre à juin ; hôtel, restaurant et guinguette en juillet-août.</p>
       </div>
       <div>
-        <h2 data-en="Come for">Venir pour</h2>
+        <h2>Venir pour</h2>
         <ul>
-          <li><a href="seminaires/" data-en="An offsite">Un séminaire</a></li>
-          <li><a href="ete/" data-en="The summer">L’été</a></li>
-          <li><a href="restaurant/" data-en="The restaurant">Le restaurant</a></li>
-          <li><a href="mariages/" data-en="A wedding">Un mariage</a></li>
-          <li><a href="entre-proches/" data-en="A weekend with family or friends">Un week-end entre proches</a></li>
-          <li><a href="retraites/" data-en="A retreat or residency">Une retraite ou une résidence</a></li>
+          <li><a href="seminaires/">Un séminaire</a></li>
+          <li><a href="ete/">L’été</a></li>
+          <li><a href="restaurant/">Le restaurant</a></li>
+          <li><a href="mariages/">Un mariage</a></li>
+          <li><a href="entre-proches/">Un week-end entre proches</a></li>
+          <li><a href="retraites/">Une retraite ou une résidence</a></li>
         </ul>
       </div>
       <div>
-        <h2 data-en="Reach us">Nous joindre</h2>
+        <h2>Nous joindre</h2>
         <ul>
           <li><a href="tel:+33458008895">+33 4 58 00 88 95</a></li>
           <li><a href="mailto:contact@chateaudherbelon.com">contact@chateaudherbelon.com</a></li>
@@ -291,12 +291,12 @@
       </div>
     </div>
     <div class="foot-base">
-      <p data-en="Château d’Herbelon, Lake Monteynard, Isère, France.">Château d’Herbelon, lac de Monteynard, Isère.</p>
-      <p class="foot-legal"><a href="mentions-legales/" data-en="Legal notice">Mentions légales</a><a href="confidentialite/" data-en="Privacy">Confidentialité</a></p>
+      <p>Château d’Herbelon, lac de Monteynard, Isère.</p>
+      <p class="foot-legal"><a href="mentions-legales/">Mentions légales</a><a href="confidentialite/">Confidentialité</a></p>
     </div>
   </div>
 </footer>
 
-<script src="js/site.js?v=f065f34e"></script>
+<script src="js/site.js?v=aa54921d"></script>
 </body>
 </html>

@@ -8,7 +8,7 @@
   var nav = document.getElementById("nav");
   var burger = document.getElementById("burger");
   var navTop = document.querySelector(".nav-top");
-  var lang = "fr";
+  var lang = document.documentElement.lang === "en" ? "en" : "fr";
   var pendingTopic = null;
   var firstLoad = true;
 
@@ -18,7 +18,7 @@
   var SLUGS = { accueil: "", seminaires: "seminaires", ete: "ete", restaurant: "restaurant", mariages: "mariages", proches: "entre-proches", retraites: "retraites", chateau: "le-chateau", contact: "contact", mentions: "mentions-legales", confidentialite: "confidentialite" };
   var ROOT = document.documentElement.getAttribute("data-root") || "./";
   var legacy = (location.hash || "").replace("#", "");
-  if (VIEWS.indexOf(legacy) >= 0 && document.documentElement.getAttribute("data-page")) {
+  if (VIEWS.indexOf(legacy) >= 0 && document.documentElement.getAttribute("data-page") && document.documentElement.lang !== "en") {
     location.replace(ROOT + (SLUGS[legacy] ? SLUGS[legacy] + "/" : ""));
     return;
   }
@@ -88,23 +88,9 @@
     burger.setAttribute("aria-expanded", open ? "true" : "false");
   });
 
-  /* ---------- Langue ---------- */
-  var i18n = Array.prototype.slice.call(document.querySelectorAll("[data-en]"));
-  i18n.forEach(function (el) { el.setAttribute("data-fr", el.innerHTML); });
-  var langButtons = Array.prototype.slice.call(document.querySelectorAll("[data-lang]"));
-
-  function setLang(l) {
-    lang = l === "en" ? "en" : "fr";
-    i18n.forEach(function (el) { el.innerHTML = el.getAttribute(lang === "en" ? "data-en" : "data-fr"); });
-    document.documentElement.lang = lang;
-    langButtons.forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-lang") === lang ? "true" : "false"); });
-    try { localStorage.setItem("herbelon-lang", lang); } catch (e) {}
-    estimate();
-    if (sirvoyLang && sirvoyLang !== lang) loadSirvoy();
-    var status = document.getElementById("form-status");
-    if (status && !status.hidden) status.textContent = statusText();
-  }
-  langButtons.forEach(function (b) { b.addEventListener("click", function () { setLang(b.getAttribute("data-lang")); }); });
+  /* ---------- Langue ----------
+     Chaque langue a ses propres pages (/ et /en/) : la page dit sa langue. */
+  lang = document.documentElement.lang === "en" ? "en" : "fr";
 
   /* ---------- Calendrier : mois en cours ---------- */
   var months = document.querySelectorAll("#year .m");
@@ -286,9 +272,7 @@
     s.setAttribute("data-lang", lang);
     sirvoyBox.appendChild(s);
   }
-  var saved = null;
-  try { saved = localStorage.getItem("herbelon-lang"); } catch (e) {}
   show();
-  if (saved === "en") setLang("en"); else estimate();
+  estimate();
   loadSirvoy();
 })();

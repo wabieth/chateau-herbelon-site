@@ -1,14 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://www.chateaudherbelon.com/</loc></url>
-  <url><loc>https://www.chateaudherbelon.com/seminaires/</loc></url>
-  <url><loc>https://www.chateaudherbelon.com/mariages/</loc></url>
-  <url><loc>https://www.chateaudherbelon.com/ete/</loc></url>
-  <url><loc>https://www.chateaudherbelon.com/restaurant/</loc></url>
-  <url><loc>https://www.chateaudherbelon.com/entre-proches/</loc></url>
-  <url><loc>https://www.chateaudherbelon.com/retraites/</loc></url>
-  <url><loc>https://www.chateaudherbelon.com/le-chateau/</loc></url>
-  <url><loc>https://www.chateaudherbelon.com/contact/</loc></url>
-  <url><loc>https://www.chateaudherbelon.com/mentions-legales/</loc></url>
-  <url><loc>https://www.chateaudherbelon.com/confidentialite/</loc></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url><loc>https://www.chateaudherbelon.com/</loc><xhtml:link rel="alternate" hreflang="fr" href="https://www.chateaudherbelon.com/"/><xhtml:link rel="alternate" hreflang="en" href="https://www.chateaudherbelon.com/en/"/></url>
+  <url><loc>https://www.chateaudherbelon.com/en/</loc><xhtml:link rel="alternate" hreflang="fr" href="https://www.chateaudherbelon.com/"/><xhtml:link rel="alternate" hreflang="en" href="https://www.chateaudherbelon.com/en/"/></url>
+  <url><loc>https://www.chateaudherbelon.com/seminaires/</loc><xhtml:link rel="alternate" hreflang="fr" href="https://www.chateaudherbelon.com/seminaires/"/><xhtml:link rel="alternate" hreflang="en" href="https://www.chateaudherbelon.com/en/offsites/"/></url>
+  <url><loc>https://www.chateaudherbelon.com/en/offsites/</loc><xhtml:link rel="alternate" hreflang="fr" href="https://www.chateaudherbelon.com/seminaires/"/><xhtml:link rel="alternate" hreflang="en" href="https://www.chateaudherbelon.com/en/offsites/"/></url>
+  <url><loc>https://www.chateaudherbelon.com/mariages/</loc><xhtml:link rel="alternate" hreflang="fr" href="https://www.chateaudherbelon.com/mariages/"/><xhtml:link rel="alternate" hreflang="en" href="https://www.chateaudherbelon.com/en/weddings/"/></url>
+  <url><loc>https://www.chateaudherbelon.com/en/weddings/</loc><xhtml:link rel="alternate" hreflang="fr" href="https://www.chateaudherbelon.com/mariages/"/><xhtml:link rel="alternate" hreflang="en" href="https://www.chateaudherbelon.com/en/weddings/"/></url>
+  <url><loc>https://www.chateaudherbelon.com/ete/</loc><xhtml:link rel="alternate" hreflang="fr" href="https://www.chateaudherbelon.com/ete/"/><xhtml:link rel="alternate" hreflang="en" href="https://www.chateaudherbelon.com/en/summer/"/></url>
+  <url><loc>https://www.chateaudherbelon.com/en/summer/</loc><xhtml:link rel="alternate" hreflang="fr" href="https://www.chateaudherbelon.com/ete/"/><xhtml:link rel="alternate" hreflang="en" href="https://www.chateaudherbelon.com/en/summer/"/></url>
+  <url><loc>https://www.chateaudherbelon.com/restaurant/</loc><xhtml:link rel="alternate" hreflang="fr" href="https://www.chateaudherbelon.com/restaurant/"/><xhtml:link rel="alternate" hreflang="en" href="https://www.chateaudherbelon.com/en/restaurant/"/></url>
+  <url><loc>https://www.chateaudherbelon.com/en/restaurant/</loc><xhtml:link rel="alternate" hreflang="fr" href="https://www.chateaudherbelon.com/restaurant/"/><xhtml:link rel="alternate" hreflang="en" href="https://www.chateaudherbelon.com/en/restaurant/"/></url>
+  <url><loc>https://www.chateaudherbelon.com/entre-proches/</loc><xhtml:link rel="alternate" hreflang="fr" href="https://www.chateaudherbelon.com/entre-proches/"/><xhtml:link rel="alternate" hreflang="en" href="https://www.chateaudherbelon.com/en/family-weekends/"/></url>
+  <url><loc>https://www.chateaudherbelon.com/en/family-weekends/</loc><xhtml:link rel="alternate" hreflang="fr" href="https://www.chateaudherbelon.com/entre-proches/"/><xhtml:link rel="alternate" hreflang="en" href="https://www.chateaudherbelon.com/en/family-weekends/"/></url>
+  <url><loc>https://www.chateaudherbelon.com/retraites/</loc><xhtml:link rel="alternate" hreflang="fr" href="https://www.chateaudherbelon.com/retraites/"/><xhtml:link rel="alternate" hreflang="en" href="https://www.chateaudherbelon.com/en/retreats/"/></url>
+  <url><loc>https://www.chateaudherbelon.com/en/retreats/</loc><xhtml:link rel="alternate" hreflang="fr" href="https://www.chateaudherbelon.com/retraites/"/><xhtml:link rel="alternate" hreflang="en" href="https://www.chateaudherbelon.com/en/retreats/"/></url>
+  <url><loc>https://www.chateaudherbelon.com/le-chateau/</loc><xhtml:link rel="alternate" hreflang="fr" href="https://www.chateaudherbelon.com/le-chateau/"/><xhtml:link rel="alternate" hreflang="en" href="https://www.chateaudherbelon.com/en/the-chateau/"/></url>
+  <url><loc>https://www.chateaudherbelon.com/en/the-chateau/</loc><xhtml:link rel="alternate" hreflang="fr" href="https://www.chateaudherbelon.com/le-chateau/"/><xhtml:link rel="alternate" hreflang="en" href="https://www.chateaudherbelon.com/en/the-chateau/"/></url>
+  <url><loc>https://www.chateaudherbelon.com/contact/</loc><xhtml:link rel="alternate" hreflang="fr" href="https://www.chateaudherbelon.com/contact/"/><xhtml:link rel="alternate" hreflang="en" href="https://www.chateaudherbelon.com/en/contact/"/></url>
+  <url><loc>https://www.chateaudherbelon.com/en/contact/</loc><xhtml:link rel="alternate" hreflang="fr" href="https://www.chateaudherbelon.com/contact/"/><xhtml:link rel="alternate" hreflang="en" href="https://www.chateaudherbelon.com/en/contact/"/></url>
+  <url><loc>https://www.chateaudherbelon.com/mentions-legales/</loc><xhtml:link rel="alternate" hreflang="fr" href="https://www.chateaudherbelon.com/mentions-legales/"/><xhtml:link rel="alternate" hreflang="en" href="https://www.chateaudherbelon.com/en/legal-notice/"/></url>
+  <url><loc>https://www.chateaudherbelon.com/en/legal-notice/</loc><xhtml:link rel="alternate" hreflang="fr" href="https://www.chateaudherbelon.com/mentions-legales/"/><xhtml:link rel="alternate" hreflang="en" href="https://www.chateaudherbelon.com/en/legal-notice/"/></url>
+  <url><loc>https://www.chateaudherbelon.com/confidentialite/</loc><xhtml:link rel="alternate" hreflang="fr" href="https://www.chateaudherbelon.com/confidentialite/"/><xhtml:link rel="alternate" hreflang="en" href="https://www.chateaudherbelon.com/en/privacy/"/></url>
+  <url><loc>https://www.chateaudherbelon.com/en/privacy/</loc><xhtml:link rel="alternate" hreflang="fr" href="https://www.chateaudherbelon.com/confidentialite/"/><xhtml:link rel="alternate" hreflang="en" href="https://www.chateaudherbelon.com/en/privacy/"/></url>
 </urlset>

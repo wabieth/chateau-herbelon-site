@@ -1,0 +1,22 @@
+name: Vérification du site
+on:
+  push:
+  pull_request:
+jobs:
+  verifier:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Outils
+        run: |
+          pip install pillow playwright
+          playwright install --with-deps chromium
+      - name: Les pages générées sont à jour
+        run: |
+          python3 tools/build_pages.py
+          git diff --stat --exit-code || (echo "::error::Les pages générées ne sont pas à jour : lancer python3 tools/build_pages.py puis committer." && exit 1)
+      - name: SEO/GEO, traductions, affichage
+        run: python3 tools/check_site.py

@@ -9,14 +9,12 @@ Hébergement prévu : Cloudflare Pages, connecté à ce dépôt.
 
 Le site est en phase de maquette : `robots.txt` et la balise `noindex` dans `index.html` empêchent son référencement. Les retirer le jour de la mise en ligne.
 
-## Une adresse par page
+## Une adresse par page et par langue
 
-Le site se modifie dans `src/site.html` (toutes les pages dans un seul fichier).
-Après chaque modification, lancer :
+Le site se modifie dans `src/site.html` (toutes les pages dans un seul fichier, chaque texte avec sa traduction `data-en`).
+Après chaque modification :
 
-    python3 tools/build_pages.py
+    python3 tools/build_pages.py    # génère les pages françaises (/), anglaises (/en/) et sitemap.xml
+    python3 tools/check_site.py     # vérifie SEO/GEO, traductions, affichage ; 0 erreur exigée
 
-Le script génère `index.html` (accueil) et un dossier par page (`seminaires/`, `mariages/`, `ete/`,
-`restaurant/`, `entre-proches/`, `retraites/`, `le-chateau/`, `contact/`, `mentions-legales/`,
-`confidentialite/`), chacun avec son titre, sa description, son adresse canonique et les données
-structurées schema.org, ainsi que `sitemap.xml`. Les anciens liens en `#seminaires` redirigent vers la bonne page.
+Les consignes complètes pour Claude sont dans `CLAUDE.md`. GitHub relance la vérification à chaque envoi (onglet Actions).
