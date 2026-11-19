@@ -544,3 +544,8 @@ mark.todo { background: #f6e7b8; color: var(--ink); padding: 0 4px; border-radiu
 /* Restaurant : vidéo en boucle avec bouton pause */
 .walk-media { position: relative; }
 .walk .walk-pause { top: auto; bottom: 16px; right: 16px; }
+
+/* Vidéos en boucle dans les pages (arche, photo haute) */
+.loop-media { position: relative; }
+.loop-media .loop-video { display: block; width: 100%; }
+.loop-media .loop-pause { top: auto; bottom: 16px; right: 16px; }

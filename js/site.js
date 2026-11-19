@@ -229,41 +229,39 @@
     }
   }
 
-  /* Restaurant : la vidéo de la salle à la terrasse tourne en boucle quand elle est à l’écran, se met en pause ailleurs */
-  var walk = document.querySelector(".walk-video");
-  if (walk) {
-    var walkBtn = document.querySelector(".walk-pause");
-    var calmW = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    var saveW = navigator.connection && navigator.connection.saveData;
-    var walkUserPaused = false, walkLoaded = false;
-    var loadWalk = function () {
-      if (walkLoaded) return;
-      walkLoaded = true;
-      walk.src = window.innerWidth < 760 ? walk.getAttribute("data-src-mobile") : walk.getAttribute("data-src");
-      walk.muted = true;
-    };
-    var playWalk = function () {
-      loadWalk();
-      var pr = walk.play();
-      if (pr && pr.catch) pr.catch(function () { walkBtn.hidden = false; walkBtn.setAttribute("aria-pressed", "true"); walkUserPaused = true; });
-    };
-    walk.addEventListener("playing", function () { walkBtn.hidden = false; walkBtn.setAttribute("aria-pressed", "false"); });
-    walkBtn.addEventListener("click", function () {
-      if (walk.paused) { walkUserPaused = false; playWalk(); }
-      else { walkUserPaused = true; walk.pause(); walkBtn.setAttribute("aria-pressed", "true"); }
+  /* Vidéos en boucle (restaurant, retraites…) : lecture quand elles sont à l’écran, pause ailleurs, bouton pause */
+  var calmL = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var saveL = navigator.connection && navigator.connection.saveData;
+  var loopIO = (!calmL && !saveL && "IntersectionObserver" in window) ? new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      var v = e.target;
+      if (e.isIntersecting && e.intersectionRatio >= 0.25) { if (!v._userPaused) v._play(); }
+      else if (!v.paused) { v.pause(); }
     });
-    if (calmW || saveW || !("IntersectionObserver" in window)) {
-      /* Pas de lecture automatique : on montre le bouton pour la lancer */
-      walkBtn.hidden = false; walkBtn.setAttribute("aria-pressed", "true"); walkUserPaused = true;
-    } else {
-      new IntersectionObserver(function (entries) {
-        entries.forEach(function (e) {
-          if (e.isIntersecting && e.intersectionRatio >= 0.25) { if (!walkUserPaused) playWalk(); }
-          else if (!walk.paused) { walk.pause(); }
-        });
-      }, { threshold: [0, 0.25, 0.5] }).observe(walk);
-    }
-  }
+  }, { threshold: [0, 0.25, 0.5] }) : null;
+  Array.prototype.forEach.call(document.querySelectorAll(".loop-video"), function (v) {
+    var btn = v.parentNode.querySelector(".loop-pause");
+    var loaded = false;
+    var setPaused = function (p) { if (btn) { btn.hidden = false; btn.setAttribute("aria-pressed", p ? "true" : "false"); } };
+    v._userPaused = false;
+    v._play = function () {
+      if (!loaded) {
+        loaded = true;
+        var mob = v.getAttribute("data-src-mobile");
+        v.src = (mob && window.innerWidth < 760) ? mob : v.getAttribute("data-src");
+        v.muted = true;
+      }
+      var pr = v.play();
+      if (pr && pr.catch) pr.catch(function () { v._userPaused = true; setPaused(true); });
+    };
+    v.addEventListener("playing", function () { setPaused(false); });
+    if (btn) btn.addEventListener("click", function () {
+      if (v.paused) { v._userPaused = false; v._play(); }
+      else { v._userPaused = true; v.pause(); setPaused(true); }
+    });
+    if (loopIO) loopIO.observe(v);
+    else { v._userPaused = true; setPaused(true); }
+  });
   var saved = null;
   try { saved = localStorage.getItem("herbelon-lang"); } catch (e) {}
   show();
