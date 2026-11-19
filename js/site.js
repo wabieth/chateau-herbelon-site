@@ -46,7 +46,7 @@
       navTop.setAttribute("aria-expanded", "false");
       navTop.classList.toggle("is-current", ["seminaires", "mariages", "proches", "retraites"].indexOf(name) >= 0);
     }
-    if (name === "contact" && pendingTopic) {
+    if (name === "contact" && pendingTopic && document.getElementById("f-topic")) {
       document.getElementById("f-topic").value = pendingTopic;
       pendingTopic = null;
     }
@@ -102,7 +102,7 @@
     estimate();
     if (sirvoyLang && sirvoyLang !== lang) loadSirvoy();
     var status = document.getElementById("form-status");
-    if (!status.hidden) status.textContent = statusText();
+    if (status && !status.hidden) status.textContent = statusText();
   }
   langButtons.forEach(function (b) { b.addEventListener("click", function () { setLang(b.getAttribute("data-lang")); }); });
 
@@ -121,6 +121,7 @@
   }
 
   function estimate() {
+    if (!ePeople || !eDays) return;
     var people = parseInt(ePeople.value, 10);
     var n = parseInt(eDays.value, 10);
     var res = document.getElementById("e-format-res").checked;
@@ -137,9 +138,12 @@
       ? people + " personnes × " + lengthLabel + " × " + unit + "\u00a0€\u00a0HT"
       : people + " people × " + lengthLabel + " × €" + unit + " excl. VAT";
   }
-  document.getElementById("estim").addEventListener("input", estimate);
-  document.getElementById("e-format-day").addEventListener("change", function () { eDays.value = 1; estimate(); });
-  document.getElementById("estim").addEventListener("submit", function (e) { e.preventDefault(); });
+  var estimForm = document.getElementById("estim");
+  if (estimForm) {
+    estimForm.addEventListener("input", estimate);
+    document.getElementById("e-format-day").addEventListener("change", function () { eDays.value = 1; estimate(); });
+    estimForm.addEventListener("submit", function (e) { e.preventDefault(); });
+  }
 
   /* ---------- Formulaire (maquette : rien n'est envoyé) ---------- */
   /* ---------- Formulaire de contact ----------
@@ -163,7 +167,7 @@
     status.hidden = false;
     status.classList.toggle("is-error", st === "missing" || st === "error");
   }
-  form.addEventListener("submit", function (e) {
+  if (form) form.addEventListener("submit", function (e) {
     e.preventDefault();
     if (!FORM_KEY) { setStatus("proto"); return; }
     var name = form.elements.name.value.trim(), email = form.elements.email.value.trim();

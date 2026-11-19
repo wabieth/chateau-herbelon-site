@@ -13,6 +13,20 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 SRC = ROOT / "src" / "site.html"
 DOMAIN = "https://www.chateaudherbelon.com"
 OG_IMAGE = "images/chateau-automne.jpg"
+# image de partage (1200 x 630) et sa description, par page
+OG = {
+    "accueil": ("images/og/accueil.jpg", "La tourelle couverte de lierre du Château d’Herbelon, au-dessus du lac turquoise de Monteynard"),
+    "seminaires": ("images/og/seminaires.jpg", "La terrasse abritée du château, tables dressées face au lac de Monteynard"),
+    "mariages": ("images/og/mariages.jpg", "Une cérémonie installée sur la pelouse du château, face aux montagnes"),
+    "ete": ("images/og/ete.jpg", "Kitesurfs et wingfoils sur le lac de Monteynard, en contrebas du château"),
+    "restaurant": ("images/og/restaurant.jpg", "La guinguette du château un soir d’été, face au lac"),
+    "proches": ("images/og/proches.jpg", "Le château à la tombée du jour, la tourelle éclairée"),
+    "retraites": ("images/og/retraites.jpg", "Le lac de Monteynard au crépuscule, très calme"),
+    "chateau": ("images/og/chateau.jpg", "La façade du Château d’Herbelon en automne"),
+    "contact": ("images/og/contact.jpg", "Le Château d’Herbelon vu du ciel, le parc et le lac"),
+    "mentions": ("images/og/accueil.jpg", "Le Château d’Herbelon au-dessus du lac de Monteynard"),
+    "confidentialite": ("images/og/accueil.jpg", "Le Château d’Herbelon au-dessus du lac de Monteynard"),
+}
 
 # vue -> (dossier, titre, description)
 PAGES = {
@@ -55,9 +69,11 @@ JSONLD = {
             "email": "contact@chateaudherbelon.com",
             "address": {"@type": "PostalAddress", "streetAddress": "1605 route d’Herbelon", "postalCode": "38650", "addressLocality": "Treffort", "addressRegion": "Isère", "addressCountry": "FR"},
             "geo": {"@type": "GeoCoordinates", "latitude": 44.898078, "longitude": 5.674102},
-            "image": DOMAIN + "/" + OG_IMAGE,
+            "image": [DOMAIN + "/images/og/accueil.jpg", DOMAIN + "/images/chateau-lac.jpg", DOMAIN + "/images/mariage-ceremonie.jpg", DOMAIN + "/images/salon.jpg", DOMAIN + "/images/lac-voiles.jpg"],
             "logo": DOMAIN + "/images/logo-herbelon.svg",
             "numberOfRooms": 13,
+            "checkinTime": "15:00",
+            "checkoutTime": "11:00",
             "maximumAttendeeCapacity": 100,
             "petsAllowed": True,
             "priceRange": "€€",
@@ -84,6 +100,19 @@ JSONLD = {
     ]
 }
 
+def keep_view(html, view):
+    starts = [m.start() for m in re.finditer(r'<div class="view" data-view="', html)]
+    end_main = html.index("</main>")
+    bounds = starts + [end_main]
+    parts = [html[:starts[0]]]
+    for i, st in enumerate(starts):
+        block = html[st:bounds[i + 1]]
+        name = re.match(r'<div class="view" data-view="([a-z]+)"', block).group(1)
+        if name == view:
+            parts.append(re.sub(r'^(<div class="view" data-view="[a-z]+") hidden>', r'\1>', block))
+    parts.append(html[end_main:])
+    return "".join(parts)
+
 def build():
     html = SRC.read_text(encoding="utf-8")
     # versions des feuilles de style et du script : le navigateur recharge quand le fichier change
@@ -95,9 +124,8 @@ def build():
         depth = 1 if folder else 0
         root = "../" if depth else ""
         out = html
-        # vue visible
-        out = re.sub(r'<div class="view" data-view="([a-z]+)"( hidden)?>',
-                     lambda m: '<div class="view" data-view="%s"%s>' % (m.group(1), "" if m.group(1) == view else " hidden"), out)
+        # une seule vue par page : le contenu des autres pages n’est pas recopié (Google et les IA voient une page = un sujet)
+        out = keep_view(out, view)
         # liens internes : #vue -> vraie adresse
         def link(v):
             f = PAGES[v][0]
@@ -117,6 +145,7 @@ def build():
         out = out.replace("<html lang=\"fr\"", "<html lang=\"fr\" data-page=\"%s\" data-root=\"%s\"" % (view, root or "./"), 1)
         out = re.sub(r"<title>.*?</title>", "<title>%s</title>" % title, out, count=1)
         out = re.sub(r'<meta name="description" content="[^"]*">', '<meta name="description" content="%s">' % desc, out, count=1)
+        og_img, og_alt = OG[view]
         head = ('<link rel="canonical" href="%s">\n'
                 '<meta property="og:type" content="website">\n'
                 '<meta property="og:site_name" content="Château d’Herbelon">\n'
@@ -124,8 +153,16 @@ def build():
                 '<meta property="og:description" content="%s">\n'
                 '<meta property="og:url" content="%s">\n'
                 '<meta property="og:image" content="%s/%s">\n'
+                '<meta property="og:image:width" content="1200">\n'
+                '<meta property="og:image:height" content="630">\n'
+                '<meta property="og:image:alt" content="%s">\n'
                 '<meta property="og:locale" content="fr_FR">\n'
-                '<script type="application/ld+json">%s</script>\n') % (url, title, desc, url, DOMAIN, OG_IMAGE, json.dumps(JSONLD, ensure_ascii=False))
+                '<meta property="og:locale:alternate" content="en_GB">\n'
+                '<meta name="twitter:card" content="summary_large_image">\n'
+                '<meta name="twitter:title" content="%s">\n'
+                '<meta name="twitter:description" content="%s">\n'
+                '<meta name="twitter:image" content="%s/%s">\n'
+                '<script type="application/ld+json">%s</script>\n') % (url, title, desc, url, DOMAIN, og_img, og_alt, title, desc, DOMAIN, og_img, json.dumps(JSONLD, ensure_ascii=False))
         out = out.replace("</head>", head + "</head>", 1)
         dest = ROOT / folder / "index.html" if folder else ROOT / "index.html"
         dest.parent.mkdir(parents=True, exist_ok=True)

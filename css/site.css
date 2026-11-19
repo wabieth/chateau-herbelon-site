@@ -583,3 +583,7 @@ html[lang="en"] .door-verb { font-size: min(2.25rem, 13.6cqi); }
 @media (max-width: 560px) { .door-body { min-width: 0; } .door-verb { white-space: normal; } }
 @media (max-width: 380px) { .door-photo { width: 96px; } }
 .estim-tax { font-size: 0.42em; letter-spacing: 0; white-space: nowrap; }
+
+/* Photo panoramique sous « Votre week-end au château » */
+.wide-photo { aspect-ratio: 21 / 9; margin-top: clamp(24px, 4vw, 44px); }
+@media (max-width: 700px) { .wide-photo { aspect-ratio: 4 / 3; } }
