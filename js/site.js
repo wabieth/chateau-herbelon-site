@@ -13,10 +13,25 @@
   var firstLoad = true;
 
   /* ---------- Vues ---------- */
+  /* Chaque vue a sa propre page (/seminaires/, /mariages/…) : la page dit laquelle elle affiche.
+     Les anciens liens en « #seminaires » renvoient vers la bonne adresse. */
+  var SLUGS = { accueil: "", seminaires: "seminaires", ete: "ete", restaurant: "restaurant", mariages: "mariages", proches: "entre-proches", retraites: "retraites", chateau: "le-chateau", contact: "contact", mentions: "mentions-legales", confidentialite: "confidentialite" };
+  var ROOT = document.documentElement.getAttribute("data-root") || "./";
+  var legacy = (location.hash || "").replace("#", "");
+  if (VIEWS.indexOf(legacy) >= 0 && document.documentElement.getAttribute("data-page")) {
+    location.replace(ROOT + (SLUGS[legacy] ? SLUGS[legacy] + "/" : ""));
+    return;
+  }
   function currentView() {
+    var p = document.documentElement.getAttribute("data-page");
+    if (p) return p;
     var h = (location.hash || "").replace("#", "");
     return VIEWS.indexOf(h) >= 0 ? h : "accueil";
   }
+  try {
+    var sujet = new URLSearchParams(location.search).get("sujet");
+    if (sujet) pendingTopic = sujet;
+  } catch (e) {}
 
   function show() {
     var name = currentView();
