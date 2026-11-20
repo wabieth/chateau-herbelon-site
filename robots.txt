@@ -1,3 +1,4 @@
-# Maquette : rien n'est indexé tant que le site n'est pas officiellement en ligne.
 User-agent: *
-Disallow: /
+Allow: /
+
+Sitemap: https://www.chateaudherbelon.com/sitemap.xml

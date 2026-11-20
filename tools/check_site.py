@@ -141,8 +141,14 @@ def check_static():
             if p not in flat:
                 warn("llms.txt", "prix « %s € » absent du site : vérifier qu’il est à jour" % p)
     robots = (ROOT / "robots.txt").read_text(encoding="utf-8") if (ROOT / "robots.txt").exists() else ""
-    if "Disallow: /" in robots:
-        warn("robots.txt", "le site est bloqué aux moteurs (normal pendant la maquette, à retirer au lancement)")
+    if re.search(r"^Disallow:\s*/\s*$", robots, re.M):
+        err("robots.txt", "le site est bloqué aux moteurs (« Disallow: / ») alors qu'il est en ligne")
+    if "Sitemap: " + B.DOMAIN + "/sitemap.xml" not in robots:
+        err("robots.txt", "ligne « Sitemap: %s/sitemap.xml » absente" % B.DOMAIN)
+    if re.search(r'<meta name="robots" content="[^"]*noindex', src):
+        err("src/site.html", "balise noindex présente : le site serait retiré de Google")
+    if not (ROOT / "_redirects").exists():
+        warn("_redirects", "fichier absent : les anciennes adresses Wix ne sont plus redirigées")
 
 def port_free(p):
     with socket.socket() as s:

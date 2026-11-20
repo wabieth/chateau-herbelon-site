@@ -9,7 +9,7 @@ Ces consignes valent pour **chaque modification**, même minime (une phrase, une
    Ne jamais modifier à la main `index.html`, `*/index.html`, `en/**` ni `sitemap.xml` : ils sont générés depuis `src/site.html`.
 2. **Lancer la vérification** : `python3 tools/check_site.py`
    - Elle contrôle le SEO/GEO (titres, descriptions, canonique, hreflang, balises de partage, données structurées, FAQ, plan du site, llms.txt), les traductions, les mots interdits, les images, les erreurs JavaScript et l’affichage (textes superposés ou qui débordent) en français et en anglais, de 1440 à 340 px.
-   - **0 erreur exigée** avant d’envoyer. Traiter aussi les avertissements, sauf le blocage robots.txt pendant la maquette.
+   - **0 erreur exigée** avant d’envoyer. Traiter aussi les avertissements.
    - Si Playwright manque : `pip install playwright pillow --break-system-packages && playwright install chromium`.
 3. **Regarder** les pages touchées, en français ET en anglais, à 1440 px et 390 px (captures d’écran). La vérification automatique ne juge pas l’esthétique.
 4. **Mettre à jour `llms.txt`** si un fait change (prix, capacité, horaires, services, conditions). C’est la fiche que lisent les IA.
@@ -45,6 +45,9 @@ Ces consignes valent pour **chaque modification**, même minime (une phrase, une
 - Ne jamais publier l’adresse e-mail personnelle d’Étienne : seulement contact@chateaudherbelon.com.
 - Le positionnement complet est dans le projet Claude « Chateau d’Herbelon » (`claude/positionnement-externe.md`).
 
-## Au lancement sur www.chateaudherbelon.com
+## En production depuis le 20 novembre 2026
 
-Retirer `<meta name="robots" content="noindex, nofollow">` de `src/site.html` et le `Disallow: /` de `robots.txt` (ajouter la ligne `Sitemap:`), retirer le bandeau de maquette, rediriger les anciennes adresses Wix en 301, déclarer le site dans Google Search Console.
+- Le site est ouvert aux moteurs : pas de `noindex`, `robots.txt` avec la ligne `Sitemap:`. La vérification signale une erreur si le blocage revient.
+- Anciennes adresses Wix : redirections 301 dans `_redirects` (une ligne par adresse ; forme accentuée et forme encodée `%C3%A9` pour les adresses avec accents).
+- Fichiers non servis sur le site : liste dans `.assetsignore` (CLAUDE.md, README.md, src/, tools/…).
+- Reste à faire côté Cloudflare et Google (par Étienne) : domaine personnalisé www.chateaudherbelon.com sur le Worker, redirection de chateaudherbelon.com vers www, désactivation de l’adresse workers.dev une fois le domaine actif, déclaration dans Google Search Console avec le plan du site.

@@ -1,0 +1,37 @@
+# Anciennes adresses du site Wix -> nouvelles pages (redirections permanentes 301).
+# Lu par Cloudflare (Workers static assets), il n'est pas servi comme une page.
+# Ajouter ici toute ancienne adresse encore visible dans Google ou dans la Search Console.
+
+# Accueil
+/home                                   /                 301
+/en/home                                /en/              301
+
+# Hôtel, séjours, réservation, coliving -> L'été
+/sejours                                /ete/             301
+/en/sejours                             /en/summer/       301
+/réservation                            /ete/             301
+/r%C3%A9servation                       /ete/             301
+/reservation                            /ete/             301
+/en/réservation                         /en/summer/       301
+/en/r%C3%A9servation                    /en/summer/       301
+/en/reservation                         /en/summer/       301
+/coliving                               /ete/             301
+/en/coliving                            /en/summer/       301
+
+# Coliving hors saison -> Retraites
+/coming-soon-03                         /retraites/       301
+/en/coming-soon-03                      /en/retreats/     301
+
+# Coworking, séminaires et retraites -> Séminaires
+/cowork                                 /seminaires/      301
+/en/cowork                              /en/offsites/     301
+/coworking                              /seminaires/      301
+/en/coworking                           /en/offsites/     301
+/retraites-résidences-seminaire         /seminaires/      301
+/retraites-r%C3%A9sidences-seminaire    /seminaires/      301
+/en/retraites-résidences-seminaire      /en/offsites/     301
+/en/retraites-r%C3%A9sidences-seminaire /en/offsites/     301
+
+# Ancienne page d'événement -> accueil
+/general-clean                          /                 301
+/en/general-clean                       /en/              301

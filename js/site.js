@@ -131,7 +131,6 @@
     estimForm.addEventListener("submit", function (e) { e.preventDefault(); });
   }
 
-  /* ---------- Formulaire (maquette : rien n'est envoyé) ---------- */
   /* ---------- Formulaire de contact ----------
      Envoi par Web3Forms (https://web3forms.com) vers la boîte du château.
      Tant que la clé n'est pas renseignée, le formulaire affiche un message de maquette. */
@@ -186,8 +185,7 @@
 
 
   /* ---------- Saison : ce que l'accueil met en avant ----------
-     De septembre à juin : devis et événementiel. En juillet-août : réservation de chambre et l'été en premier.
-     Le bandeau de maquette permet de prévisualiser les deux. */
+     De septembre à juin : devis et événementiel. En juillet-août : réservation de chambre et l'été en premier. */
   var seasonButtons = Array.prototype.slice.call(document.querySelectorAll("[data-season-btn]"));
   var seasonal = Array.prototype.slice.call(document.querySelectorAll("[data-season]"));
   /* Septembre à mai : événementiel. Juin : l'été passe en avant pour qu'on réserve (le restaurant ouvre le 1er juillet).
