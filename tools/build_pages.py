@@ -94,6 +94,7 @@ JSONLD = {
             "telephone": "+33 4 58 00 88 95",
             "servesCuisine": "Cuisine française de saison, produits locaux",
             "acceptsReservations": "Par téléphone",
+            "description": "Ouvert à tous en juillet et août : le jeudi et le vendredi soir dès 18 h, le samedi midi et soir, le dimanche midi ; service du soir jusqu’à 22 h.",
             "address": {"@type": "PostalAddress", "streetAddress": "1605 route d’Herbelon", "postalCode": "38650", "addressLocality": "Treffort", "addressCountry": "FR"},
             "containedInPlace": {"@id": DOMAIN + "/#chateau"}
         }
