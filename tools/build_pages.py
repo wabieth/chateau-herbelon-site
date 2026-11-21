@@ -194,7 +194,7 @@ ATTR_EN = {
     "Une cérémonie installée sur la pelouse du château : deux fauteuils en rotin, les rangées de chaises, les invités devant la façade": "A ceremony set up on the château lawn: two rattan armchairs, rows of chairs, guests by the façade",
     "Une grande table dressée dans la salle à manger du château, devant les fenêtres à petits carreaux": "A long table laid in the château dining room, in front of small-paned windows",
     "Une vacancière travaille sur son ordinateur sous la pergola, face au lac couvert de voiles": "A guest works on her laptop under the pergola, facing a lake full of sails",
-    "La salle de bain de la chambre Magnolia : carreaux bleu-gris, douche derrière une verrière, double vasque ancienne sur pieds en laiton": "The Magnolia room’s bathroom: blue-grey tiles, a walk-in shower behind glass, a vintage double basin on brass legs",
+    "La chambre Magnolia : un grand lit, des lits superposés en bois clair fermés par des rideaux verts, des poutres et de grandes fenêtres sur le parc": "The Magnolia room: a large bed, light-wood bunk beds with green curtains, wooden beams and tall windows onto the grounds",
     "Un salon du château : boiseries, rideaux dorés et fenêtres à petits carreaux ouvertes sur le lac": "A drawing room in the château: wood panelling, golden curtains and small-paned windows open onto the lake",
     "Château d’Herbelon, accueil": "Château d’Herbelon, home",
     "Menu": "Menu",
