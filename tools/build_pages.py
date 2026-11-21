@@ -32,8 +32,8 @@ OG = {
 PAGES = {
     "accueil": ("", "Château d’Herbelon, au bord du lac de Monteynard",
         "Château de plus de 400 ans à 40 min de Grenoble. Séminaires, mariages, retraites ; l’été : hôtel, restaurant et guinguette au bord du lac."),
-    "seminaires": ("seminaires", "Séminaire au bord du lac, à 40 min de Grenoble · Château d’Herbelon",
-        "Le château entier pour votre équipe, de 10 à 100 personnes. Journée d’étude dès 85 € HT, résidentiel dès 210 € HT. Devis sous 48 h."),
+    "seminaires": ("seminaires", "Séminaire au vert près de Grenoble, face au lac · Château d’Herbelon",
+        "Séminaire résidentiel ou journée d’étude en Isère : le château entier pour votre équipe, de 10 à 100 personnes, au bord du lac de Monteynard. Dès 85 € HT."),
     "mariages": ("mariages", "Mariage dans un château au bord du lac, Isère · Château d’Herbelon",
         "Le château à vous tout le week-end, jusqu’à 100 invités, 39 couchages. Dès 4 500 € en hiver. De septembre à juin, hiver compris."),
     "ete": ("ete", "Hôtel au bord du lac de Monteynard, juillet-août · Château d’Herbelon",
@@ -122,8 +122,8 @@ def keep_view(html, view):
 PAGES_EN = {
     "accueil": ("en", "Château d’Herbelon, a château on Lake Monteynard near Grenoble",
         "A 400-year-old château 40 minutes from Grenoble. Offsites, weddings and retreats; in summer, a hotel, restaurant and guinguette by the lake."),
-    "seminaires": ("en/offsites", "Team offsite by a lake, 40 min from Grenoble · Château d’Herbelon",
-        "The whole château for your team, 10 to 100 people. Day package from €85 excl. VAT, overnight from €210. One-page quote within 48 hours."),
+    "seminaires": ("en/offsites", "Team offsite by a lake near Grenoble, French Alps · Château d’Herbelon",
+        "Overnight offsite or day meeting in the French Alps: the whole château for your team, 10 to 100 people, on Lake Monteynard. From €85 excl. VAT."),
     "mariages": ("en/weddings", "Lakeside château wedding venue, French Alps · Château d’Herbelon",
         "The château for the whole weekend, up to 100 guests, sleeps 39. From €4,500 in winter. Weddings from September to June."),
     "ete": ("en/summer", "Château hotel on Lake Monteynard, July–August · Château d’Herbelon",
