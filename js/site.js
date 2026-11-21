@@ -128,7 +128,62 @@
   if (estimForm) {
     estimForm.addEventListener("input", estimate);
     document.getElementById("e-format-day").addEventListener("change", function () { eDays.value = 1; estimate(); });
-    estimForm.addEventListener("submit", function (e) { e.preventDefault(); });
+    estimForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      if (document.activeElement && document.activeElement.id === "e-mail") sendEstimate();
+    });
+    var eSend = document.getElementById("e-send");
+    if (eSend) eSend.addEventListener("click", sendEstimate);
+    var eQuote = document.getElementById("e-quote");
+    if (eQuote) eQuote.addEventListener("click", function () {
+      try { sessionStorage.setItem("herbelon-estimation", estimateSummary()); } catch (e) {}
+    });
+  }
+
+  /* Résumé de l'estimation : repris dans le message du formulaire de contact, ou envoyé tel quel */
+  function estimateSummary() {
+    var fr = lang !== "en";
+    var res = document.getElementById("e-format-res").checked;
+    return (fr ? "Estimation séminaire : " : "Offsite estimate: ")
+      + (res ? (fr ? "résidentiel" : "overnight") : (fr ? "journée d’étude" : "day package")) + ", "
+      + document.getElementById("e-detail").textContent + " = "
+      + document.getElementById("e-sum").textContent + ".";
+  }
+
+  /* Estimation envoyée par e-mail : la demande arrive au château, qui répond avec les disponibilités */
+  function sendEstimate() {
+    var input = document.getElementById("e-mail");
+    var status = document.getElementById("e-mail-status");
+    var btn = document.getElementById("e-send");
+    if (!input || !status) return;
+    var fr = lang !== "en";
+    var email = input.value.trim();
+    function say(fr_, en_) { status.textContent = fr ? fr_ : en_; status.hidden = false; }
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
+      say("Indiquez une adresse e-mail valide.", "Please enter a valid email address.");
+      input.focus();
+      return;
+    }
+    btn.disabled = true;
+    say("Envoi en cours…", "Sending…");
+    var data = {
+      access_key: FORM_KEY,
+      subject: "Site : estimation séminaire à envoyer à " + email,
+      from_name: "Site du Château d’Herbelon",
+      replyto: email,
+      "Demande": "Envoyer cette estimation, avec nos disponibilités",
+      "Estimation": estimateSummary(),
+      "E-mail": email,
+      "Langue": lang
+    };
+    fetch("https://api.web3forms.com/submit", { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(data) })
+      .then(function (r) { return r.json(); })
+      .then(function (j) {
+        if (j && j.success) { input.value = ""; say("C’est noté. Delphine vous envoie cette estimation dans la journée.", "Got it. Delphine will email you this estimate the same day."); }
+        else say("L’envoi n’a pas abouti. Réessayez, ou écrivez-nous à contact@chateaudherbelon.com.", "Sending failed. Please try again, or email contact@chateaudherbelon.com.");
+      })
+      .catch(function () { say("L’envoi n’a pas abouti. Réessayez, ou écrivez-nous à contact@chateaudherbelon.com.", "Sending failed. Please try again, or email contact@chateaudherbelon.com."); })
+      .then(function () { btn.disabled = false; });
   }
 
   /* ---------- Formulaire de contact ----------
@@ -151,6 +206,13 @@
     status.textContent = statusText();
     status.hidden = false;
     status.classList.toggle("is-error", st === "missing" || st === "error");
+  }
+  if (form) {
+    try {
+      var saved = sessionStorage.getItem("herbelon-estimation");
+      if (saved && !form.elements.message.value) form.elements.message.value = saved + "\n\n";
+      sessionStorage.removeItem("herbelon-estimation");
+    } catch (e) {}
   }
   if (form) form.addEventListener("submit", function (e) {
     e.preventDefault();

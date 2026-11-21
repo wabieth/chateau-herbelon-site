@@ -11,7 +11,7 @@
 <link rel="manifest" href="../site.webmanifest">
 <meta name="theme-color" content="#13431d">
 <link rel="stylesheet" href="../css/fonts.css?v=2dc623cf">
-<link rel="stylesheet" href="../css/site.css?v=19f7b81b">
+<link rel="stylesheet" href="../css/site.css?v=b83730b1">
 <link rel="canonical" href="https://www.chateaudherbelon.com/seminaires/">
 <link rel="alternate" hreflang="fr" href="https://www.chateaudherbelon.com/seminaires/">
 <link rel="alternate" hreflang="en" href="https://www.chateaudherbelon.com/en/offsites/">
@@ -129,7 +129,16 @@
             <span class="estim-sum" id="e-sum">2 125 € HT</span>
             <p id="e-detail">25 personnes × 1 jour × 85 € HT</p>
             <p class="small muted">Montant indicatif, calculé sur les prix « à partir de ». L’hébergement sur place dépend de nos 13 chambres.</p>
-            <a class="btn btn-main" href="../contact/?sujet=seminaire" data-topic="seminaire">Recevoir mon devis</a>
+            <a class="btn btn-main" href="../contact/?sujet=seminaire" data-topic="seminaire" id="e-quote">Recevoir mon devis</a>
+            <div class="estim-mail">
+              <label class="small" for="e-mail">Ou recevoir cette estimation par e-mail</label>
+              <div class="estim-mail-row">
+                <input id="e-mail" type="email" autocomplete="email" inputmode="email" aria-describedby="e-mail-note">
+                <button class="btn btn-line" type="button" id="e-send">Envoyer</button>
+              </div>
+              <p class="small muted" id="e-mail-note">Delphine vous l’envoie avec nos disponibilités. Votre e-mail sert uniquement à vous répondre.</p>
+              <p class="small" id="e-mail-status" role="status" hidden></p>
+            </div>
           </div>
         </form>
     </div>
@@ -224,6 +233,6 @@
   </div>
 </footer>
 
-<script src="../js/site.js?v=508eab4a"></script>
+<script src="../js/site.js?v=2537f293"></script>
 </body>
 </html>

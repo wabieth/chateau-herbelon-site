@@ -11,7 +11,7 @@
 <link rel="manifest" href="../../site.webmanifest">
 <meta name="theme-color" content="#13431d">
 <link rel="stylesheet" href="../../css/fonts.css?v=2dc623cf">
-<link rel="stylesheet" href="../../css/site.css?v=19f7b81b">
+<link rel="stylesheet" href="../../css/site.css?v=b83730b1">
 <link rel="canonical" href="https://www.chateaudherbelon.com/en/offsites/">
 <link rel="alternate" hreflang="fr" href="https://www.chateaudherbelon.com/seminaires/">
 <link rel="alternate" hreflang="en" href="https://www.chateaudherbelon.com/en/offsites/">
@@ -129,7 +129,16 @@
             <span class="estim-sum" id="e-sum">2 125 € HT</span>
             <p id="e-detail">25 personnes × 1 jour × 85 € HT</p>
             <p class="small muted">Indicative amount based on the “from” prices. On-site accommodation depends on our 13 bedrooms.</p>
-            <a class="btn btn-main" href="../../en/contact/?sujet=seminaire" data-topic="seminaire">Get my quote</a>
+            <a class="btn btn-main" href="../../en/contact/?sujet=seminaire" data-topic="seminaire" id="e-quote">Get my quote</a>
+            <div class="estim-mail">
+              <label class="small" for="e-mail">Or get this estimate by email</label>
+              <div class="estim-mail-row">
+                <input id="e-mail" type="email" autocomplete="email" inputmode="email" aria-describedby="e-mail-note">
+                <button class="btn btn-line" type="button" id="e-send">Send</button>
+              </div>
+              <p class="small muted" id="e-mail-note">Delphine sends it to you with our availability. Your email is only used to reply to you.</p>
+              <p class="small" id="e-mail-status" role="status" hidden></p>
+            </div>
           </div>
         </form>
     </div>
@@ -224,6 +233,6 @@
   </div>
 </footer>
 
-<script src="../../js/site.js?v=508eab4a"></script>
+<script src="../../js/site.js?v=2537f293"></script>
 </body>
 </html>

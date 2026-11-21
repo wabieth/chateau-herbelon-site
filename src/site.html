@@ -284,7 +284,16 @@
             <span class="estim-sum" id="e-sum">2 125 € HT</span>
             <p id="e-detail">25 personnes × 1 jour × 85 € HT</p>
             <p class="small muted" data-en="Indicative amount based on the “from” prices. On-site accommodation depends on our 13 bedrooms.">Montant indicatif, calculé sur les prix « à partir de ». L’hébergement sur place dépend de nos 13 chambres.</p>
-            <a class="btn btn-main" href="#contact" data-topic="seminaire" data-en="Get my quote">Recevoir mon devis</a>
+            <a class="btn btn-main" href="#contact" data-topic="seminaire" id="e-quote" data-en="Get my quote">Recevoir mon devis</a>
+            <div class="estim-mail">
+              <label class="small" for="e-mail" data-en="Or get this estimate by email">Ou recevoir cette estimation par e-mail</label>
+              <div class="estim-mail-row">
+                <input id="e-mail" type="email" autocomplete="email" inputmode="email" aria-describedby="e-mail-note">
+                <button class="btn btn-line" type="button" id="e-send" data-en="Send">Envoyer</button>
+              </div>
+              <p class="small muted" id="e-mail-note" data-en="Delphine sends it to you with our availability. Your email is only used to reply to you.">Delphine vous l’envoie avec nos disponibilités. Votre e-mail sert uniquement à vous répondre.</p>
+              <p class="small" id="e-mail-status" role="status" hidden></p>
+            </div>
           </div>
         </form>
     </div>
@@ -508,13 +517,15 @@
   <section class="section on-surface">
     <div class="wrap split">
       <div class="carte">
-        <h3 data-en="Clear pricing">Un prix lisible</h3>
+        <h3 data-en="The whole château, for the weekend">Le château entier, pour le <span class="nowrap">week-end</span></h3>
+        <p class="carte-intro" data-en="From Friday evening to Sunday: the grounds, the reception rooms, the vaulted cellars and the 13 bedrooms, 39 beds. Tables, chairs and tableware included.">Du vendredi soir au dimanche : le parc, les salons, les caves voûtées et les 13 chambres, 39 couchages. Tables, chaises et vaisselle comprises.</p>
         <ul>
-          <li><span data-en="Peak season: May, June, September">Haute saison : mai, juin, septembre</span><b data-en="from €7,000">dès 7 000 €</b><small data-en="May from €7,000, June and September from €9,000. The château from Friday evening to Sunday, 39 beds included.">Mai dès 7 000 €, juin et septembre dès 9 000 €. Le château du vendredi soir au dimanche, 39 couchages compris.</small></li>
-          <li><span data-en="Mid-season: April, October">Mi-saison : avril, octobre</span><b data-en="from €6,000">dès 6 000 €</b><small data-en="April from €6,000, October from €6,500.">Avril dès 6 000 €, octobre dès 6 500 €.</small></li>
-          <li><span data-en="Winter: November to March">Hiver : novembre à mars</span><b data-en="from €4,500">dès 4 500 €</b><small data-en="Fireplace, vaulted cellars and mulled wine: a winter wedding has its charms.">Cheminée, caves voûtées et vin chaud : le mariage d’hiver a ses atouts.</small></li>
-          <li><span data-en="Dinner, with our chef">Le repas, avec notre chef</span><b data-en="from €80 / pers.">dès 80 € / pers.</b><small data-en="Three menus designed with the chef, from €80 to €130. Next-day brunch €35.">Trois formules construites avec lui, de 80 à 130 €. Brunch du lendemain 35 €.</small></li>
+          <li><span data-en="Winter: November to March">Hiver : novembre à mars</span><b data-en="from €4,500">dès 4 500 €</b><small data-en="Fireplace, vaulted cellars and mulled wine: a winter wedding has its charms.">Cheminée, caves voûtées et vin chaud : le mariage d’hiver a ses atouts.</small></li>
+          <li><span data-en="Mid-season: April, October">Mi-saison : avril, octobre</span><b data-en="from €6,000">dès 6 000 €</b></li>
+          <li><span data-en="Peak season: May, June, September">Haute saison : mai, juin, septembre</span><b data-en="from €7,000">dès 7 000 €</b></li>
+          <li><span data-en="Dinner, with our chef">Le repas, avec notre chef</span><b data-en="from €80 / pers.">dès 80 € / pers.</b><small data-en="Three menus, from €80 to €130. Next-day brunch €35.">Trois formules, de 80 à 130 €. Brunch du lendemain 35 €.</small></li>
         </ul>
+        <p class="carte-foot"><span data-en="Month-by-month prices and the chef’s menus are in our wedding brochure.">Le détail mois par mois et les formules du chef sont dans la plaquette.</span> <a href="#contact" data-topic="mariage" data-en="Get the brochure">Recevoir la plaquette</a></p>
       </div>
       <div class="stack">
         <h2 class="d2" data-en="Someone by your side, from the first visit to the big day">Quelqu’un à vos côtés, de la première visite au jour J</h2>
