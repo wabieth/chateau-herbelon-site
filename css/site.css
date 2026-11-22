@@ -613,3 +613,9 @@ html[lang="en"] .door-verb { font-size: min(2.25rem, 13.6cqi); }
 .estim-mail-row input:focus-visible { outline: 2px solid var(--summer-strong); outline-offset: 0; border-color: var(--ink); }
 .estim-mail-row .btn { flex: 0 0 auto; }
 .nowrap { white-space: nowrap; }
+
+/* Mariages : deux cartes côte à côte (boissons, dimanche) et bloc « S’il pleut » */
+.cartes-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(20px, 3vw, 40px); align-items: start; }
+.plan-b { margin-top: clamp(28px, 4vw, 44px); max-width: 62ch; }
+.plan-b h3 { margin-bottom: 8px; }
+@media (max-width: 860px) { .cartes-2 { grid-template-columns: minmax(0, 1fr); } }
