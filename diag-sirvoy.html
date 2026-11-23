@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Diagnostic Sirvoy (temporaire)</title>
+<script>
+  if (location.search.indexOf("css=1") > -1) document.write('<link rel="stylesheet" href="css/site.css">');
+</script>
+</head>
+<body>
+<header><p>Page de diagnostic temporaire. <a href="?css=1">Avec la feuille du site</a> · <a href="?">Sans</a></p></header>
+<pre id="out" style="white-space:pre-wrap;font:12px monospace">en attente de la visionneuse…</pre>
+<main><div id="sirvoy-box"><script async src="https://secured.sirvoy.com/widget/sirvoy.js" data-form-id="819bf40422ee1455" data-lang="fr"></script></div></main>
+<script>
+(function () {
+  var out = document.getElementById("out");
+  function desc(el) {
+    var cs = getComputedStyle(el);
+    var r = el.getBoundingClientRect();
+    return el.tagName.toLowerCase() + (el.id ? "#" + el.id : "") + (el.className && typeof el.className === "string" ? "." + el.className.trim().split(/\s+/).join(".") : "") +
+      " | display:" + cs.display + " pos:" + cs.position + " top:" + cs.top + " transform:" + cs.transform +
+      " h:" + cs.height + " w:" + cs.width + " flex:" + cs.flexDirection + " ai:" + cs.alignItems + " jc:" + cs.justifyContent +
+      " va:" + cs.verticalAlign + " lh:" + cs.lineHeight + " fs:" + cs.fontSize + " maxw:" + cs.maxWidth + " maxh:" + cs.maxHeight +
+      " | rect top:" + Math.round(r.top) + " h:" + Math.round(r.height) +
+      " | before:" + getComputedStyle(el, "::before").content + "/" + getComputedStyle(el, "::before").display + "/" + getComputedStyle(el, "::before").height;
+  }
+  function dump() {
+    var imgs = Array.prototype.filter.call(document.querySelectorAll("body > *:not(header):not(main):not(#out) img, dialog img"), function (i) { return true; });
+    var lines = ["innerHeight:" + innerHeight + " scrollY:" + Math.round(scrollY), "Feuilles : " + Array.prototype.map.call(document.styleSheets, function (s) { return s.href || "(inline " + (s.ownerNode && s.ownerNode.textContent.length) + " car.)"; }).join(" ; ")];
+    imgs.slice(0, 2).forEach(function (img) {
+      lines.push("--- image " + img.src.slice(0, 80));
+      var el = img, n = 0;
+      while (el && el !== document.documentElement && n < 12) { lines.push(desc(el)); el = el.parentElement; n++; }
+    });
+    var tops = Array.prototype.filter.call(document.body.children, function (c) { return ["HEADER", "MAIN", "PRE", "SCRIPT"].indexOf(c.tagName) < 0; });
+    tops.forEach(function (c) { lines.push("=== enfant du body : " + c.outerHTML.slice(0, 1500)); });
+    out.textContent = lines.join("\n");
+  }
+  new MutationObserver(function () { clearTimeout(window._t); window._t = setTimeout(dump, 1200); }).observe(document.body, { childList: true, subtree: false });
+})();
+</script>
+</body>
+</html>
