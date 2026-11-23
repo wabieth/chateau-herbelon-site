@@ -39,7 +39,7 @@ PAGES = {
     "ete": ("ete", "Hôtel au bord du lac de Monteynard, juillet-août · Château d’Herbelon",
         "13 chambres dans un château au bord du lac, restaurant et guinguette. Paddle, voile et wingfoil à deux pas. Animaux bienvenus."),
     "restaurant": ("restaurant", "Restaurant face au lac de Monteynard · Château d’Herbelon",
-        "En juillet et août, tous les jours : la carte de notre chef sur la terrasse, un verre à la guinguette. Réservation par téléphone."),
+        "En juillet et août, du jeudi au dimanche : la carte de notre chef sur la terrasse, un verre à la guinguette. Réservation par téléphone."),
     "proches": ("entre-proches", "Louer un château pour un week-end en famille · Château d’Herbelon",
         "Le château rien qu’à vous, en famille ou entre amis : 39 couchages, le parc, le lac. Jusqu’à 39 personnes, dès 3 200 € le week-end."),
     "retraites": ("retraites", "Lieu de retraite privatisé au bord d’un lac · Château d’Herbelon",
@@ -129,7 +129,7 @@ PAGES_EN = {
     "ete": ("en/summer", "Château hotel on Lake Monteynard, July–August · Château d’Herbelon",
         "13 rooms in a château above the lake, restaurant and guinguette. Kitesurfing, wing foiling and paddleboarding next door. Pets welcome."),
     "restaurant": ("en/restaurant", "Restaurant and guinguette facing Lake Monteynard · Château d’Herbelon",
-        "Every day in July and August: our chef’s menu on the terrace and drinks at the guinguette, open to everyone. Book by phone."),
+        "Thursday to Sunday in July and August: our chef’s menu on the terrace and drinks at the guinguette, open to everyone. Book by phone."),
     "proches": ("en/family-weekends", "Rent a château for a family weekend near Grenoble · Château d’Herbelon",
         "The château all to yourselves with family or friends: sleeps 39, grounds running down to the lake. Up to 39 people, from €3,200 a weekend."),
     "retraites": ("en/retreats", "Exclusive-use retreat venue on a lake in the Alps · Château d’Herbelon",
@@ -160,6 +160,8 @@ OG_ALT_EN = {
 
 # textes alternatifs et libellés d'accessibilité, traduits pour les pages anglaises
 ATTR_EN = {
+    "La salle de pratique au premier étage : parquet ancien, fenêtres à petits carreaux et chaises disposées en cercle": "The first-floor practice room: old parquet floor, small-paned windows and chairs set in a circle",
+    "La salle d’activité au premier étage : parquet ancien, fenêtres à petits carreaux et chaises disposées en cercle": "The first-floor activity room: old parquet floor, small-paned windows and chairs set in a circle",
     "Deux fauteuils en rotin sur la pelouse, une guirlande « Just married » tendue devant le portail ouvert sur le lac": "Two rattan armchairs on the lawn, a “Just married” banner across the gate that opens onto the lake",
     "Deux transats sur la pelouse, le portail ouvert sur le lac turquoise": "Two deckchairs on the lawn, the gate open onto the turquoise lake",
     "Kitesurfs et wingfoils sur le lac turquoise, un après-midi de vent": "Kitesurfers and wing foilers on the turquoise lake on a windy afternoon",
