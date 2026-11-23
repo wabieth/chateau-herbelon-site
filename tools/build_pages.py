@@ -160,6 +160,17 @@ OG_ALT_EN = {
 
 # textes alternatifs et libellés d'accessibilité, traduits pour les pages anglaises
 ATTR_EN = {
+    "Photos de la chambre Marguerite": "Photos of the Marguerite room",
+    "Photos de la chambre Capucine": "Photos of the Capucine room",
+    "Photos de la chambre Iris": "Photos of the Iris room",
+    "Photos de la chambre Cyprès de Lambert": "Photos of the Cyprès de Lambert room",
+    "Photos de la chambre Valériane": "Photos of the Valériane room",
+    "Photos de la chambre Camélia": "Photos of the Camélia room",
+    "Photos de la chambre La suite Herbelon": "Photos of La suite Herbelon",
+    "Photos de la chambre Magnolia": "Photos of the Magnolia room",
+    "Photo précédente": "Previous photo",
+    "Photo suivante": "Next photo",
+    "La salle de bain de la chambre Magnolia : carreaux bleu-gris, douche derrière une verrière, double vasque ancienne sur pieds en laiton": "The Magnolia room’s bathroom: blue-grey tiles, a walk-in shower behind glass, a vintage double basin on brass legs",
     "La salle de pratique au premier étage : parquet ancien, fenêtres à petits carreaux et chaises disposées en cercle": "The first-floor practice room: old parquet floor, small-paned windows and chairs set in a circle",
     "La salle d’activité au premier étage : parquet ancien, fenêtres à petits carreaux et chaises disposées en cercle": "The first-floor activity room: old parquet floor, small-paned windows and chairs set in a circle",
     "Deux fauteuils en rotin sur la pelouse, une guirlande « Just married » tendue devant le portail ouvert sur le lac": "Two rattan armchairs on the lawn, a “Just married” banner across the gate that opens onto the lake",

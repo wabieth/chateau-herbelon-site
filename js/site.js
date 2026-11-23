@@ -332,6 +332,28 @@
     s.setAttribute("data-lang", lang);
     sirvoyBox.appendChild(s);
   }
+  /* Photos des chambres : défilement au doigt, flèches et points quand il y a plusieurs photos */
+  Array.prototype.forEach.call(document.querySelectorAll("[data-slides]"), function (box) {
+    var track = box.querySelector(".slides-track");
+    var imgs = track.querySelectorAll("img");
+    if (imgs.length < 2) return;
+    var prev = box.querySelector(".slides-prev"), next = box.querySelector(".slides-next");
+    var dotsBox = box.querySelector(".slides-dots");
+    var dots = [];
+    for (var i = 0; i < imgs.length; i++) { var d = document.createElement("span"); dotsBox.appendChild(d); dots.push(d); }
+    prev.hidden = false; next.hidden = false;
+    function index() { return Math.round(track.scrollLeft / Math.max(1, track.clientWidth)); }
+    function go(k) { var n = imgs.length; track.scrollTo({ left: ((k % n + n) % n) * track.clientWidth }); }
+    function mark() { var k = index(); dots.forEach(function (d, j) { d.className = j === k ? "on" : ""; }); }
+    prev.addEventListener("click", function () { go(index() - 1); });
+    next.addEventListener("click", function () { go(index() + 1); });
+    track.addEventListener("keydown", function (e) {
+      if (e.key === "ArrowLeft") { e.preventDefault(); go(index() - 1); }
+      if (e.key === "ArrowRight") { e.preventDefault(); go(index() + 1); }
+    });
+    track.addEventListener("scroll", function () { window.requestAnimationFrame(mark); }, { passive: true });
+    mark();
+  });
   show();
   estimate();
   loadSirvoy();
