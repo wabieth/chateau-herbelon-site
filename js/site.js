@@ -354,30 +354,6 @@
     track.addEventListener("scroll", function () { window.requestAnimationFrame(mark); }, { passive: true });
     mark();
   });
-  /* DIAG TEMPORAIRE visionneuse Sirvoy (?diag-lg) */
-  if (location.search.indexOf("diag-lg") > -1) {
-    var dOut = document.createElement("pre");
-    dOut.id = "diag-out";
-    dOut.style.cssText = "position:fixed;left:0;right:0;bottom:0;max-height:40vh;overflow:auto;z-index:2147483647;background:#fff;color:#000;font:11px monospace;white-space:pre-wrap;margin:0";
-    dOut.textContent = "diag prêt";
-    document.body.appendChild(dOut);
-    var dDesc = function (el) {
-      var cs = getComputedStyle(el), r = el.getBoundingClientRect();
-      return el.tagName.toLowerCase() + (el.id ? "#" + el.id : "") + "." + String(el.className).trim().split(/\s+/).join(".") +
-        " | d:" + cs.display + " pos:" + cs.position + " top:" + cs.top + " tf:" + cs.transform + " ws:" + cs.whiteSpace + " fs:" + cs.fontSize + " lh:" + cs.lineHeight + " h:" + cs.height + " w:" + cs.width + " ov:" + cs.overflow + " | rect " + Math.round(r.top) + "/" + Math.round(r.height) + " | before " + getComputedStyle(el, "::before").display + "/" + getComputedStyle(el, "::before").height;
-    };
-    var dDump = function () {
-      var L = ["inner " + innerWidth + "x" + innerHeight + " scrollY " + Math.round(scrollY) + " hash " + location.hash + " htmlcls " + document.documentElement.className + " bodycls " + document.body.className];
-      Array.prototype.forEach.call(document.querySelectorAll(".lg-container img"), function (img, i) {
-        if (i > 2) return;
-        L.push("--- img " + i);
-        var el = img, n = 0;
-        while (el && n < 9) { L.push(dDesc(el)); el = el.parentElement; n++; }
-      });
-      dOut.textContent = L.join("\n");
-    };
-    new MutationObserver(function () { if (!document.querySelector(".lg-container")) return; clearTimeout(window._dt); window._dt = setTimeout(dDump, 1500); }).observe(document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ["class", "style"] });
-  }
   show();
   estimate();
   loadSirvoy();
