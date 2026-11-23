@@ -27,7 +27,7 @@
       " | before:" + getComputedStyle(el, "::before").content + "/" + getComputedStyle(el, "::before").display + "/" + getComputedStyle(el, "::before").height;
   }
   function dump() {
-    var imgs = Array.prototype.filter.call(document.querySelectorAll("body > *:not(header):not(main):not(#out) img, dialog img"), function (i) { return true; });
+    var imgs = Array.prototype.filter.call(document.querySelectorAll(".lg-container img.lg-object, .lg-container .lg-item img"), function (i) { return true; });
     var lines = ["innerHeight:" + innerHeight + " scrollY:" + Math.round(scrollY), "Feuilles : " + Array.prototype.map.call(document.styleSheets, function (s) { return s.href || "(inline " + (s.ownerNode && s.ownerNode.textContent.length) + " car.)"; }).join(" ; ")];
     imgs.slice(0, 2).forEach(function (img) {
       lines.push("--- image " + img.src.slice(0, 80));
@@ -35,10 +35,10 @@
       while (el && el !== document.documentElement && n < 12) { lines.push(desc(el)); el = el.parentElement; n++; }
     });
     var tops = Array.prototype.filter.call(document.body.children, function (c) { return ["HEADER", "MAIN", "PRE", "SCRIPT"].indexOf(c.tagName) < 0; });
-    tops.forEach(function (c) { lines.push("=== enfant du body : " + c.outerHTML.slice(0, 1500)); });
+    var it=document.querySelector(".lg-container .lg-item"); if(it) lines.push("=== lg-item : " + it.outerHTML.slice(0, 1200));
     out.textContent = lines.join("\n");
   }
-  new MutationObserver(function () { clearTimeout(window._t); window._t = setTimeout(dump, 1200); }).observe(document.body, { childList: true, subtree: false });
+  new MutationObserver(function (m) { if (!document.querySelector(".lg-container")) return; clearTimeout(window._t); window._t = setTimeout(dump, 1500); }).observe(document.body, { childList: true, subtree: true, attributes: true });
 })();
 </script>
 </body>
