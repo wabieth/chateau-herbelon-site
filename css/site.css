@@ -678,12 +678,10 @@ html[lang="en"] .door-verb { font-size: min(2.25rem, 13.6cqi); }
 .herb-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(118px, 1fr)); gap: clamp(18px, 2.4vw, 28px) clamp(12px, 2vw, 22px); }
 .herb-grid a { display: flex; flex-direction: column; align-items: center; gap: 4px; text-align: center; text-decoration: none; color: inherit; }
 .herb-grid .medal { width: 100%; max-width: 124px; height: auto; transition: transform .2s ease; }
-.herb-grid a:hover .medal, .herb-strip a:hover .medal { transform: translateY(-3px) rotate(-3deg); }
+.herb-grid a:hover .medal { transform: translateY(-3px) rotate(-3deg); }
 .herb-no { font-size: 0.74rem; letter-spacing: 0.08em; color: var(--soft); margin-top: 6px; }
 .herb-grid b { font-family: var(--f-voice); font-style: var(--voice-style); font-weight: var(--voice-w); font-size: 1.15rem; line-height: 1.15; }
-.herb-strip { list-style: none; margin: 0 0 clamp(24px, 3vw, 32px); padding: 0; display: grid; grid-template-columns: repeat(13, minmax(0, 1fr)); gap: clamp(6px, 1vw, 12px); max-width: 1100px; }
-.herb-strip a { display: block; border-radius: 50%; }
-.herb-strip .medal { display: block; width: 100%; height: auto; transition: transform .2s ease; }
+.herb-grid + .btn { margin-top: clamp(28px, 4vw, 44px); }
 .room-filters { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
 .room-filters .tag-proto { margin-left: auto; }
 .chip { font: inherit; font-size: 0.9rem; font-weight: 500; padding: 8px 16px; border-radius: var(--r-btn); border: 1px solid var(--ink); background: transparent; color: var(--ink); cursor: pointer; }
@@ -712,13 +710,12 @@ html[lang="en"] .door-verb { font-size: min(2.25rem, 13.6cqi); }
 .cta-btns { display: flex; flex-wrap: wrap; gap: 12px; }
 @media (max-width: 860px) {
   .specimen, .specimen:nth-child(even) { grid-template-columns: minmax(0, 1fr); }
-  .herb-strip { grid-template-columns: repeat(7, minmax(0, 1fr)); }
   .specimen:nth-child(even) .specimen-media { order: 0; }
   .specimen-card, .specimen:nth-child(even) .specimen-card { transform: none; }
   .specimen-facts div { grid-template-columns: 7rem minmax(0, 1fr); }
   .room-filters .tag-proto { margin-left: 0; flex-basis: 100%; }
 }
-@media (prefers-reduced-motion: reduce) { .herb-grid .medal, .herb-strip .medal { transition: none; } }
+@media (prefers-reduced-motion: reduce) { .herb-grid .medal { transition: none; } }
 @media (max-width: 600px) {
   .herb-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .herb-grid .medal { max-width: 96px; }
