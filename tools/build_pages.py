@@ -219,6 +219,7 @@ ATTR_EN = {
     "Un lit sous un ciel de lit rose, coussins en toile de Jouy": "A bed under a pink canopy with toile de Jouy cushions",
     "Un serveur sort du château sous le lierre, plateau à la main, un soir d’été": "A waiter steps out of the château under the ivy, tray in hand, on a summer evening",
     "Une chambre au lit à baldaquin jaune et gris, sol en tomettes anciennes": "A bedroom with a yellow and grey four-poster bed and old terracotta tiles",
+    "Une grande chambre au lit à baldaquin jaune et gris, sol en tomettes, table et chaises anciennes": "A large bedroom with a yellow and grey four-poster bed, terracotta tiles, an antique table and chairs",
     "Une chambre lumineuse : mur en galets, lit double, coin salon": "A bright bedroom: pebble-stone wall, double bed, sitting area",
     "Une chambre lumineuse avec un mur en galets, un lit double et un coin salon": "A bright bedroom with a pebble-stone wall, a double bed and a sitting area",
     "Une chambre sous les toits avec un canapé, un fauteuil et deux lucarnes": "An attic bedroom with a sofa, an armchair and two dormer windows",

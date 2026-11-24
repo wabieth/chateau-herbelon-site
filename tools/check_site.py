@@ -119,7 +119,7 @@ def check_static():
             for hint in FRENCH_HINTS:
                 if hint in body:
                     warn(name, "possible texte français sur la page anglaise : « %s »" % hint.strip())
-        if lang == "en" and re.search(r'alt="[^"]*\b(le|la|les|du|des|une|sous|avec|sur)\b[^"]*"', h) and view not in ("mentions", "confidentialite"):
+        if lang == "en" and re.search(r'alt="[^"]*\b(le|la|les|du|des|une|sous|avec|sur|au|aux|et|dans)\b[^"]*"', h, re.I) and view not in ("mentions", "confidentialite"):
             warn(name, "texte alternatif en français sur la page anglaise (ajouter la traduction dans ATTR_EN de build_pages.py)")
     # 4. Plan du site, robots, llms.txt
     sm = (ROOT / "sitemap.xml").read_text(encoding="utf-8")
