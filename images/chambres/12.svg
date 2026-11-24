@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="Magnolia">
+<defs>
+  <clipPath id="in"><circle cx="100" cy="100" r="85"/></clipPath>
+  <pattern id="dots" width="5" height="5" patternUnits="userSpaceOnUse"><circle cx="2.5" cy="2.5" r="1" fill="#e0578f" opacity=".55"/></pattern>
+  <pattern id="hatch" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="5" stroke="#e0578f" stroke-width="1.2" opacity=".6"/></pattern>
+</defs>
+<circle cx="100" cy="100" r="95" fill="#fbf8f1" stroke="#1f3a2f" stroke-width="3"/>
+<circle cx="100" cy="100" r="87" fill="none" stroke="#e0578f" stroke-width="1.3"/>
+<g clip-path="url(#in)">
+
+<path d="M100 132 C 98 150 86 162 64 176" fill="none" stroke="#1f3a2f" stroke-width="5" stroke-linecap="round"/>
+<path d="M88 156 C 104 150 120 154 132 166 C 116 170 100 168 88 156 Z" fill="#1f3a2f" stroke="#1f3a2f" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M92 157 C 106 158 118 162 128 166" fill="none" stroke="#fbf8f1" stroke-width="1.3"/>
+<g transform="rotate(-70.0 100 130)"><path d="M100 130 C 86 104 88 72 100 56 C 112 72 114 104 100 130 Z" fill="#fbf8f1" stroke="#1f3a2f" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/></g><g transform="rotate(-42.0 100 130)"><path d="M100 130 C 86 104 88 72 100 56 C 112 72 114 104 100 130 Z" fill="#e0578f" stroke="#1f3a2f" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/></g><g transform="rotate(-14.0 100 130)"><path d="M100 130 C 86 104 88 72 100 56 C 112 72 114 104 100 130 Z" fill="#fbf8f1" stroke="#1f3a2f" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/></g><g transform="rotate(14.0 100 130)"><path d="M100 130 C 86 104 88 72 100 56 C 112 72 114 104 100 130 Z" fill="#e0578f" stroke="#1f3a2f" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/></g><g transform="rotate(42.0 100 130)"><path d="M100 130 C 86 104 88 72 100 56 C 112 72 114 104 100 130 Z" fill="#fbf8f1" stroke="#1f3a2f" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/></g><g transform="rotate(70.0 100 130)"><path d="M100 130 C 86 104 88 72 100 56 C 112 72 114 104 100 130 Z" fill="#e0578f" stroke="#1f3a2f" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/></g>
+<path d="M94 118 L100 92 L106 118 Z" fill="#1f3a2f" stroke="#1f3a2f" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+
+</g>
+</svg>

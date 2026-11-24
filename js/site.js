@@ -2,7 +2,7 @@
 (function () {
   "use strict";
 
-  var VIEWS = ["accueil", "seminaires", "ete", "restaurant", "mariages", "proches", "retraites", "chateau", "contact", "mentions", "confidentialite"];
+  var VIEWS = ["accueil", "seminaires", "ete", "restaurant", "mariages", "proches", "retraites", "chateau", "chambres", "contact", "mentions", "confidentialite"];
   var views = Array.prototype.slice.call(document.querySelectorAll(".view"));
   var navLinks = Array.prototype.slice.call(document.querySelectorAll("[data-nav]"));
   var nav = document.getElementById("nav");
@@ -15,7 +15,7 @@
   /* ---------- Vues ---------- */
   /* Chaque vue a sa propre page (/seminaires/, /mariages/…) : la page dit laquelle elle affiche.
      Les anciens liens en « #seminaires » renvoient vers la bonne adresse. */
-  var SLUGS = { accueil: "", seminaires: "seminaires", ete: "ete", restaurant: "restaurant", mariages: "mariages", proches: "entre-proches", retraites: "retraites", chateau: "le-chateau", contact: "contact", mentions: "mentions-legales", confidentialite: "confidentialite" };
+  var SLUGS = { accueil: "", seminaires: "seminaires", ete: "ete", restaurant: "restaurant", mariages: "mariages", proches: "entre-proches", retraites: "retraites", chateau: "le-chateau", chambres: "chambres", contact: "contact", mentions: "mentions-legales", confidentialite: "confidentialite" };
   var ROOT = document.documentElement.getAttribute("data-root") || "./";
   var legacy = (location.hash || "").replace("#", "");
   if (VIEWS.indexOf(legacy) >= 0 && document.documentElement.getAttribute("data-page") && document.documentElement.lang !== "en") {
@@ -353,6 +353,31 @@
     });
     track.addEventListener("scroll", function () { window.requestAnimationFrame(mark); }, { passive: true });
     mark();
+  });
+  /* Page Les chambres : filtres (vue sur le lac, 3 personnes et plus, 1er étage) */
+  var filterBtns = Array.prototype.slice.call(document.querySelectorAll(".room-filters .chip"));
+  var specimens = Array.prototype.slice.call(document.querySelectorAll(".specimen"));
+  var roomCount = document.querySelector(".room-count");
+  function applyFilter(f) {
+    var shown = 0;
+    specimens.forEach(function (li) {
+      var ok = f === "all" ||
+        (f === "lac" && li.getAttribute("data-vue") === "lac") ||
+        (f === "groupe" && +li.getAttribute("data-pers") >= 3) ||
+        (f === "etage1" && li.getAttribute("data-etage") === "1");
+      li.hidden = !ok;
+      if (ok) shown++;
+    });
+    filterBtns.forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-filter") === f ? "true" : "false"); });
+    if (roomCount) roomCount.textContent = lang === "en" ? shown + (shown > 1 ? " rooms" : " room") : shown + (shown > 1 ? " chambres" : " chambre");
+  }
+  filterBtns.forEach(function (b) { b.addEventListener("click", function () { applyFilter(b.getAttribute("data-filter")); }); });
+  /* un lien vers une chambre masquée par un filtre la réaffiche */
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest ? e.target.closest('.herb-grid a[href^="#"]') : null;
+    if (!a) return;
+    var li = document.getElementById(a.getAttribute("href").slice(1));
+    if (li && li.hidden) applyFilter("all");
   });
   show();
   estimate();

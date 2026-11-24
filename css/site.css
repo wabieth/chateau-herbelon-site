@@ -672,3 +672,55 @@ html[lang="en"] .door-verb { font-size: min(2.25rem, 13.6cqi); }
 .slides-no { font-family: var(--f-display); font-size: 4rem; line-height: 1; color: var(--ink); opacity: 0.35; }
 .slides-soon { font-size: 0.82rem; color: var(--soft); }
 @media (prefers-reduced-motion: reduce) { .slides-track { scroll-behavior: auto; } }
+
+/* ---------- Page Les chambres : herbier des treize chambres ---------- */
+.rooms-intro .section-head { margin-bottom: clamp(32px, 5vw, 56px); }
+.herb-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(118px, 1fr)); gap: clamp(18px, 2.4vw, 28px) clamp(12px, 2vw, 22px); }
+.herb-grid a { display: flex; flex-direction: column; align-items: center; gap: 4px; text-align: center; text-decoration: none; color: inherit; }
+.herb-grid .medal { width: 100%; max-width: 124px; height: auto; transition: transform .2s ease; }
+.herb-grid a:hover .medal, .herb-strip a:hover .medal { transform: translateY(-3px) rotate(-3deg); }
+.herb-no { font-size: 0.74rem; letter-spacing: 0.08em; color: var(--soft); margin-top: 6px; }
+.herb-grid b { font-family: var(--f-voice); font-style: var(--voice-style); font-weight: var(--voice-w); font-size: 1.15rem; line-height: 1.15; }
+.herb-strip { list-style: none; margin: 0 0 clamp(24px, 3vw, 32px); padding: 0; display: grid; grid-template-columns: repeat(13, minmax(0, 1fr)); gap: clamp(6px, 1vw, 12px); max-width: 1100px; }
+.herb-strip a { display: block; border-radius: 50%; }
+.herb-strip .medal { display: block; width: 100%; height: auto; transition: transform .2s ease; }
+.room-filters { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.room-filters .tag-proto { margin-left: auto; }
+.chip { font: inherit; font-size: 0.9rem; font-weight: 500; padding: 8px 16px; border-radius: var(--r-btn); border: 1px solid var(--ink); background: transparent; color: var(--ink); cursor: pointer; }
+.chip[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+.chip:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+.room-count { margin: 14px 0 clamp(28px, 4vw, 44px); font-size: 0.9rem; color: var(--soft); }
+.specimens { list-style: none; margin: 0; padding: 0; display: grid; gap: clamp(48px, 7vw, 96px); }
+.specimen { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: clamp(24px, 4vw, 56px); align-items: center; scroll-margin-top: 100px; }
+.specimen:nth-child(even) { grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); }
+.specimen:nth-child(even) .specimen-media { order: 2; }
+.specimen-media .slides { aspect-ratio: 4 / 3; }
+.slides-empty .medal-big { width: 42%; max-width: 180px; height: auto; }
+.specimen-card { background: var(--bg); border: 1px solid var(--ink); padding: clamp(20px, 3vw, 34px); transform: rotate(-0.6deg); }
+.specimen:nth-child(even) .specimen-card { transform: rotate(0.5deg); }
+.specimen-head { display: flex; align-items: center; gap: 16px; }
+.specimen-head .medal { flex: 0 0 auto; width: 72px; height: 72px; }
+.specimen-no { display: block; font-size: 0.76rem; letter-spacing: 0.08em; color: var(--soft); }
+.specimen h2 { font-family: var(--f-voice); font-style: var(--voice-style); font-weight: var(--voice-w); font-size: clamp(1.7rem, 2.6vw, 2.2rem); line-height: 1.1; margin: 2px 0; }
+.specimen-latin { font-family: var(--f-display); font-size: 1.05rem; color: var(--soft); }
+.specimen-card .room-desc { margin-top: 14px; }
+.specimen-facts { margin: 16px 0 0; border-top: 1px solid var(--ink); }
+.specimen-facts div { display: grid; grid-template-columns: 8.5rem minmax(0, 1fr); gap: 12px; padding: 8px 0; border-bottom: 1px dashed var(--line); }
+.specimen-facts dt { font-size: 0.85rem; font-weight: 500; color: var(--soft); }
+.specimen-facts dd { margin: 0; font-size: 0.95rem; }
+.specimen-story { margin-top: 16px; font-size: 0.95rem; line-height: 1.6; color: var(--soft); max-width: none; }
+.cta-btns { display: flex; flex-wrap: wrap; gap: 12px; }
+@media (max-width: 860px) {
+  .specimen, .specimen:nth-child(even) { grid-template-columns: minmax(0, 1fr); }
+  .herb-strip { grid-template-columns: repeat(7, minmax(0, 1fr)); }
+  .specimen:nth-child(even) .specimen-media { order: 0; }
+  .specimen-card, .specimen:nth-child(even) .specimen-card { transform: none; }
+  .specimen-facts div { grid-template-columns: 7rem minmax(0, 1fr); }
+  .room-filters .tag-proto { margin-left: 0; flex-basis: 100%; }
+}
+@media (prefers-reduced-motion: reduce) { .herb-grid .medal, .herb-strip .medal { transition: none; } }
+@media (max-width: 600px) {
+  .herb-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .herb-grid .medal { max-width: 96px; }
+  .herb-grid b { font-size: 1rem; }
+}

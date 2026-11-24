@@ -24,12 +24,14 @@ Ces consignes valent pour **chaque modification**, même minime (une phrase, une
 - **FAQ** : `<details class="faq-item"><summary data-en="…">Question</summary><p data-en="…">Réponse</p></details>` dans une `section.faq`. Les données structurées FAQPage sont générées automatiquement.
 - **Données structurées** (Hotel, EventVenue, Restaurant) : `JSONLD` dans `build_pages.py`.
 - **Feuilles de style et script** : `css/site.css`, `js/site.js`. Leurs adresses sont versionnées automatiquement, rien à faire contre le cache.
+- **Page Les chambres** (`/chambres/`, `/en/rooms/`, vue `chambres`) : une fiche par chambre (id = nom de la chambre, ex. `#magnolia`), le tableau récapitulatif, les filtres. Pour ajouter une photo : une balise `img` de plus dans le `.slides-track` de la chambre. Pour pointer vers une chambre depuis une autre page : `href="#chambres~magnolia"`. Pas de prix sur cette page (ils sont sur L’été).
 - **Réservation des chambres** : widget Sirvoy (formulaire 819bf40422ee1455), chargé uniquement sur la page L’été.
 - **Formulaire de contact** : Web3Forms (clé dans `js/site.js`).
 
 ## Design : rester cohérent
 
 - Direction « Domaine » : Cormorant Garamond (titres) et Instrument Sans (texte), pierre claire `#f5f3ee`, vert lierre `#1f3a2f`, lin `#e8dcc5` pour l’été, sauge `#e4e8df`, bleu lac `#2c7a80`. Ne pas ajouter de couleur ni de police.
+- Exception validée par Étienne (24/11) : le **rose riso `#e0578f`**, réservé aux illustrations (médaillons des chambres dans `images/chambres/`), jamais pour le texte ni les boutons. Les médaillons sont générés par un script Python (plante + un détail du personnage, vert lierre + rose, 200 × 200) : en refaire un plutôt que de retoucher le SVG à la main.
 - Réutiliser les classes existantes (`section`, `split`, `stack`, `arch`, `photo`, `carte`, `checks`, `cta-band`…) plutôt que d’en inventer.
 - Photos : 2000 px de large au plus, moins de 600 Ko. Vidéos : H.264, moins de 25 Mo (limite Cloudflare), en boucle silencieuse avec bouton pause (`.loop-media`).
 

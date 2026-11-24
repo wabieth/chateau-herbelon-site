@@ -23,6 +23,7 @@ OG = {
     "proches": ("images/og/proches.jpg", "Le château à la tombée du jour, la tourelle éclairée"),
     "retraites": ("images/og/retraites.jpg", "Le lac de Monteynard au crépuscule, très calme"),
     "chateau": ("images/og/chateau.jpg", "La façade du Château d’Herbelon en automne"),
+    "chambres": ("images/og/chambres.jpg", "La suite Herbelon : un lit à baldaquin jaune et gris sur des tomettes anciennes"),
     "contact": ("images/og/contact.jpg", "Le Château d’Herbelon vu du ciel, le parc et le lac"),
     "mentions": ("images/og/accueil.jpg", "Le Château d’Herbelon au-dessus du lac de Monteynard"),
     "confidentialite": ("images/og/accueil.jpg", "Le Château d’Herbelon au-dessus du lac de Monteynard"),
@@ -46,6 +47,8 @@ PAGES = {
         "Aucun autre client, salle de pratique de 6 h à 22 h, repas végétariens. Dès 120 € par personne et par nuit, 16 personnes minimum."),
     "chateau": ("le-chateau", "Le château : histoire, chambres, accès · Château d’Herbelon",
         "Plus de 400 ans d’histoire au bord du lac de Monteynard, 13 chambres chacune avec sa salle de bain, à 40 min de Grenoble par l’A51."),
+    "chambres": ("chambres", "Les 13 chambres, au bord du lac de Monteynard · Château d’Herbelon",
+        "Treize chambres, treize caractères : photos, lits, vue et salle de bain de chaque chambre du Château d’Herbelon, de 2 à 6 personnes, au bord du lac de Monteynard."),
     "contact": ("contact", "Contact et devis · Château d’Herbelon",
         "Une date, un projet ? Écrivez-nous ou appelez le 04 58 00 88 95. On vous répond dans la journée, et on envoie un devis d’une page sous 48 h."),
     "mentions": ("mentions-legales", "Mentions légales · Château d’Herbelon",
@@ -136,6 +139,8 @@ PAGES_EN = {
         "No other guests, a practice room open 6 am to 10 pm, vegetarian meals. From €120 per person per night, minimum 16 people."),
     "chateau": ("en/the-chateau", "The château: history, bedrooms, getting here · Château d’Herbelon",
         "Over 400 years of history on Lake Monteynard, 13 bedrooms each with its own bathroom, 40 minutes from Grenoble on the A51."),
+    "chambres": ("en/rooms", "The 13 bedrooms, on Lake Monteynard · Château d’Herbelon",
+        "Thirteen rooms, thirteen characters: photos, beds, view and bathroom for every room at Château d’Herbelon, sleeping 2 to 6, on Lake Monteynard."),
     "contact": ("en/contact", "Contact and quotes · Château d’Herbelon",
         "A date or a project in mind? Write to us or call +33 4 58 00 88 95. We reply the same day and send a one-page quote within 48 hours."),
     "mentions": ("en/legal-notice", "Legal notice · Château d’Herbelon",
@@ -153,6 +158,7 @@ OG_ALT_EN = {
     "proches": "The château at dusk, the turret lit up",
     "retraites": "Lake Monteynard at dusk, perfectly still",
     "chateau": "The façade of Château d’Herbelon in autumn",
+    "chambres": "La suite Herbelon: a yellow and grey four-poster bed on old terracotta tiles",
     "contact": "Château d’Herbelon from the air, the grounds and the lake",
     "mentions": "Château d’Herbelon above Lake Monteynard",
     "confidentialite": "Château d’Herbelon above Lake Monteynard",
@@ -160,6 +166,21 @@ OG_ALT_EN = {
 
 # textes alternatifs et libellés d'accessibilité, traduits pour les pages anglaises
 ATTR_EN = {
+    "Photos de la suite Herbelon": "Photos of La suite Herbelon",
+    "Marguerite": "Marguerite",
+    "Capucine": "Capucine",
+    "Iris": "Iris",
+    "Cyprès de Lambert": "Cyprès de Lambert",
+    "Valériane": "Valériane",
+    "Camélia": "Camélia",
+    "Gentiane": "Gentiane",
+    "Albizia": "Albizia",
+    "Dahlia": "Dahlia",
+    "La suite Herbelon": "La suite Herbelon",
+    "Trèfle": "Trèfle",
+    "Magnolia": "Magnolia",
+    "Églantine": "Églantine",
+    "Filtrer les chambres": "Filter the rooms",
     "Photos de la chambre Marguerite": "Photos of the Marguerite room",
     "Photos de la chambre Capucine": "Photos of the Capucine room",
     "Photos de la chambre Iris": "Photos of the Iris room",
@@ -276,6 +297,7 @@ def build():
                 return 'href="%s?sujet=%s" data-topic="%s"' % (link("contact"), m.group(1), m.group(1))
             out = re.sub(r'href="#contact" data-topic="([a-z]+)"', repl_topic, out)
             out = out.replace('href="#reserver-ete"', 'href="%s#reserver"' % link("ete"))
+            out = re.sub(r'href="#([a-z]+)~([a-z0-9-]+)"', lambda mm: 'href="%s#%s"' % (link(mm.group(1)), mm.group(2)), out)
             for v in table:
                 out = out.replace('href="#%s"' % v, 'href="%s"' % link(v))
             # sélecteur de langue : un lien vers la même page dans l’autre langue
