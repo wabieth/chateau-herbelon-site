@@ -52,4 +52,6 @@ Ces consignes valent pour **chaque modification**, même minime (une phrase, une
 - Le site est ouvert aux moteurs : pas de `noindex`, `robots.txt` avec la ligne `Sitemap:`. La vérification signale une erreur si le blocage revient.
 - Anciennes adresses Wix : redirections 301 dans `_redirects` (une ligne par adresse ; forme accentuée et forme encodée `%C3%A9` pour les adresses avec accents).
 - Fichiers non servis sur le site : liste dans `.assetsignore` (CLAUDE.md, README.md, src/, tools/…).
-- Reste à faire côté Cloudflare et Google (par Étienne) : domaine personnalisé www.chateaudherbelon.com sur le Worker, redirection de chateaudherbelon.com vers www, désactivation de l’adresse workers.dev une fois le domaine actif, déclaration dans Google Search Console avec le plan du site.
+- Le site est servi sur **www.chateaudherbelon.com** (confirmé par Étienne le 24/11) : utiliser uniquement cette adresse dans les liens externes (Buffer, annuaires, e-mails, réseaux sociaux), jamais l’adresse workers.dev.
+- Fichiers pour Instagram (reel, couvertures, photos recadrées 4:5) : `images/instagram/`, appelés par Buffer depuis www.chateaudherbelon.com. Ne pas les supprimer tant que des publications programmées les utilisent.
+- Reste à faire côté Cloudflare et Google (par Étienne) : redirection de chateaudherbelon.com vers www, désactivation de l’adresse workers.dev, déclaration dans Google Search Console avec le plan du site.
