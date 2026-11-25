@@ -1,0 +1,3 @@
+# Photos lisibles par le moteur de réservation Sirvoy (vignettes nettes des chambres)
+/images/*
+  Access-Control-Allow-Origin: https://secured.sirvoy.com
