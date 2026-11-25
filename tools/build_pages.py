@@ -17,7 +17,7 @@ OG_IMAGE = "images/chateau-automne.jpg"
 OG = {
     "accueil": ("images/og/accueil.jpg", "La tourelle couverte de lierre du Château d’Herbelon, au-dessus du lac turquoise de Monteynard"),
     "seminaires": ("images/og/seminaires.jpg", "La terrasse abritée du château, tables dressées face au lac de Monteynard"),
-    "mariages": ("images/og/mariages.jpg", "Une cérémonie installée sur la pelouse du château, face aux montagnes"),
+    "mariages": ("images/og/mariages.jpg", "Des tables rondes dressées pour un repas de mariage sur la pelouse du parc, sous les grands arbres"),
     "ete": ("images/og/ete.jpg", "Kitesurfs et wingfoils sur le lac de Monteynard, en contrebas du château"),
     "restaurant": ("images/og/restaurant.jpg", "La guinguette du château un soir d’été, face au lac"),
     "proches": ("images/og/proches.jpg", "Le château à la tombée du jour, la tourelle éclairée"),
@@ -72,7 +72,7 @@ JSONLD = {
             "email": "contact@chateaudherbelon.com",
             "address": {"@type": "PostalAddress", "streetAddress": "1605 route d’Herbelon", "postalCode": "38650", "addressLocality": "Treffort", "addressRegion": "Isère", "addressCountry": "FR"},
             "geo": {"@type": "GeoCoordinates", "latitude": 44.898078, "longitude": 5.674102},
-            "image": [DOMAIN + "/images/og/accueil.jpg", DOMAIN + "/images/chateau-lac.jpg", DOMAIN + "/images/mariage-ceremonie.jpg", DOMAIN + "/images/salon.jpg", DOMAIN + "/images/lac-voiles.jpg"],
+            "image": [DOMAIN + "/images/og/accueil.jpg", DOMAIN + "/images/chateau-lac.jpg", DOMAIN + "/images/mariage-tables-parc-ete.jpg", DOMAIN + "/images/salon.jpg", DOMAIN + "/images/lac-voiles.jpg"],
             "logo": DOMAIN + "/images/logo-herbelon.svg",
             "numberOfRooms": 13,
             "checkinTime": "15:00",
@@ -152,7 +152,7 @@ PAGES_EN = {
 OG_ALT_EN = {
     "accueil": "The ivy-covered turret of Château d’Herbelon above turquoise Lake Monteynard",
     "seminaires": "The château’s covered terrace, tables laid facing Lake Monteynard",
-    "mariages": "A wedding ceremony set up on the château lawn, facing the mountains",
+    "mariages": "Round tables set for a wedding meal on the lawn, under the tall trees of the grounds",
     "ete": "Kitesurfers and wing foilers on Lake Monteynard below the château",
     "restaurant": "The château’s guinguette on a summer evening, facing the lake",
     "proches": "The château at dusk, the turret lit up",
