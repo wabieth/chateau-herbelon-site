@@ -212,6 +212,8 @@ ATTR_EN = {
     "Le lac de Monteynard en automne, les sommets enneigés au fond": "Lake Monteynard in autumn, snowy peaks behind",
     "Le salon au plafond à la française": "The drawing room with its beamed ceiling",
     "Les caves voûtées du château, éclairées par le bas": "The château’s vaulted cellars, lit from below",
+    "Une table ronde dressée sur la pelouse : nappe blanche, bouquet d’eucalyptus et de roses blanches, verres et serviettes nouées de ficelle": "A round table set on the lawn: white tablecloth, a bouquet of eucalyptus and white roses, glasses and napkins tied with string",
+    "Des tables rondes dressées pour un repas de mariage sur la pelouse du parc, sous les grands arbres": "Round tables set for a wedding meal on the lawn, under the tall trees of the grounds",
     "La façade couverte de lierre et sa tourelle en été, vue depuis la pelouse, derrière un rosier blanc en fleurs": "The ivy-covered façade and its turret in summer, seen from the lawn behind a white rose bush in bloom",
     "L’entrée du domaine : l’allée de gravier mène au château et à sa tourelle, sous les branches d’un sapin": "The entrance to the estate: a gravel drive leads to the château and its turret, under fir branches",
     "Un chien regarde le lac depuis le muret du parc": "A dog looks out over the lake from the garden wall",
