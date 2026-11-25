@@ -53,5 +53,5 @@ Ces consignes valent pour **chaque modification**, même minime (une phrase, une
 - Anciennes adresses Wix : redirections 301 dans `_redirects` (une ligne par adresse ; forme accentuée et forme encodée `%C3%A9` pour les adresses avec accents).
 - Fichiers non servis sur le site : liste dans `.assetsignore` (CLAUDE.md, README.md, src/, tools/…).
 - Le site est servi sur **www.chateaudherbelon.com** (confirmé par Étienne le 24/11) : utiliser uniquement cette adresse dans les liens externes (Buffer, annuaires, e-mails, réseaux sociaux), jamais l’adresse workers.dev.
-- Fichiers pour Instagram (reel, couvertures, photos recadrées 4:5) : `images/instagram/`, appelés par Buffer depuis www.chateaudherbelon.com. Ne pas les supprimer tant que des publications programmées les utilisent.
+- Fichiers pour Instagram (reel, couvertures, stories, photos recadrées 4:5) : `images/instagram/` ; photos des posts Google (4:3, 1200 × 900, sans texte) : `images/google/`. Appelés par Buffer depuis www.chateaudherbelon.com. Ne pas les supprimer tant que des publications programmées les utilisent.
 - Reste à faire côté Cloudflare et Google (par Étienne) : redirection de chateaudherbelon.com vers www, désactivation de l’adresse workers.dev, déclaration dans Google Search Console avec le plan du site.
