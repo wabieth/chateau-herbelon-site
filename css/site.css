@@ -550,7 +550,9 @@ mark.todo { background: #f6e7b8; color: var(--ink); padding: 0 4px; border-radiu
 /* Réservation des chambres (Sirvoy) */
 .booking { scroll-margin-top: 90px; }
 .booking-head { max-width: 640px; margin-bottom: 28px; display: flex; flex-direction: column; gap: 12px; }
-.booking-widget { background: var(--surface); border-radius: var(--r); padding: clamp(14px, 2.5vw, 28px); min-height: 220px; }
+/* Le moteur Sirvoy a son propre style aux couleurs du site (CSS personnalisé dans Sirvoy) : pas de cadre en plus */
+.booking-widget { max-width: 760px; min-height: 220px; }
+.booking-widget:not(:has(iframe)) { background: var(--surface); border-radius: var(--r); padding: clamp(14px, 2.5vw, 28px); }
 .booking-widget iframe { width: 100%; border: 0; }
 .booking-loading { color: var(--soft); margin: 0; }
 .booking-widget:has(iframe) .booking-loading, .booking-widget:has(form) .booking-loading { display: none; }
